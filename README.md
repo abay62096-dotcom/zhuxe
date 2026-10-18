@@ -24,7 +24,7 @@
 </p>
 
 <p align="center">
-  📚 <strong>Documentation:</strong> <a href="https://zapo.to/">zapo.to</a> ·
+  📚 <strong>Documentation:</strong> <a href="https://zhuxe.abayhosting46.my.id/">zhuxe.abayhosting46.my.id</a> ·
   🛠 <strong>Contributing:</strong> <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> ·
   💛 <strong>Sponsor:</strong> <a href="https://github.com/sponsors/vinikjkkj">GitHub Sponsors</a>
 </p>
@@ -122,7 +122,7 @@ That's the minimum to pair, listen for messages, and reply. For everything
 else - sending media, reactions, polls, groups, newsletters, app-state
 mutations, business profile, events catalog, store providers, the typed
 event map, and the architectural reasoning - read the guides at
-**[zapo.to](https://zapo.to/)**.
+**[zhuxe.abayhosting46.my.id](https://zhuxe.abayhosting46.my.id/)**.
 
 ## Packages
 
@@ -149,11 +149,11 @@ Each package's README has the install + config + integration notes.
 
 ## Documentation
 
-- **[zapo.to](https://zapo.to/)** - guides, full API reference, examples,
-  protocol notes ([llms.txt](https://zapo.to/llms.txt) index or
-  [llms-full.txt](https://zapo.to/llms-full.txt) for LLM context)
+- **[zhuxe.abayhosting46.my.id](https://zhuxe.abayhosting46.my.id/)** - guides, full API reference, examples,
+  protocol notes ([llms.txt](https://zhuxe.abayhosting46.my.id/llms.txt) index or
+  [llms-full.txt](https://zhuxe.abayhosting46.my.id/llms-full.txt) for LLM context)
 - **[`abay62096-dotcom/zhuxe`](https://github.com/abay62096-dotcom/zhuxe)** -
-  source of zapo.to (open issues/PRs there for doc fixes)
+  source of zhuxe.abayhosting46.my.id (open issues/PRs there for doc fixes)
 - **Per-package READMEs** under [`packages/`](packages/) - one per
   optional package
 - **[`AGENTS.md`](AGENTS.md)** - architecture spec + coding rules
