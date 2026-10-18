@@ -1,3 +1,6 @@
+🌐 **Website Dokumentasi Resmi:** [https://zhuxe.abayhosting46.my.id](https://zhuxe.abayhosting46.my.id)
+
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/main/.github/assets/logo.png" />
