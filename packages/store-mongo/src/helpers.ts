@@ -5,7 +5,7 @@ import {
     toBytesView,
     uint8Equal,
     uint8TimingSafeEqual
-} from 'zapo-js/util'
+} from 'zhuxee-assistance/util'
 
 export function toBinary(bytes: Uint8Array): Binary {
     return new Binary(bytes)

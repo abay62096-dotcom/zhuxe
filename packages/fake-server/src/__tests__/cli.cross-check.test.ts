@@ -3,8 +3,8 @@ import { type ChildProcessWithoutNullStreams, spawn } from 'node:child_process'
 import { resolve as resolvePath } from 'node:path'
 import test from 'node:test'
 
-import { createNoopLogger, createStore, WaClient, type WaClientEventMap } from 'zapo-js'
-import { hexToBytes } from 'zapo-js/util'
+import { createNoopLogger, createStore, WaClient, type WaClientEventMap } from 'zhuxee-assistance'
+import { hexToBytes } from 'zhuxee-assistance/util'
 
 const CLI_ENTRY = resolvePath(__dirname, '../bin.ts')
 const PACKAGE_ROOT = resolvePath(__dirname, '../..')

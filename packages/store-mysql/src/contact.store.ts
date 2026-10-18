@@ -1,6 +1,6 @@
 import type { PoolConnection } from 'mysql2/promise'
-import { isUserJid } from 'zapo-js'
-import type { WaContactStore, WaStoredContactRecord } from 'zapo-js/store'
+import { isUserJid } from 'zhuxee-assistance'
+import type { WaContactStore, WaStoredContactRecord } from 'zhuxee-assistance/store'
 
 import { BaseMysqlStore } from './BaseMysqlStore'
 import { affectedRows, queryFirst } from './helpers'

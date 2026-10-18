@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import type { BinaryNode } from 'zapo-js/transport'
-import { bytesToBase64, TEXT_ENCODER } from 'zapo-js/util'
+import type { BinaryNode } from 'zhuxee-assistance/transport'
+import { bytesToBase64, TEXT_ENCODER } from 'zhuxee-assistance/util'
 
 import { parseVoipSettings, WaVoipSettings } from '../voip-settings.js'
 

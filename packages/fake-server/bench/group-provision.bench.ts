@@ -307,7 +307,7 @@ async function main(): Promise<void> {
     const backendName = process.env.ZAPO_BENCH_STORE ?? 'memory'
     const separate = argSet.has('--separate-process')
 
-    console.log('zapo-js group-provision bench')
+    console.log('zhuxee-assistance group-provision bench')
     console.log('─────────────────────────────')
     console.log(`  ops / scenario     : ${config.ops}`)
     console.log(`  members per create : ${config.membersPerCreate}`)

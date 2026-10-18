@@ -1,6 +1,6 @@
 import type { PoolClient } from 'pg'
-import type { RegistrationInfo, SignedPreKeyRecord } from 'zapo-js/signal'
-import type { WaSignalStore } from 'zapo-js/store'
+import type { RegistrationInfo, SignedPreKeyRecord } from 'zhuxee-assistance/signal'
+import type { WaSignalStore } from 'zhuxee-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import { type PgRow, queryFirst, toBytes } from './helpers'

@@ -5,7 +5,7 @@ import {
     toBytesView,
     uint8Equal,
     uint8TimingSafeEqual
-} from 'zapo-js/util'
+} from 'zhuxee-assistance/util'
 
 export type PgRow = Record<string, unknown>
 

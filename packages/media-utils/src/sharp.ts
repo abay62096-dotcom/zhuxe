@@ -3,7 +3,7 @@ import type {
     WaMediaProcessorImageResult,
     WaMediaProcessorInput,
     WaMediaProcessorStickerThumbnailResult
-} from 'zapo-js/media'
+} from 'zhuxee-assistance/media'
 
 const DEFAULT_THUMB_QUALITY = 70
 

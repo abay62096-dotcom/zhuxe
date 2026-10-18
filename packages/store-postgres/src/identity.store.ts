@@ -1,7 +1,7 @@
 import type { PoolClient } from 'pg'
-import { signalAddressKey } from 'zapo-js/protocol'
-import { type SignalAddress, type SignalAddressParts, toSignalAddressParts } from 'zapo-js/signal'
-import type { WaIdentityStore } from 'zapo-js/store'
+import { signalAddressKey } from 'zhuxee-assistance/protocol'
+import { type SignalAddress, type SignalAddressParts, toSignalAddressParts } from 'zhuxee-assistance/signal'
+import type { WaIdentityStore } from 'zhuxee-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import { queryFirst, queryRows, toBytes } from './helpers'

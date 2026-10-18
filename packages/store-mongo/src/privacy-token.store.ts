@@ -1,5 +1,5 @@
 import type { Binary } from 'mongodb'
-import type { WaPrivacyTokenStore, WaStoredPrivacyTokenRecord } from 'zapo-js/store'
+import type { WaPrivacyTokenStore, WaStoredPrivacyTokenRecord } from 'zhuxee-assistance/store'
 
 import { BaseMongoStore } from './BaseMongoStore'
 import { fromBinaryOrNull, toBinary } from './helpers'

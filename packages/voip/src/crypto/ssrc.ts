@@ -1,4 +1,4 @@
-import { hkdf } from 'zapo-js/crypto'
+import { hkdf } from 'zhuxee-assistance/crypto'
 
 import { readUInt32LE, TEXT_ENCODER, writeUInt32LE } from '../bytes.js'
 

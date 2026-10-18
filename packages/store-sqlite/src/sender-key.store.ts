@@ -9,9 +9,9 @@ import {
     type SignalAddress,
     type SignalAddressParts,
     toSignalAddressParts
-} from 'zapo-js/signal'
-import type { WaSenderKeyStore as WaSenderKeyStoreContract } from 'zapo-js/store'
-import { asNumber, asString } from 'zapo-js/util'
+} from 'zhuxee-assistance/signal'
+import type { WaSenderKeyStore as WaSenderKeyStoreContract } from 'zhuxee-assistance/store'
+import { asNumber, asString } from 'zhuxee-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

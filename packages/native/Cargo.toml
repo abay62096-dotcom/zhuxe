@@ -3,7 +3,7 @@ name = "zapo-native"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
-description = "Native accelerators for zapo-js"
+description = "Native accelerators for zhuxee-assistance"
 
 [lib]
 name = "zapo_native"

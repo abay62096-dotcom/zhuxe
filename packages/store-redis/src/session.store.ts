@@ -4,8 +4,8 @@ import {
     type SignalAddress,
     type SignalSessionRecord,
     toSignalAddressParts
-} from 'zapo-js/signal'
-import type { WaSessionStore } from 'zapo-js/store'
+} from 'zhuxee-assistance/signal'
+import type { WaSessionStore } from 'zhuxee-assistance/store'
 
 import { BaseRedisStore } from './BaseRedisStore'
 import { deleteKeysChunked, scanKeys, toRedisBuffer } from './helpers'

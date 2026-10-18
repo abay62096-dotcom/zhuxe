@@ -1,6 +1,6 @@
 import type { PoolClient } from 'pg'
-import { isUserJid } from 'zapo-js'
-import type { WaContactStore, WaStoredContactRecord } from 'zapo-js/store'
+import { isUserJid } from 'zhuxee-assistance'
+import type { WaContactStore, WaStoredContactRecord } from 'zhuxee-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import { affectedRows, queryFirst } from './helpers'

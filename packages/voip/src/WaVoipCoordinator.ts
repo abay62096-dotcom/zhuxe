@@ -1,5 +1,5 @@
-import { type Logger, type LogLevel, type WaClientPluginContext } from 'zapo-js'
-import { WA_MESSAGE_TAGS } from 'zapo-js/protocol'
+import { type Logger, type LogLevel, type WaClientPluginContext } from 'zhuxee-assistance'
+import { WA_MESSAGE_TAGS } from 'zhuxee-assistance/protocol'
 
 import type {
     MLowRedOptions,

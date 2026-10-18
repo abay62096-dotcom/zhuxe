@@ -1,6 +1,6 @@
-import type { WaAuthCredentials } from 'zapo-js/auth'
-import { proto } from 'zapo-js/proto'
-import type { WaAuthStore } from 'zapo-js/store'
+import type { WaAuthCredentials } from 'zhuxee-assistance/auth'
+import { proto } from 'zhuxee-assistance/proto'
+import type { WaAuthStore } from 'zhuxee-assistance/store'
 import {
     asBytes,
     asNumber,
@@ -8,7 +8,7 @@ import {
     asOptionalNumber,
     asOptionalString,
     toBoolOrUndef
-} from 'zapo-js/util'
+} from 'zhuxee-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteStorageOptions } from './types'

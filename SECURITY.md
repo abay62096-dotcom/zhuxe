@@ -1,6 +1,6 @@
 # Security Policy
 
-`zapo-js` implements end-to-end-encrypted messaging primitives (Signal
+`zhuxee-assistance` implements end-to-end-encrypted messaging primitives (Signal
 Protocol, Noise XX/IK handshakes, app-state MACs, media encryption). The
 threat model is non-trivial, so we treat security reports differently
 from regular bugs.
@@ -22,7 +22,7 @@ published minor of the current major.
 channels below so the issue can be triaged and patched before disclosure.
 
 - **Preferred:** GitHub Security Advisories – click
-  [_Report a vulnerability_](https://github.com/vinikjkkj/zapo/security/advisories/new)
+  [_Report a vulnerability_](https://github.com/abay62096-dotcom/zhuxee/security/advisories/new)
   on the repo. GitHub will route the report to the maintainer privately,
   with a built-in coordination flow and optional CVE assignment.
 - **Email:** `contact@vinicius.email` if you prefer email over GitHub.
@@ -34,7 +34,7 @@ A fix or mitigation timeline follows from there based on severity.
 
 Include in your report:
 
-- Affected version (`zapo-js` and any `@zapo-js/*` packages involved)
+- Affected version (`zhuxee-assistance` and any `@zapo-js/*` packages involved)
 - A minimal reproducer (PoC code, sequence of calls, expected vs actual
   behavior)
 - Impact assessment from your perspective (what does this let an

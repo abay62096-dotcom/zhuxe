@@ -1,5 +1,5 @@
-import type { Logger } from 'zapo-js'
-import { type BinaryNode, getFirstNodeChild } from 'zapo-js/transport'
+import type { Logger } from 'zhuxee-assistance'
+import { type BinaryNode, getFirstNodeChild } from 'zhuxee-assistance/transport'
 
 import {
     dialableRelayEndpoints,

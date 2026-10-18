@@ -7,8 +7,8 @@ import {
     type SignalAddress,
     type SignalAddressParts,
     toSignalAddressParts
-} from 'zapo-js/signal'
-import type { WaSenderKeyStore } from 'zapo-js/store'
+} from 'zhuxee-assistance/signal'
+import type { WaSenderKeyStore } from 'zhuxee-assistance/store'
 
 import { BaseMysqlStore } from './BaseMysqlStore'
 import { affectedRows, queryFirst, queryRows, toBytes } from './helpers'

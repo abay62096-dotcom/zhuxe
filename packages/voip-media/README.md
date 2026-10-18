@@ -3,9 +3,9 @@
 The media plane of a WhatsApp call: the relay transport, STUN, SRTP, RTP/RTCP, H.264
 packetization, the app-data stream and the MLow codec.
 
-It has no dependency on `zapo-js`. The signaling of a call stays on the server with
+It has no dependency on `zhuxee-assistance`. The signaling of a call stays on the server with
 [`@zapo-js/voip`](../voip); only the media needs to live wherever the audio is, and a browser that
-carries a call's media installs this package and the codec, without `zapo-js`.
+carries a call's media installs this package and the codec, without `zhuxee-assistance`.
 
 | Entry                      | Runs in       | Holds                                                                                                               |
 | -------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -236,7 +236,7 @@ ready-made ones.
 | `crypto`               | AES-128-CTR, HMAC-SHA1 in JavaScript | `node:crypto`                           |
 | `createPeerConnection` | the browser's `RTCPeerConnection`    | `@roamhq/wrtc`, loaded on the first leg |
 | `createRawUdpLeg`      | not available                        | `WaRawUdpLeg` on `node:dgram`, opt-in   |
-| `logger`               | any object with the methods          | a `zapo-js` `Logger` as it is           |
+| `logger`               | any object with the methods          | a `zhuxee-assistance` `Logger` as it is           |
 
 A browser gets the primitives in JavaScript because WebCrypto only offers them as promises, and
 SRTP protects and verifies packet by packet on a path that cannot wait for one. The tests hold both

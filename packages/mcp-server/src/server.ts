@@ -5,7 +5,7 @@ import {
     type ServerResponse
 } from 'node:http'
 
-import { toError } from 'zapo-js/util'
+import { toError } from 'zhuxee-assistance/util'
 
 import { buildRuntimeConfigFromEnv, McpRuntime, type RuntimeConfig } from './runtime'
 import { encodeForJson } from './serializer'
@@ -230,7 +230,7 @@ const runHttpTransport = async (
     const route = config.httpPath
     if (!LOOPBACK_HOSTS.has(config.httpHost)) {
         // The HTTP transport has no auth and the `call` tool exposes the entire
-        // WaClient + zapo-js surface. Binding to a non-loopback interface puts
+        // WaClient + zhuxee-assistance surface. Binding to a non-loopback interface puts
         // that on the network – definitely not what you want by accident.
         runtime.getLogger().warn('mcp http transport bound to non-loopback host without auth', {
             host: config.httpHost,

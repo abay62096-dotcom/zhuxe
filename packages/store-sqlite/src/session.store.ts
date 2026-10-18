@@ -1,4 +1,4 @@
-import { signalAddressKey } from 'zapo-js/protocol'
+import { signalAddressKey } from 'zhuxee-assistance/protocol'
 import {
     decodeSignalSessionRecord,
     encodeSignalSessionRecord,
@@ -6,9 +6,9 @@ import {
     type SignalSessionRecord,
     type SignalSessionRow,
     toSignalAddressParts
-} from 'zapo-js/signal'
-import type { WaSessionStore as WaSessionStoreContract } from 'zapo-js/store'
-import { asNumber, asString, resolvePositive } from 'zapo-js/util'
+} from 'zhuxee-assistance/signal'
+import type { WaSessionStore as WaSessionStoreContract } from 'zhuxee-assistance/store'
+import { asNumber, asString, resolvePositive } from 'zhuxee-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

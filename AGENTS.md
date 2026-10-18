@@ -49,7 +49,7 @@ The repository is a **monorepo** using npm workspaces + Turborepo. The core libr
 
 ```text
 zapo/
-├── src/                # Core library source (zapo-js)
+├── src/                # Core library source (zhuxee-assistance)
 │   ├── index.ts        # public API barrel
 │   ├── proto.ts        # bridge to ../spec/proto (only ../ import allowed)
 │   ├── abprops-spec.ts # bridge to ../spec/abprops (AB prop catalogue + code reverse map)
@@ -93,19 +93,19 @@ Other important directories:
 
 - `bench/` timed benchmark suites
 - `scripts/` build/release/test helpers
-- `examples/` runnable example scripts (can import `zapo-js` and `@zapo-js/*` by name)
+- `examples/` runnable example scripts (can import `zhuxee-assistance` and `@zapo-js/*` by name)
 - `.github/workflows/ci.yml` lint + format + typecheck + build-core + typecheck-packages + per-provider tests (core, fake-server, media-utils, sqlite, mcp-server, mysql, postgres, redis, mongo) gated by an `all-checks` job
 - `.github/workflows/github-release.yml` auto-generates release notes when a `v*` tag is pushed (categories in `.github/release.yml`)
-- `.github/workflows/release.yml` publishes to npm on a `v*` tag via trusted publishing (OIDC, no `NPM_TOKEN`): core (`zapo-js`) through a guarded `npm publish`, add-ons (`@zapo-js/*`) through `changeset publish`
+- `.github/workflows/release.yml` publishes to npm on a `v*` tag via trusted publishing (OIDC, no `NPM_TOKEN`): core (`zhuxee-assistance`) through a guarded `npm publish`, add-ons (`@zapo-js/*`) through `changeset publish`
 - `.github/workflows/pr-auto-label.yml` labels PRs from conventional-commit prefixes in the title
 - `.github/workflows/pr-validate-title.yml` enforces a conventional-commit PR title (`amannn/action-semantic-pull-request`)
 - `.changeset/` release management config (Changesets)
 
 ### Monorepo conventions
 
-- **Core** (`zapo-js`): published from the root. Build with `npm run build`.
+- **Core** (`zhuxee-assistance`): published from the root. Build with `npm run build`.
 - **Optional packages** (`@zapo-js/*`): live in `packages/<name>/`. Build all with `npx turbo run build`.
-- Optional packages declare `zapo-js` as a `peerDependency` – the end user installs core + the modules they want.
+- Optional packages declare `zhuxee-assistance` as a `peerDependency` – the end user installs core + the modules they want.
 - Each optional package extends `tsconfig.packages.json` (+ `tsconfig.build.paths.json`) and publishes with `"publishConfig": { "access": "public" }`.
 - Dual CJS/ESM build is mandatory for both core and optional packages: each package has `tsconfig.build.cjs.json` (emits to `dist/` + `.d.ts`) and `tsconfig.build.esm.json` (emits JS-only to `dist/esm/`). The `build` script chains both compilers and then runs `scripts/finalize-esm-build.cjs` to drop a `dist/esm/package.json` with `{ "type": "module" }` and rewrite relative import specifiers with `.js` extensions. The `exports` map must expose `types` / `require` / `import` / `default` conditions. The shared finalize script accepts `--root <path>` (default `cwd`) and `--proto-bridge` (core only, to emit the ESM proto re-export).
 - New package template: copy an existing `packages/<name>/` folder and adjust name/deps.
@@ -649,7 +649,7 @@ Use flow tests for auth/transport/signal/retry changes that need real protocol v
 
 Do not redefine common fixtures inline. Shared helpers live in `@infra/log/types`:
 
-- `createNoopLogger(level?)` – silent `Logger` for tests. Use instead of redefining a local `function createLogger(): Logger { return { level: 'trace', trace: () => undefined, child: () => ... } }`. Also re-exported from the public root (`'zapo-js'`) so optional packages can import it the same way.
+- `createNoopLogger(level?)` – silent `Logger` for tests. Use instead of redefining a local `function createLogger(): Logger { return { level: 'trace', trace: () => undefined, child: () => ... } }`. Also re-exported from the public root (`'zhuxee-assistance'`) so optional packages can import it the same way.
 
 Add new shared test-only helpers to a sibling `__tests__/_helpers.ts` only when reused across 3+ files.
 
@@ -826,7 +826,7 @@ Re-exported curves (`@crypto/curves`):
 
 ## 13. MCP Dev Server (`@zapo-js/mcp-server`)
 
-Optional package that exposes `WaClient` sessions and the `zapo-js` module namespace as MCP tools, so an LLM agent can drive end-to-end flows (connect, pair, send, query groups/newsletters, inspect events, etc.) without writing throwaway scripts. Source: `packages/mcp-server/`.
+Optional package that exposes `WaClient` sessions and the `zhuxee-assistance` module namespace as MCP tools, so an LLM agent can drive end-to-end flows (connect, pair, send, query groups/newsletters, inspect events, etc.) without writing throwaway scripts. Source: `packages/mcp-server/`.
 
 The server multiplexes **multiple sessions over one shared store**: every tool takes an optional `session` id (default `MCP_SESSION_ID`), and a new id lazily spins up an additional `WaClient` on the same backend (the store scopes every row by session id). Event buffers are per-session; log lines are tagged with `context.session` so `logs` can filter by session.
 
@@ -847,7 +847,7 @@ claude mcp add zapo --scope user -- node --import tsx <abs-path>/packages/mcp-se
 
 ### Tool surface
 
-- **`call`** / **`inspect`** – walk dotted paths against `client` (the WaClient instance) or `lib` (the `zapo-js` module namespace, including `proto.*` and helpers like `parsePhoneJid`). `call` invokes functions; `inspect` lists members with origin class.
+- **`call`** / **`inspect`** – walk dotted paths against `client` (the WaClient instance) or `lib` (the `zhuxee-assistance` module namespace, including `proto.*` and helpers like `parsePhoneJid`). `call` invokes functions; `inspect` lists members with origin class.
 - **`events`** / **`events_clear`** – bounded ring buffer of every `WaClientEventMap` event (filter by `types` / `since` / `limit` / `drain`).
 - **`logs`** / **`logs_clear`** – `BufferedTeeLogger` mirrors every runtime + lib log line into a queryable buffer (also stderr, and JSONL to `MCP_LOG_FILE` if set).
 - **`lifecycle`** – `status` / `start` / `destroy` for the WaClient instance.
@@ -868,7 +868,7 @@ claude mcp add zapo --scope user --transport http http://127.0.0.1:3737/mcp
 npm run dev --workspace @zapo-js/mcp-server
 ```
 
-The `dev` script runs the server under `scripts/dev-watch.cjs`, which spawns `node --import tsx src/bin.ts` on HTTP (port 3737) and respawns it when a watched source actually changes. `tsx` resolves `zapo-js` directly from `<root>/src/` via `packages/tsconfig.paths.json`, so iterating on the core lib needs no rebuild. Edit any `.ts` under the watched trees (`<root>/src`, `<root>/packages` and `<root>/spec`, so the core, every optional package and the vendored spec bridges) → the runner restarts the process and names the file that triggered it → the next tool call from Claude Code re-establishes the HTTP session automatically. No `/mcp` manual reconnect. Generated and non-runtime folders are ignored: `node_modules`, `dist`, `target`, `__tests__`, `__test__`, `bench`, `.turbo` and `coverage`.
+The `dev` script runs the server under `scripts/dev-watch.cjs`, which spawns `node --import tsx src/bin.ts` on HTTP (port 3737) and respawns it when a watched source actually changes. `tsx` resolves `zhuxee-assistance` directly from `<root>/src/` via `packages/tsconfig.paths.json`, so iterating on the core lib needs no rebuild. Edit any `.ts` under the watched trees (`<root>/src`, `<root>/packages` and `<root>/spec`, so the core, every optional package and the vendored spec bridges) → the runner restarts the process and names the file that triggered it → the next tool call from Claude Code re-establishes the HTTP session automatically. No `/mcp` manual reconnect. Generated and non-runtime folders are ignored: `node_modules`, `dist`, `target`, `__tests__`, `__test__`, `bench`, `.turbo` and `coverage`.
 
 The script also sets `MCP_AUTH_PATH=../../.auth/state.sqlite`, so the MCP shares the credential store with `test/example.cjs` (no re-pairing).
 
@@ -921,10 +921,10 @@ This project follows [Semantic Versioning](https://semver.org/). From `1.0.0` th
 
 ### Two version tracks
 
-Changesets tracks the optional packages **only**, not the core. The root `package.json` (`zapo-js`) is the workspace anchor, so `@manypkg`/Changesets exclude it from the releasable set – `npx changeset add` does not even list it.
+Changesets tracks the optional packages **only**, not the core. The root `package.json` (`zhuxee-assistance`) is the workspace anchor, so `@manypkg`/Changesets exclude it from the releasable set – `npx changeset add` does not even list it.
 
 - **Optional packages (`@zapo-js/*`)** – versioned with Changesets. Add a changeset in the PR that changes them: `npx changeset`, pick the packages and bump levels, write the summary. The file lands in `.changeset/`.
-- **Core (`zapo-js`)** – versioned by hand. Bump the root `version` directly with `npm version <patch|minor|major> --no-git-tag-version` (bumps the root only); Changesets never touches it. Its root `CHANGELOG.md` is likewise hand-maintained (see the release process below); `changeset version` only writes the add-on `packages/<name>/CHANGELOG.md` files, never the core's.
+- **Core (`zhuxee-assistance`)** – versioned by hand. Bump the root `version` directly with `npm version <patch|minor|major> --no-git-tag-version` (bumps the root only); Changesets never touches it. Its root `CHANGELOG.md` is likewise hand-maintained (see the release process below); `changeset version` only writes the add-on `packages/<name>/CHANGELOG.md` files, never the core's.
 
 ### Release process (on `master`, before pushing the tag)
 
@@ -948,7 +948,7 @@ Every published package must be registered as a trusted publisher on npmjs.com (
 
 ### Core major bumps and peer ranges
 
-Optional packages declare `zapo-js` as a `peerDependency` (`^1.0.0`). A core **major** bump (for example `1.x` → `2.0.0`) leaves that range unsatisfied: manually widen `peerDependencies.zapo-js` in every affected package and add a changeset for it, even with no code change of its own. Minor/patch core bumps stay within the range and need nothing.
+Optional packages declare `zhuxee-assistance` as a `peerDependency` (`^1.0.0`). A core **major** bump (for example `1.x` → `2.0.0`) leaves that range unsatisfied: manually widen `peerDependencies.zhuxee-assistance` in every affected package and add a changeset for it, even with no code change of its own. Minor/patch core bumps stay within the range and need nothing.
 
 ---
 
@@ -960,4 +960,4 @@ Optional packages declare `zapo-js` as a `peerDependency` (`^1.0.0`). A core **m
 - [ ] No unbounded in-memory growth introduced
 - [ ] No cross-module relative import chains
 - [ ] JSDoc updated on changed exports (params, return, `@throws`, `@example`, mobile/business markers) **and** `@example` blocks in other files that call the changed symbol still compile – grep the old name (see §5.9)
-- [ ] `npm run lint`, `npm run format:check`, `npm run test`, and `npm run typecheck:all` pass locally (the `:all` variant catches package-level type errors that `npm run typecheck` alone misses – e.g. a public export removed from `src/<module>/index.ts` that a `packages/*` file imports via `zapo-js/<module>`)
+- [ ] `npm run lint`, `npm run format:check`, `npm run test`, and `npm run typecheck:all` pass locally (the `:all` variant catches package-level type errors that `npm run typecheck` alone misses – e.g. a public export removed from `src/<module>/index.ts` that a `packages/*` file imports via `zhuxee-assistance/<module>`)

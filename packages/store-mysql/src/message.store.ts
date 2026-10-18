@@ -1,5 +1,5 @@
 import type { PoolConnection } from 'mysql2/promise'
-import type { WaMessageStore, WaStoredMessageRecord } from 'zapo-js/store'
+import type { WaMessageStore, WaStoredMessageRecord } from 'zhuxee-assistance/store'
 
 import { BaseMysqlStore } from './BaseMysqlStore'
 import {

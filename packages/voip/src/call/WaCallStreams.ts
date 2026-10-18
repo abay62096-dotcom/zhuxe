@@ -1,6 +1,6 @@
-import type { Logger } from 'zapo-js'
-import { toUserJid } from 'zapo-js/protocol'
-import { toError } from 'zapo-js/util'
+import type { Logger } from 'zhuxee-assistance'
+import { toUserJid } from 'zhuxee-assistance/protocol'
+import { toError } from 'zhuxee-assistance/util'
 
 import type { WaCallMediaKeys, WaCallMediaSsrcs } from '@zapo-js/voip-media'
 

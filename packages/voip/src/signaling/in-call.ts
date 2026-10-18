@@ -1,4 +1,4 @@
-import { type BinaryNode, findNodeChild } from 'zapo-js/transport'
+import { type BinaryNode, findNodeChild } from 'zhuxee-assistance/transport'
 
 import { callStanza } from './call-stanza.js'
 

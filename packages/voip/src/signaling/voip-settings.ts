@@ -1,6 +1,6 @@
-import { createNoopLogger, type Logger } from 'zapo-js'
-import { type BinaryNode, findNodeChild, getNodeChildren } from 'zapo-js/transport'
-import { base64ToBytes, TEXT_DECODER, toError, tryAsNumber } from 'zapo-js/util'
+import { createNoopLogger, type Logger } from 'zhuxee-assistance'
+import { type BinaryNode, findNodeChild, getNodeChildren } from 'zhuxee-assistance/transport'
+import { base64ToBytes, TEXT_DECODER, toError, tryAsNumber } from 'zhuxee-assistance/util'
 
 const VOIP_SETTINGS_TAG = 'voip_settings'
 

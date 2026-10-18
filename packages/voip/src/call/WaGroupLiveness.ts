@@ -1,4 +1,4 @@
-import type { Logger } from 'zapo-js'
+import type { Logger } from 'zhuxee-assistance'
 
 import { groupParticipantAccountKey } from '../jid.js'
 import {

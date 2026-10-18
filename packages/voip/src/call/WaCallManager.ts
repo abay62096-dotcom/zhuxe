@@ -1,8 +1,8 @@
 import { EventEmitter } from 'node:events'
 
-import { createNoopLogger, type Logger } from 'zapo-js'
-import { type BinaryNode, findNodeChild, hasNodeChild } from 'zapo-js/transport'
-import { resolvePositive, toError, tryAsNumber } from 'zapo-js/util'
+import { createNoopLogger, type Logger } from 'zhuxee-assistance'
+import { type BinaryNode, findNodeChild, hasNodeChild } from 'zhuxee-assistance/transport'
+import { resolvePositive, toError, tryAsNumber } from 'zhuxee-assistance/util'
 
 import type {
     MLowCompanionModelSource,

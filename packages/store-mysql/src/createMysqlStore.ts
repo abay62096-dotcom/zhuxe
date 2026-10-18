@@ -1,5 +1,5 @@
 import type { Pool, PoolOptions } from 'mysql2/promise'
-import type { Logger } from 'zapo-js'
+import type { Logger } from 'zhuxee-assistance'
 
 import { WaAppStateMysqlStore } from './appstate.store'
 import { WaAuthMysqlStore } from './auth.store'
@@ -125,7 +125,7 @@ function isPool(value: Pool | PoolOptions): value is Pool {
  *
  * @example
  * ```ts
- * import { createStore, WaClient } from 'zapo-js'
+ * import { createStore, WaClient } from 'zhuxee-assistance'
  * import { createMysqlStore } from '@zapo-js/store-mysql'
  *
  * const result = createMysqlStore({

@@ -1,5 +1,5 @@
 import Redis, { type RedisOptions } from 'ioredis'
-import type { Logger } from 'zapo-js'
+import type { Logger } from 'zhuxee-assistance'
 
 import { WaAppStateRedisStore } from './appstate.store'
 import { WaAuthRedisStore } from './auth.store'
@@ -124,7 +124,7 @@ function isRedis(value: Redis | RedisOptions): value is Redis {
  *
  * @example
  * ```ts
- * import { createStore, WaClient } from 'zapo-js'
+ * import { createStore, WaClient } from 'zhuxee-assistance'
  * import { createRedisStore } from '@zapo-js/store-redis'
  *
  * const store = createStore({

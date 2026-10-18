@@ -54,7 +54,7 @@
 import { randomBytes } from 'node:crypto'
 import { Readable } from 'node:stream'
 
-import type { WaClient, WaClientEventMap } from 'zapo-js'
+import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
 
 import type { FakePeer } from '../src/api/FakePeer'
 import type { FakeWaServer, WaFakeConnectionPipeline } from '../src/api/FakeWaServer'
@@ -570,7 +570,7 @@ async function main(): Promise<void> {
     const backendName = process.env.ZAPO_BENCH_STORE ?? 'memory'
     const separate = argSet.has('--separate-process')
 
-    console.log('zapo-js messaging-with-media bench')
+    console.log('zhuxee-assistance messaging-with-media bench')
     console.log('──────────────────────────────────')
     console.log(`  messages/scenario : ${config.messages}`)
     console.log(

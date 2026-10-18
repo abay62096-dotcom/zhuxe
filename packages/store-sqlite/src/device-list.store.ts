@@ -1,5 +1,5 @@
-import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zapo-js/store'
-import { asNumber, asString, resolvePositive } from 'zapo-js/util'
+import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zhuxee-assistance/store'
+import { asNumber, asString, resolvePositive } from 'zhuxee-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

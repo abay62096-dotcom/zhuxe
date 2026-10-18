@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClientEventMap } from 'zapo-js'
+import type { WaClientEventMap } from 'zhuxee-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import type { BinaryNode } from '../transport/codec'

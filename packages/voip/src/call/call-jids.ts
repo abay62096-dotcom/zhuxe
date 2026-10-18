@@ -1,7 +1,7 @@
-import type { Logger } from 'zapo-js'
-import { normalizeDeviceJid, toUserJid } from 'zapo-js/protocol'
-import { type BinaryNode, getNodeChildrenByTag } from 'zapo-js/transport'
-import { toError } from 'zapo-js/util'
+import type { Logger } from 'zhuxee-assistance'
+import { normalizeDeviceJid, toUserJid } from 'zhuxee-assistance/protocol'
+import { type BinaryNode, getNodeChildrenByTag } from 'zhuxee-assistance/transport'
+import { toError } from 'zhuxee-assistance/util'
 
 import type { WaVoipDeps } from '../types.js'
 

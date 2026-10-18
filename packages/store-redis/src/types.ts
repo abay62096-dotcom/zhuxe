@@ -1,5 +1,5 @@
 import type { default as Redis, RedisOptions } from 'ioredis'
-import type { Logger } from 'zapo-js'
+import type { Logger } from 'zhuxee-assistance'
 
 export interface WaRedisStorageOptions {
     readonly redis: Redis

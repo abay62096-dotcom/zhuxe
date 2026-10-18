@@ -1,5 +1,5 @@
 import type { Db } from 'mongodb'
-import type { Logger } from 'zapo-js'
+import type { Logger } from 'zhuxee-assistance'
 
 export interface WaMongoStorageOptions {
     readonly db: Db

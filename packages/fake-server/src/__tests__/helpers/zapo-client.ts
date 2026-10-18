@@ -1,4 +1,4 @@
-import { createNoopLogger, createStore, type Logger, WaClient } from 'zapo-js'
+import { createNoopLogger, createStore, type Logger, WaClient } from 'zhuxee-assistance'
 
 const NOOP_LOGGER: Logger = createNoopLogger('error')
 

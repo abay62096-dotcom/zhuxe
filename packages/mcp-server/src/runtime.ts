@@ -10,8 +10,8 @@ import {
     WaClient,
     type WaClientEventMap,
     type WaStore
-} from 'zapo-js'
-import { hexToBytes, resolvePositive, toError } from 'zapo-js/util'
+} from 'zhuxee-assistance'
+import { hexToBytes, resolvePositive, toError } from 'zhuxee-assistance/util'
 
 import { createMediaProcessor } from '@zapo-js/media-utils'
 import { createSqliteStore } from '@zapo-js/store-sqlite'

@@ -1,5 +1,5 @@
-import { type BinaryNode, getFirstNodeChild } from 'zapo-js/transport'
-import { bytesToHex } from 'zapo-js/util'
+import { type BinaryNode, getFirstNodeChild } from 'zhuxee-assistance/transport'
+import { bytesToHex } from 'zhuxee-assistance/util'
 
 import { randomBytes } from '@zapo-js/voip-media'
 

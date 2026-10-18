@@ -1,7 +1,7 @@
-import type { Logger } from 'zapo-js'
-import { toUserJid } from 'zapo-js/protocol'
-import { type BinaryNode, findNodeChild, getNodeChildrenByTag } from 'zapo-js/transport'
-import { toError, uint8TimingSafeEqual } from 'zapo-js/util'
+import type { Logger } from 'zhuxee-assistance'
+import { toUserJid } from 'zhuxee-assistance/protocol'
+import { type BinaryNode, findNodeChild, getNodeChildrenByTag } from 'zhuxee-assistance/transport'
+import { toError, uint8TimingSafeEqual } from 'zhuxee-assistance/util'
 
 import {
     type WaCallMediaEvent,

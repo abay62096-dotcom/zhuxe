@@ -5,8 +5,8 @@ import {
     type SenderKeyRecord,
     type SignalAddress,
     toSignalAddressParts
-} from 'zapo-js/signal'
-import type { WaSenderKeyStore } from 'zapo-js/store'
+} from 'zhuxee-assistance/signal'
+import type { WaSenderKeyStore } from 'zhuxee-assistance/store'
 
 import { BaseRedisStore } from './BaseRedisStore'
 import { deleteKeysChunked, scanKeys, toRedisBuffer } from './helpers'

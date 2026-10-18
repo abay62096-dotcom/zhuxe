@@ -1,6 +1,6 @@
 #![deny(clippy::all)]
 
-//! Shared curve25519 crypto core for the zapo-js native accelerators.
+//! Shared curve25519 crypto core for the zhuxee-assistance native accelerators.
 //!
 //! Pure Rust: no NAPI or wasm-bindgen types leak in here. The `zapo-native`
 //! (NAPI) and `zapo-native-wasm` crates each wrap these functions with their

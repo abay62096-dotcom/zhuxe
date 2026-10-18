@@ -1,12 +1,12 @@
 {
     "name": "@zapo-js/mcp-server",
     "version": "1.2.0",
-    "description": "MCP server exposing zapo-js WaClient as dynamic tools for end-to-end testing",
+    "description": "MCP server exposing zhuxee-assistance WaClient as dynamic tools for end-to-end testing",
     "license": "MIT",
     "author": "vinikjkkj <contact@vinicius.email> (https://github.com/vinikjkkj)",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/vinikjkkj/zapo.git",
+        "url": "git+https://github.com/abay62096-dotcom/zhuxee.git",
         "directory": "packages/mcp-server"
     },
     "main": "dist/index.js",
@@ -44,12 +44,12 @@
         "better-sqlite3": "^12.6.2"
     },
     "peerDependencies": {
-        "zapo-js": "^1.0.0"
+        "zhuxee-assistance": "^1.0.0"
     },
     "devDependencies": {
         "@zapo-js/fake-server": "file:../fake-server",
         "cross-env": "^7.0.3",
-        "zapo-js": "file:../.."
+        "zhuxee-assistance": "file:../.."
     },
     "engines": {
         "node": ">=20.9.0"

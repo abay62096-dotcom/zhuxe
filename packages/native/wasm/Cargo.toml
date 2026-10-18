@@ -3,7 +3,7 @@ name = "zapo-native-wasm"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
-description = "WASM build of zapo-js native crypto accelerators (parity with the NAPI crate)"
+description = "WASM build of zhuxee-assistance native crypto accelerators (parity with the NAPI crate)"
 
 [lib]
 name = "zapo_native_wasm"

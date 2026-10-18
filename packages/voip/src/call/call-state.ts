@@ -1,4 +1,4 @@
-import type { Logger } from 'zapo-js'
+import type { Logger } from 'zhuxee-assistance'
 
 import type { PeerScreenShare } from '../signaling/screen-share.js'
 import type { WaVoipSettings } from '../signaling/voip-settings.js'

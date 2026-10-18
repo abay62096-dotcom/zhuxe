@@ -1,6 +1,6 @@
 # @zapo-js/store-sqlite
 
-SQLite-backed persistent store for [`zapo-js`](https://www.npmjs.com/package/zapo-js). Suitable for single-process bots, dev sessions, and small-to-medium production deployments that don't need a network database.
+SQLite-backed persistent store for [`zhuxee-assistance`](https://www.npmjs.com/package/zhuxee-assistance). Suitable for single-process bots, dev sessions, and small-to-medium production deployments that don't need a network database.
 
 Backed by `better-sqlite3` on Node, `bun:sqlite` on Bun, or the runtime's built-in `node:sqlite` when no native addon is available (auto-detected). Lazy migrations run on first touch per domain; all writes go through `withTransaction` so partial failures roll back cleanly.
 
@@ -35,7 +35,7 @@ Write throughput is effectively the same on all three (SQLite itself dominates).
 ## Quick start
 
 ```ts
-import { createStore, WaClient } from 'zapo-js'
+import { createStore, WaClient } from 'zhuxee-assistance'
 import { createSqliteStore } from '@zapo-js/store-sqlite'
 
 const store = createStore({
@@ -104,4 +104,4 @@ connection.close() // you opened it, you close it
 - For high write throughput, set `pragmas: { journal_mode: 'WAL', synchronous: 'NORMAL' }`.
 - The cache domains (`retry`, `groupMetadata`, `deviceList`, `messageSecret`) expire rows lazily on read; you don't need a background cleanup job.
 
-See the main [`zapo-js`](../../README.md) docs for the full store contract and per-domain semantics.
+See the main [`zhuxee-assistance`](../../README.md) docs for the full store contract and per-domain semantics.

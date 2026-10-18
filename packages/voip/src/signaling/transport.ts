@@ -1,5 +1,5 @@
-import { toUserJid } from 'zapo-js/protocol'
-import { type BinaryNode, getNodeChildrenByTag } from 'zapo-js/transport'
+import { toUserJid } from 'zhuxee-assistance/protocol'
+import { type BinaryNode, getNodeChildrenByTag } from 'zhuxee-assistance/transport'
 
 import type { RelayEndpoint } from '../types.js'
 

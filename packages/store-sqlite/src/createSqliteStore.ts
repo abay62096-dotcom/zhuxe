@@ -1,4 +1,4 @@
-import type { Logger } from 'zapo-js'
+import type { Logger } from 'zhuxee-assistance'
 
 import { WaAppStateSqliteStore } from './appstate.store'
 import { WaAuthSqliteStore } from './auth.store'
@@ -38,7 +38,7 @@ export interface WaSqliteStoreConfig {
      * caller owns the lifecycle - per-store `destroy()` does not close it,
      * so call `connection.close()` (or your wrapper's dispose) when
      * tearing the app down. Use this to share a single SQLite connection
-     * across `zapo-js` and the rest of your application.
+     * across `zhuxee-assistance` and the rest of your application.
      */
     readonly connection?: WaSqliteConnection
     /**
@@ -125,7 +125,7 @@ export interface WaSqliteStoreResult {
  * `appState`, `messages`, `threads`, `contacts`, `privacyToken`, plus
  * TTL-evicted caches for `retry`, `groupMetadata`, `deviceList`,
  * `messageSecret`. Feed the result into `createStore({ backends: { sqlite:
- * createSqliteStore(...) }, providers: { ... } })` from `zapo-js`.
+ * createSqliteStore(...) }, providers: { ... } })` from `zhuxee-assistance`.
  *
  * Pass `path` for the library to open and own a connection (closed by
  * per-store `destroy()` via the shared ref-counted cache), or `connection`
@@ -135,7 +135,7 @@ export interface WaSqliteStoreResult {
  *
  * @example
  * ```ts
- * import { createStore, WaClient } from 'zapo-js'
+ * import { createStore, WaClient } from 'zhuxee-assistance'
  * import { createSqliteStore } from '@zapo-js/store-sqlite'
  *
  * // Library-owned connection (most common)

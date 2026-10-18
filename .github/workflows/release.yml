@@ -46,12 +46,12 @@ jobs:
                   cargo install wasm-bindgen-cli@0.2.100 --locked
                   npm run build:wasm -w packages/native
 
-            - name: publish core (zapo-js), skip if version already on npm
+            - name: publish core (zhuxee-assistance), skip if version already on npm
               run: |
                   VERSION="$(node -p "require('./package.json').version")"
-                  PUBLISHED="$(npm view "zapo-js@$VERSION" version 2>/dev/null || true)"
+                  PUBLISHED="$(npm view "zhuxee-assistance@$VERSION" version 2>/dev/null || true)"
                   if [ -n "$PUBLISHED" ]; then
-                    echo "zapo-js@$VERSION already on npm, skipping"
+                    echo "zhuxee-assistance@$VERSION already on npm, skipping"
                   else
                     npm publish
                   fi

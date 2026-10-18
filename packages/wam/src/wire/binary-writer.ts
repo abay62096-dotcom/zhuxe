@@ -1,4 +1,4 @@
-import { TEXT_ENCODER } from 'zapo-js/util'
+import { TEXT_ENCODER } from 'zhuxee-assistance/util'
 
 /**
  * Minimal growable big-endian byte writer used by the WAM TLV encoder.

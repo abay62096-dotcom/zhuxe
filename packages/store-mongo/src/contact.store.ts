@@ -1,5 +1,5 @@
-import { isUserJid } from 'zapo-js'
-import type { WaContactStore, WaStoredContactRecord } from 'zapo-js/store'
+import { isUserJid } from 'zhuxee-assistance'
+import type { WaContactStore, WaStoredContactRecord } from 'zhuxee-assistance/store'
 
 import { BaseMongoStore } from './BaseMongoStore'
 import type { WaMongoStorageOptions } from './types'

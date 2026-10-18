@@ -1,12 +1,12 @@
 {
     "name": "@zapo-js/fake-server",
     "version": "1.3.0",
-    "description": "Fake WhatsApp Web server used to test zapo-js",
+    "description": "Fake WhatsApp Web server used to test zhuxee-assistance",
     "license": "MIT",
     "author": "vinikjkkj <contact@vinicius.email> (https://github.com/vinikjkkj)",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/vinikjkkj/zapo.git",
+        "url": "git+https://github.com/abay62096-dotcom/zhuxee.git",
         "directory": "packages/fake-server"
     },
     "main": "dist/index.js",
@@ -48,14 +48,14 @@
         "bench:all-stores": "node bench/run-all-stores.cjs"
     },
     "peerDependencies": {
-        "zapo-js": "^1.0.0"
+        "zhuxee-assistance": "^1.0.0"
     },
     "dependencies": {
         "ws": "^8.18.0"
     },
     "devDependencies": {
         "@types/ws": "^8.18.1",
-        "zapo-js": "file:../.."
+        "zhuxee-assistance": "file:../.."
     },
     "engines": {
         "node": ">=20.9.0"

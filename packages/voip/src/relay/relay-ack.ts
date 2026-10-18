@@ -3,8 +3,8 @@ import {
     getNodeChildren,
     getNodeChildrenByTag,
     getNodeTextContent
-} from 'zapo-js/transport'
-import { bytesToBase64 } from 'zapo-js/util'
+} from 'zhuxee-assistance/transport'
+import { bytesToBase64 } from 'zhuxee-assistance/util'
 
 import type { RelayData, RelayEndpoint } from '../types.js'
 

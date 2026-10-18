@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import { createNoopLogger } from 'zapo-js'
+import { createNoopLogger } from 'zhuxee-assistance'
 
 import { CallMediaType } from '../../types.js'
 import { CallInfo } from '../call-state.js'

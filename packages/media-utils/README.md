@@ -1,6 +1,6 @@
 # @zapo-js/media-utils
 
-`WaMediaProcessor` implementation for [`zapo-js`](https://www.npmjs.com/package/zapo-js). Hooks `sharp` and `ffmpeg`/`ffprobe` into the client so outgoing media gets the right thumbnails, waveforms, and voice-note normalization without you wiring any of that yourself.
+`WaMediaProcessor` implementation for [`zhuxee-assistance`](https://www.npmjs.com/package/zhuxee-assistance). Hooks `sharp` and `ffmpeg`/`ffprobe` into the client so outgoing media gets the right thumbnails, waveforms, and voice-note normalization without you wiring any of that yourself.
 
 ## What it does
 
@@ -91,7 +91,7 @@ degrades to "no thumbnails / no waveform" instead of crashing.
 ## Quick start
 
 ```ts
-import { WaClient } from 'zapo-js'
+import { WaClient } from 'zhuxee-assistance'
 import { createMediaProcessor } from '@zapo-js/media-utils'
 
 // One processor can be shared across many WaClient sessions. The runtime
@@ -140,4 +140,4 @@ standalone (no `ctx`), the processor stays silent.
 - The thumbnail / waveform code paths follow what the official client produces - sticker first-frame extraction matches WhatsApp's expected layout, waveforms render natively on iOS/Android/desktop.
 - Voice-note normalization is needed because WhatsApp only renders Opus 16k mono in the chat UI - other formats play but lose the waveform.
 
-See the main [`zapo-js`](../../README.md) docs for the `media` option and `WaMediaProcessor` contract.
+See the main [`zhuxee-assistance`](../../README.md) docs for the `media` option and `WaMediaProcessor` contract.

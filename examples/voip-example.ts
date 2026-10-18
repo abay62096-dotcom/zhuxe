@@ -35,7 +35,7 @@ import { type ChildProcess, spawn } from 'node:child_process'
 import { mkdir, rm, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 
-import { createPinoLogger, createStore, type LogLevel, WaClient } from 'zapo-js'
+import { createPinoLogger, createStore, type LogLevel, WaClient } from 'zhuxee-assistance'
 
 import { createSqliteStore } from '@zapo-js/store-sqlite'
 import { CallState, EndCallReason, voipPlugin } from '@zapo-js/voip'

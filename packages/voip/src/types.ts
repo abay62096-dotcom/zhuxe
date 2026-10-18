@@ -1,5 +1,5 @@
-import type { WaClientPluginContext } from 'zapo-js'
-import type { BinaryNode } from 'zapo-js/transport'
+import type { WaClientPluginContext } from 'zhuxee-assistance'
+import type { BinaryNode } from 'zhuxee-assistance/transport'
 
 import type {
     InboundVideoFrame,

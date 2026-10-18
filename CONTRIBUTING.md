@@ -69,7 +69,7 @@ Requirements:
 Install + run the real-flow example (pairs against the real WhatsApp Web):
 
 ```bash
-git clone https://github.com/vinikjkkj/zapo
+git clone https://github.com/abay62096-dotcom/zhuxee
 cd zapo
 npm install
 npm run example

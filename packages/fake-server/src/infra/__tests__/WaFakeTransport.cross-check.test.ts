@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import { WaNoiseHandshake, type WaNoiseSocket } from 'zapo-js/transport'
+import { WaNoiseHandshake, type WaNoiseSocket } from 'zhuxee-assistance/transport'
 
 import { X25519 } from '../../transport/crypto'
 import { proto } from '../../transport/protos'

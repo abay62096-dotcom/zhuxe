@@ -12,7 +12,7 @@ import {
     type WaIncomingReceiptEvent,
     type WaIncomingUnhandledStanzaEvent,
     type WaOutgoingMessageEvent
-} from 'zapo-js'
+} from 'zhuxee-assistance'
 import {
     isGroupJid,
     isLidJid,
@@ -26,8 +26,8 @@ import {
     WA_NODE_TAGS,
     WA_REGISTRATION_NOTIFICATION_TAGS,
     WA_XMLNS
-} from 'zapo-js/protocol'
-import { findNodeChild } from 'zapo-js/transport'
+} from 'zhuxee-assistance/protocol'
+import { findNodeChild } from 'zhuxee-assistance/transport'
 
 import {
     ciphertextTypeKey,

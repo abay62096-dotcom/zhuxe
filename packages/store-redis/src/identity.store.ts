@@ -1,5 +1,5 @@
-import { type SignalAddress, toSignalAddressParts } from 'zapo-js/signal'
-import type { WaIdentityStore } from 'zapo-js/store'
+import { type SignalAddress, toSignalAddressParts } from 'zhuxee-assistance/signal'
+import type { WaIdentityStore } from 'zhuxee-assistance/store'
 
 import { BaseRedisStore } from './BaseRedisStore'
 import { deleteKeysChunked, scanKeys, toRedisBuffer } from './helpers'

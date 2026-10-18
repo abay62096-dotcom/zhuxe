@@ -1,5 +1,5 @@
 /**
- * End-to-end messaging profiling for zapo-js, driven through the
+ * End-to-end messaging profiling for zhuxee-assistance, driven through the
  * @zapo-js/fake-server. Pairs a single real `WaClient` against an
  * in-process fake server and measures four scenarios:
  *
@@ -53,7 +53,7 @@ import * as inspector from 'node:inspector/promises'
 import { resolve as resolvePath } from 'node:path'
 import { performance } from 'node:perf_hooks'
 
-import { type Logger, WaClient, type WaClientEventMap } from 'zapo-js'
+import { type Logger, WaClient, type WaClientEventMap } from 'zhuxee-assistance'
 
 import type { FakePeer } from '../src/api/FakePeer'
 import { FakeWaServer, type WaFakeConnectionPipeline } from '../src/api/FakeWaServer'
@@ -143,7 +143,7 @@ function readProfilerOptions(args: ReadonlySet<string>): ProfilerOptions {
  * optional per-scenario CPU profiles when `--per-scenario` is set.
  *
  * IMPORTANT: this is constructed and `start()`-ed BEFORE any
- * fake-server / zapo-js modules are imported in main(), so module-
+ * fake-server / zhuxee-assistance modules are imported in main(), so module-
  * level allocations are captured by the heap timeline.
  */
 class BenchProfiler {
@@ -725,7 +725,7 @@ async function scenarioRecvGroup(
 // ─── Reporting ────────────────────────────────────────────────────────
 
 function printConfig(config: BenchConfig): void {
-    console.log('zapo-js messaging bench')
+    console.log('zhuxee-assistance messaging bench')
     console.log('────────────────────────')
     console.log(`  contacts          : ${config.contacts}`)
     console.log(`  devices/contact   : ${config.contactDevices}`)

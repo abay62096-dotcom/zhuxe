@@ -1,4 +1,4 @@
-import { defineWaClientPlugin } from 'zapo-js'
+import { defineWaClientPlugin } from 'zhuxee-assistance'
 
 import { WaWamCoordinator, type WaWamCoordinatorOptions } from './WaWamCoordinator.js'
 
@@ -12,7 +12,7 @@ export interface WamPluginOptions extends WaWamCoordinatorOptions {}
  *
  * @example
  * ```ts
- * import { WaClient } from 'zapo-js'
+ * import { WaClient } from 'zhuxee-assistance'
  * import { wamPlugin } from '@zapo-js/wam'
  *
  * const client = new WaClient({

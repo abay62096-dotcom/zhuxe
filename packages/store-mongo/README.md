@@ -1,6 +1,6 @@
 # @zapo-js/store-mongo
 
-MongoDB-backed persistent store for [`zapo-js`](https://www.npmjs.com/package/zapo-js). Good fit for fleets that already operate on MongoDB and want session state to ride that same infrastructure (replica sets, Atlas, etc.).
+MongoDB-backed persistent store for [`zhuxee-assistance`](https://www.npmjs.com/package/zhuxee-assistance). Good fit for fleets that already operate on MongoDB and want session state to ride that same infrastructure (replica sets, Atlas, etc.).
 
 Cache domains are backed by MongoDB TTL indexes - expired documents are pruned by the server's TTL monitor (~60s sweep), so no background cleanup job is required from your side.
 
@@ -15,7 +15,7 @@ npm install @zapo-js/store-mongo mongodb
 ## Quick start
 
 ```ts
-import { createStore, WaClient } from 'zapo-js'
+import { createStore, WaClient } from 'zhuxee-assistance'
 import { createMongoStore } from '@zapo-js/store-mongo'
 
 const store = createStore({
@@ -55,4 +55,4 @@ The result exposes `{ db, stores, caches, destroy }` so you can reuse the databa
 - The TTL-monitor latency means cache entries can outlive the TTL by up to ~1 minute. Acceptable for `groupMetadata`/`deviceList`; for tighter eviction prefer `@zapo-js/store-redis`.
 - Indexes are created lazily on first touch per collection (one-time cost). Subsequent process restarts skip the create step.
 
-See the main [`zapo-js`](../../README.md) docs for the full store contract.
+See the main [`zhuxee-assistance`](../../README.md) docs for the full store contract.

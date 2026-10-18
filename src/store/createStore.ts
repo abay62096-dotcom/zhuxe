@@ -210,7 +210,7 @@ function resolveStore<T>(
  * ```ts
  * // Persistent setup with @zapo-js/store-sqlite (recommended for production)
  * import { createSqliteStore } from '@zapo-js/store-sqlite'
- * import { createStore } from 'zapo-js'
+ * import { createStore } from 'zhuxee-assistance'
  *
  * const store = createStore({
  *     backends: { sqlite: createSqliteStore({ path: '.auth/state.sqlite' }) },

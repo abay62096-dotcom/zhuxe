@@ -1,4 +1,4 @@
-import type { WaMessageSecretEntry, WaMessageSecretStore } from 'zapo-js/store'
+import type { WaMessageSecretEntry, WaMessageSecretStore } from 'zhuxee-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import { affectedRows, queryFirst, queryRows, toBytes } from './helpers'

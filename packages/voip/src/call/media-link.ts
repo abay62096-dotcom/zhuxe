@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises'
 
-import type { Logger } from 'zapo-js'
-import { toBytesView } from 'zapo-js/util'
+import type { Logger } from 'zhuxee-assistance'
+import { toBytesView } from 'zhuxee-assistance/util'
 
 import {
     dialableRelayEndpoints,

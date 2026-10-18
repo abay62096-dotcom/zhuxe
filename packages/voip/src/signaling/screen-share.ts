@@ -1,5 +1,5 @@
-import type { BinaryNode } from 'zapo-js/transport'
-import { tryAsNumber } from 'zapo-js/util'
+import type { BinaryNode } from 'zhuxee-assistance/transport'
+import { tryAsNumber } from 'zhuxee-assistance/util'
 
 import { callStanza } from './call-stanza.js'
 

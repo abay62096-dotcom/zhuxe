@@ -1,5 +1,5 @@
-import type { PreKeyRecord } from 'zapo-js/signal'
-import type { WaPreKeyStore } from 'zapo-js/store'
+import type { PreKeyRecord } from 'zhuxee-assistance/signal'
+import type { WaPreKeyStore } from 'zhuxee-assistance/store'
 
 import { BaseRedisStore } from './BaseRedisStore'
 import { deleteKeysChunked, safeLimit, scanKeys, toRedisBuffer } from './helpers'

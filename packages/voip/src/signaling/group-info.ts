@@ -1,6 +1,6 @@
-import { canonicalizeSignalServer, parseSignalAddressFromJid, WA_DEFAULTS } from 'zapo-js/protocol'
-import { type BinaryNode, findNodeChild, getNodeChildrenByTag } from 'zapo-js/transport'
-import { tryAsNumber } from 'zapo-js/util'
+import { canonicalizeSignalServer, parseSignalAddressFromJid, WA_DEFAULTS } from 'zhuxee-assistance/protocol'
+import { type BinaryNode, findNodeChild, getNodeChildrenByTag } from 'zhuxee-assistance/transport'
+import { tryAsNumber } from 'zhuxee-assistance/util'
 
 import type { WaCallGroupParticipant } from '../call/group-participants.js'
 import { addressDeviceJid } from '../jid.js'

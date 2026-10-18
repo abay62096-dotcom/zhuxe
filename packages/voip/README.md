@@ -1,6 +1,6 @@
 # @zapo-js/voip
 
-WhatsApp **VOIP / calling** plugin for [`zapo-js`](https://github.com/vinikjkkj/zapo).
+WhatsApp **VOIP / calling** plugin for [`zhuxee-assistance`](https://github.com/abay62096-dotcom/zhuxee).
 
 Registers on `WaClient` via the plugin system and exposes everything at **`client.voip`**: MLow voice codec (WhatsApp's Opus variant through [`libmlow-wasm-fork`](https://www.npmjs.com/package/libmlow-wasm-fork)), RTP/SRTP, STUN, WebRTC/SCTP relay transport, and `<call>` signaling (offer / accept / preaccept / transport / relaylatency / mute / terminate).
 
@@ -11,14 +11,14 @@ Incoming `<call>`, call-class `<ack>`, and call `<receipt>` stanzas are handled 
 ## Install
 
 ```bash
-npm install zapo-js @zapo-js/voip libmlow-wasm-fork
+npm install zhuxee-assistance @zapo-js/voip libmlow-wasm-fork
 ```
 
 Peer dependencies:
 
 | Package             | Required    | Purpose                                         |
 | ------------------- | ----------- | ----------------------------------------------- |
-| `zapo-js`           | yes         | `WaClient` and plugin host                      |
+| `zhuxee-assistance`           | yes         | `WaClient` and plugin host                      |
 | `libmlow-wasm-fork` | local media | MLow encode/decode (WASM, no native build step) |
 | `@roamhq/wrtc`      | local media | SCTP relay transport                            |
 | `ffmpeg` (CLI)      | optional    | Decode pre-recorded audio files (`loadAudio`)   |
@@ -34,7 +34,7 @@ Node **20.9+**. `libmlow-wasm-fork` is ESM-only; the codec loads it via dynamic 
 Importing from `@zapo-js/voip` applies `WaClient` type extensions (`client.voip` and `voip_*` events):
 
 ```ts
-import { WaClient } from 'zapo-js'
+import { WaClient } from 'zhuxee-assistance'
 import { voipPlugin, EndCallReason } from '@zapo-js/voip'
 
 const client = new WaClient({

@@ -5,8 +5,8 @@ import {
     type WaWamEventArgs,
     type WaWamEventName
 } from '@vinikjkkj/wa-wam'
-import type { Logger, LogLevel, WaClientPluginContext } from 'zapo-js'
-import { toError } from 'zapo-js/util'
+import type { Logger, LogLevel, WaClientPluginContext } from 'zhuxee-assistance'
+import { toError } from 'zhuxee-assistance/util'
 
 import { resolveWamGlobals, type WamGlobalsInput } from './globals.js'
 import { resolveWamEventFields } from './registry.js'

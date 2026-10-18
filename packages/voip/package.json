@@ -1,12 +1,12 @@
 {
     "name": "@zapo-js/voip",
     "version": "1.4.0",
-    "description": "WhatsApp VOIP (calling) plugin for zapo-js — MLow/WASM codec, SRTP, STUN and WebRTC/SCTP relay transport",
+    "description": "WhatsApp VOIP (calling) plugin for zhuxee-assistance — MLow/WASM codec, SRTP, STUN and WebRTC/SCTP relay transport",
     "license": "MIT",
     "author": "vinikjkkj <contact@vinicius.email> (https://github.com/vinikjkkj)",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/vinikjkkj/zapo.git",
+        "url": "git+https://github.com/abay62096-dotcom/zhuxee.git",
         "directory": "packages/voip"
     },
     "main": "dist/index.js",
@@ -37,7 +37,7 @@
     "peerDependencies": {
         "@roamhq/wrtc": ">=0.10.0",
         "libmlow-wasm-fork": "^0.2.0",
-        "zapo-js": "^1.0.0"
+        "zhuxee-assistance": "^1.0.0"
     },
     "peerDependenciesMeta": {
         "@roamhq/wrtc": {
@@ -50,7 +50,7 @@
     "devDependencies": {
         "@roamhq/wrtc": "^0.10.0",
         "libmlow-wasm-fork": "^0.2.0",
-        "zapo-js": "file:../.."
+        "zhuxee-assistance": "file:../.."
     },
     "engines": {
         "node": ">=20.9.0"

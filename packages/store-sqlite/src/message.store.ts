@@ -1,11 +1,11 @@
-import type { WaMessageStore as Contract, WaStoredMessageRecord } from 'zapo-js/store'
+import type { WaMessageStore as Contract, WaStoredMessageRecord } from 'zhuxee-assistance/store'
 import {
     asOptionalBytes,
     asOptionalNumber,
     asOptionalString,
     asString,
     normalizeQueryLimit
-} from 'zapo-js/util'
+} from 'zhuxee-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

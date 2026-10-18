@@ -1,5 +1,5 @@
-import type { Logger } from 'zapo-js'
-import { isBunRuntime, toSafeNumber } from 'zapo-js/util'
+import type { Logger } from 'zhuxee-assistance'
+import { isBunRuntime, toSafeNumber } from 'zhuxee-assistance/util'
 
 import {
     createSqliteTableNameSqlResolver,

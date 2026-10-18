@@ -1,5 +1,5 @@
-import { createNoopLogger } from 'zapo-js'
-import type { BinaryNode } from 'zapo-js/transport'
+import { createNoopLogger } from 'zhuxee-assistance'
+import type { BinaryNode } from 'zhuxee-assistance/transport'
 
 import type { WaCallMediaGroup, WaCallMediaRelays } from '@zapo-js/voip-media'
 

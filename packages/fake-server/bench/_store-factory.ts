@@ -2,7 +2,7 @@
  * Pluggable store factory for the fake-server bench suite. Selects a
  * backend via `ZAPO_BENCH_STORE` (memory | sqlite | postgres | mysql |
  * redis | mongo) and wires the matching `@zapo-js/store-*` package into
- * `createStore()` from `zapo-js`.
+ * `createStore()` from `zhuxee-assistance`.
  *
  * - `memory` (default): in-process bounded maps. No external dep.
  * - `sqlite`: file or `:memory:`. Driver via `ZAPO_BENCH_SQLITE_PATH`
@@ -27,7 +27,7 @@ import { unlink } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join as joinPath } from 'node:path'
 
-import { createStore, type WaCreateStoreOptions, type WaStore } from 'zapo-js'
+import { createStore, type WaCreateStoreOptions, type WaStore } from 'zhuxee-assistance'
 
 type ProvidersFor<B extends string> = Required<NonNullable<WaCreateStoreOptions<B>['providers']>>
 

@@ -2,9 +2,9 @@ import assert from 'node:assert/strict'
 import { after, before, describe, it } from 'node:test'
 
 import type { Pool } from 'mysql2/promise'
-import { toSerializedPubKey, X25519 } from 'zapo-js/crypto'
-import { WA_APP_STATE_COLLECTIONS } from 'zapo-js/protocol'
-import type { SignalAddress, SignalSessionRecord } from 'zapo-js/signal'
+import { toSerializedPubKey, X25519 } from 'zhuxee-assistance/crypto'
+import { WA_APP_STATE_COLLECTIONS } from 'zhuxee-assistance/protocol'
+import type { SignalAddress, SignalSessionRecord } from 'zhuxee-assistance/signal'
 
 import {
     createMysqlPool,

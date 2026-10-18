@@ -1,6 +1,6 @@
-import type { Logger } from 'zapo-js'
-import { isLidJid } from 'zapo-js/protocol'
-import { toError } from 'zapo-js/util'
+import type { Logger } from 'zhuxee-assistance'
+import { isLidJid } from 'zhuxee-assistance/protocol'
+import { toError } from 'zhuxee-assistance/util'
 
 import { groupParticipantAccountKey, toDeviceJid } from './jid.js'
 import type { CallOfferParticipant, WaVoipDeps } from './types.js'

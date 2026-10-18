@@ -1,7 +1,7 @@
-import { createNoopLogger, type Logger } from 'zapo-js'
-import { normalizeDeviceJid } from 'zapo-js/protocol'
-import { type BinaryNode, buildAckNode, getFirstNodeChild } from 'zapo-js/transport'
-import { toError } from 'zapo-js/util'
+import { createNoopLogger, type Logger } from 'zhuxee-assistance'
+import { normalizeDeviceJid } from 'zhuxee-assistance/protocol'
+import { type BinaryNode, buildAckNode, getFirstNodeChild } from 'zhuxee-assistance/transport'
+import { toError } from 'zhuxee-assistance/util'
 
 import type { WaCallManager } from '../call/WaCallManager.js'
 import type { WaVoipDeps } from '../types.js'

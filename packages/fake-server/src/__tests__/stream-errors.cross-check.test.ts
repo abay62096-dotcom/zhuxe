@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient } from 'zapo-js'
+import type { WaClient } from 'zhuxee-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import {

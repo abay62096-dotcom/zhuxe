@@ -1,7 +1,7 @@
-import { createNoopLogger, type Logger } from 'zapo-js'
-import { toUserJid } from 'zapo-js/protocol'
-import { type BinaryNode, buildReceiptNode } from 'zapo-js/transport'
-import { toError } from 'zapo-js/util'
+import { createNoopLogger, type Logger } from 'zhuxee-assistance'
+import { toUserJid } from 'zhuxee-assistance/protocol'
+import { type BinaryNode, buildReceiptNode } from 'zhuxee-assistance/transport'
+import { toError } from 'zhuxee-assistance/util'
 
 import type { WaVoipDeps, WaVoipStores } from '../types.js'
 

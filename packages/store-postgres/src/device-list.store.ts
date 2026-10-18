@@ -1,4 +1,4 @@
-import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zapo-js/store'
+import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zhuxee-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import { affectedRows, queryRows } from './helpers'

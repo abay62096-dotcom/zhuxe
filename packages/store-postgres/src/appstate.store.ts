@@ -7,12 +7,12 @@ import {
     keyEpoch,
     type WaAppStateStoreData,
     type WaAppStateSyncKey
-} from 'zapo-js/appstate'
+} from 'zhuxee-assistance/appstate'
 import type {
     WaAppStateCollectionStateUpdate,
     WaAppStateCollectionStoreState,
     WaAppStateStore
-} from 'zapo-js/store'
+} from 'zhuxee-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import {

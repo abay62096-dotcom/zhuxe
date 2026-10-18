@@ -1,4 +1,4 @@
-import type { BinaryNode } from 'zapo-js/transport'
+import type { BinaryNode } from 'zhuxee-assistance/transport'
 
 import { type WaVoipDeps, type WaVoipStores } from '../../types.js'
 

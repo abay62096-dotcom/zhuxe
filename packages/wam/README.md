@@ -1,6 +1,6 @@
 # @zapo-js/wam
 
-WhatsApp Web **WAM** (analytics/telemetry) plugin for [zapo-js](../../). It emits
+WhatsApp Web **WAM** (analytics/telemetry) plugin for [zhuxee-assistance](../../). It emits
 the client-side `w:stats` metrics batches WA Web sends, for **wire parity** and
 **anti-fingerprinting**.
 
@@ -16,14 +16,14 @@ produce, and by fabricating plausible ambient UI activity (on by default).
 npm install @zapo-js/wam
 ```
 
-`zapo-js` is a peer dependency. The WAM event registry
+`zhuxee-assistance` is a peer dependency. The WAM event registry
 ([`@vinikjkkj/wa-wam`](https://www.npmjs.com/package/@vinikjkkj/wa-wam)) is
 bundled.
 
 ## Usage
 
 ```ts
-import { WaClient } from 'zapo-js'
+import { WaClient } from 'zhuxee-assistance'
 import { wamPlugin } from '@zapo-js/wam'
 
 const client = new WaClient({

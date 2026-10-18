@@ -868,7 +868,7 @@ export interface WaClientConstructor {
  *
  * @example
  * ```ts
- * import { createPinoLogger, createStore, WaClient } from 'zapo-js'
+ * import { createPinoLogger, createStore, WaClient } from 'zhuxee-assistance'
  * import { createSqliteStore } from '@zapo-js/store-sqlite'
  *
  * const store = createStore({

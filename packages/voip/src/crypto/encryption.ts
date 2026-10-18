@@ -1,4 +1,4 @@
-import { hkdf } from 'zapo-js/crypto'
+import { hkdf } from 'zhuxee-assistance/crypto'
 
 import { randomBytes, type SrtpKeyingMaterial } from '@zapo-js/voip-media'
 

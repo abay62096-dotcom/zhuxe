@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import { type BinaryNode, encodeBinaryNode } from 'zapo-js/transport'
-import { bytesToHex } from 'zapo-js/util'
+import { type BinaryNode, encodeBinaryNode } from 'zhuxee-assistance/transport'
+import { bytesToHex } from 'zhuxee-assistance/util'
 
 import type { WaVoipDeps, WaVoipStores } from '../../types.js'
 import {

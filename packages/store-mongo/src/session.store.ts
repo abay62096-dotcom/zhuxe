@@ -1,13 +1,13 @@
 import type { Binary } from 'mongodb'
-import { signalAddressKey } from 'zapo-js/protocol'
+import { signalAddressKey } from 'zhuxee-assistance/protocol'
 import {
     decodeSignalSessionRecord,
     encodeSignalSessionRecord,
     type SignalAddress,
     type SignalSessionRecord,
     toSignalAddressParts
-} from 'zapo-js/signal'
-import type { WaSessionStore } from 'zapo-js/store'
+} from 'zhuxee-assistance/signal'
+import type { WaSessionStore } from 'zhuxee-assistance/store'
 
 import { BaseMongoStore } from './BaseMongoStore'
 import { fromBinary, toBinary } from './helpers'

@@ -1,4 +1,4 @@
-import type { WaClient, WaClientEventMap } from 'zapo-js'
+import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
 
 import type { FakeWaServer } from '../../api/FakeWaServer'
 import type { WaFakeConnectionPipeline } from '../../infra/WaFakeConnectionPipeline'
