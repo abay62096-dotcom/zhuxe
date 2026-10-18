@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/master/.github/assets/logo.png" />
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/master/.github/assets/logo-light.png" />
-    <img src="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/master/.github/assets/logo-light.png" alt="zapo" width="400" />
+    <img src="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/master/.github/assets/logo-light.png" alt="zhuxe" width="400" />
   </picture>
 </p>
 
@@ -12,8 +12,8 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/zapo-js"><img alt="npm version" src="https://img.shields.io/npm/v/zapo-js?color=CB3837" /></a>
-  <a href="https://www.npmjs.com/package/zapo-js"><img alt="npm package size" src="https://img.shields.io/npm/unpacked-size/zapo-js?label=package%20size&color=2F855A" /></a>
+  <a href="https://www.npmjs.com/package/zhuxe-assistance"><img alt="npm version" src="https://img.shields.io/npm/v/zhuxe-assistance?color=CB3837" /></a>
+  <a href="https://www.npmjs.com/package/zhuxe-assistance"><img alt="npm package size" src="https://img.shields.io/npm/unpacked-size/zhuxe-assistance?label=package%20size&color=2F855A" /></a>
   <a href="https://github.com/sponsors/vinikjkkj"><img alt="sponsor" src="https://img.shields.io/badge/sponsor-vinikjkkj-EA4AAA?logo=githubsponsors&logoColor=white" /></a>
   <img alt="node version" src="https://img.shields.io/badge/node-%3E%3D20.9.0-339933" />
   <img alt="language" src="https://img.shields.io/badge/language-TypeScript-3178C6" />
@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  📚 <strong>Documentation:</strong> <a href="https://zapo.to/">zapo.to</a> ·
+  📚 <strong>Documentation:</strong> <a href="https://zhuxe.to/">zhuxe.to</a> ·
   🛠 <strong>Contributing:</strong> <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> ·
   💛 <strong>Sponsor:</strong> <a href="https://github.com/sponsors/vinikjkkj">GitHub Sponsors</a>
 </p>
@@ -30,14 +30,14 @@
 
 ## Stability Notice
 
-> `zapo-js` is stable as of `1.0.0`. The public API follows SemVer:
+> `zhuxe-assistance` is stable as of `1.0.0`. The public API follows SemVer:
 > breaking changes ship only in a major release; minors add features,
 > patches fix bugs.
 
 ## Install
 
 ```bash
-npm install zapo-js
+npm install zhuxe-assistance
 ```
 
 Zero mandatory runtime dependencies. Pick the optional packages you need
@@ -46,36 +46,36 @@ voice-note metadata, and the native crypto accelerator.
 
 ```bash
 # Persistent store - choose one
-npm install @zapo-js/store-sqlite better-sqlite3
-# or @zapo-js/store-redis ioredis
-# or @zapo-js/store-postgres pg
-# or @zapo-js/store-mysql mysql2
-# or @zapo-js/store-mongo mongodb
+npm install @zhuxe-js/store-sqlite better-sqlite3
+# or @zhuxe-js/store-redis ioredis
+# or @zhuxe-js/store-postgres pg
+# or @zhuxe-js/store-mysql mysql2
+# or @zhuxe-js/store-mongo mongodb
 
 # Optional - thumbnails + waveforms + voice-note normalization
-npm install @zapo-js/media-utils sharp
+npm install @zhuxe-js/media-utils sharp
 # plus a system `ffmpeg` + `ffprobe` on PATH (see media-utils README)
 
 # Optional - Rust crypto accelerator, no code change required
-npm install @zapo-js/native
+npm install @zhuxe-js/native
 
 # Optional - structured logging
 npm install pino pino-pretty
 ```
 
-`@zapo-js/native` is picked up automatically once installed: the core
+`@zhuxe-js/native` is picked up automatically once installed: the core
 resolves it on first use and falls back to the JS implementation when it is
 absent, so nothing else changes. It accelerates the two primitives that
 dominate the messaging hot path, X25519 ECDH and XEdDSA sign / verify. The
-published build is the WASM one (`ZAPO_NATIVE_BACKEND=auto` tries the NAPI
+published build is the WASM one (`ZHUXE_NATIVE_BACKEND=auto` tries the NAPI
 addon first, then WASM); the compiled NAPI addon is not on npm yet and has
-to be built from `packages/native`. Set `ZAPO_NATIVE_BACKEND=js` to opt out.
+to be built from `packages/native`. Set `ZHUXE_NATIVE_BACKEND=js` to opt out.
 
 ## Quick Start
 
 ```ts
-import { ConsoleLogger, createStore, WaClient } from 'zapo-js'
-import { createSqliteStore } from '@zapo-js/store-sqlite'
+import { ConsoleLogger, createStore, WaClient } from 'zhuxe-assistance'
+import { createSqliteStore } from '@zhuxe-js/store-sqlite'
 
 const store = createStore({
     backends: {
@@ -119,38 +119,38 @@ That's the minimum to pair, listen for messages, and reply. For everything
 else - sending media, reactions, polls, groups, newsletters, app-state
 mutations, business profile, events catalog, store providers, the typed
 event map, and the architectural reasoning - read the guides at
-**[zapo.to](https://zapo.to/)**.
+**[zhuxe.to](https://zhuxe.to/)**.
 
 ## Packages
 
-The core lives at the repo root (`zapo-js`). Optional packages live in
-[`packages/`](packages/) and ship under the `@zapo-js/*` scope. Install
+The core lives at the repo root (`zhuxe-assistance`). Optional packages live in
+[`packages/`](packages/) and ship under the `@zhuxe-js/*` scope. Install
 only what you need.
 
 | Package                                              | Peer dependency                                                                       | Purpose                                                                                                                                          |
 | ---------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`@zapo-js/store-sqlite`](packages/store-sqlite)     | `better-sqlite3`                                                                      | SQLite persistent store (single-process bots, dev sessions, small-to-medium prod).                                                               |
-| [`@zapo-js/store-redis`](packages/store-redis)       | `ioredis`                                                                             | Redis-backed store with native TTL eviction.                                                                                                     |
-| [`@zapo-js/store-mongo`](packages/store-mongo)       | `mongodb`                                                                             | MongoDB-backed store with TTL-index eviction.                                                                                                    |
-| [`@zapo-js/store-mysql`](packages/store-mysql)       | `mysql2`                                                                              | MySQL / MariaDB-backed store with background cleanup poller.                                                                                     |
-| [`@zapo-js/store-postgres`](packages/store-postgres) | `pg`                                                                                  | PostgreSQL-backed store with background cleanup poller.                                                                                          |
-| [`@zapo-js/media-utils`](packages/media-utils)       | `sharp` + `file-type` + `ffmpeg`                                                      | `WaMediaProcessor`: thumbnails, waveforms, voice-note normalization.                                                                             |
-| [`@zapo-js/native`](packages/native)                 | (none)                                                                                | Rust crypto accelerator for the messaging hot path (X25519 ECDH, XEdDSA sign / verify). Auto-detected once installed; ships as a WASM build.     |
-| [`@zapo-js/voip`](packages/voip)                     | `@roamhq/wrtc` + `libmlow-wasm-fork`                                                  | `client.voip` plugin for calls: MLow/WASM codec, SRTP, STUN, WebRTC/SCTP relay transport.                                                        |
-| [`@zapo-js/voip-media`](packages/voip-media)         | `libmlow-wasm-fork` (optional, to carry media) + `@roamhq/wrtc` (optional, Node host) | Call media plane with no Node or `zapo-js` dependency, so it runs in the browser: relay transport, STUN, SRTP, RTP/RTCP, MLow codec.             |
-| [`@zapo-js/wam`](packages/wam)                       | (none)                                                                                | `client.wam` plugin emitting the client-side WAM telemetry batches WA Web sends, for wire parity and anti-fingerprinting.                        |
-| [`@zapo-js/fake-server`](packages/fake-server)       | (none)                                                                                | In-process fake WhatsApp Web server for end-to-end testing.                                                                                      |
-| [`@zapo-js/mcp-server`](packages/mcp-server)         | `@modelcontextprotocol/sdk`                                                           | **Dev-only.** MCP server exposing multi-session `WaClient`s as dynamic tools for an LLM agent (Claude Code / Cursor / etc.). Not for production. |
+| [`@zhuxe-js/store-sqlite`](packages/store-sqlite)     | `better-sqlite3`                                                                      | SQLite persistent store (single-process bots, dev sessions, small-to-medium prod).                                                               |
+| [`@zhuxe-js/store-redis`](packages/store-redis)       | `ioredis`                                                                             | Redis-backed store with native TTL eviction.                                                                                                     |
+| [`@zhuxe-js/store-mongo`](packages/store-mongo)       | `mongodb`                                                                             | MongoDB-backed store with TTL-index eviction.                                                                                                    |
+| [`@zhuxe-js/store-mysql`](packages/store-mysql)       | `mysql2`                                                                              | MySQL / MariaDB-backed store with background cleanup poller.                                                                                     |
+| [`@zhuxe-js/store-postgres`](packages/store-postgres) | `pg`                                                                                  | PostgreSQL-backed store with background cleanup poller.                                                                                          |
+| [`@zhuxe-js/media-utils`](packages/media-utils)       | `sharp` + `file-type` + `ffmpeg`                                                      | `WaMediaProcessor`: thumbnails, waveforms, voice-note normalization.                                                                             |
+| [`@zhuxe-js/native`](packages/native)                 | (none)                                                                                | Rust crypto accelerator for the messaging hot path (X25519 ECDH, XEdDSA sign / verify). Auto-detected once installed; ships as a WASM build.     |
+| [`@zhuxe-js/voip`](packages/voip)                     | `@roamhq/wrtc` + `libmlow-wasm-fork`                                                  | `client.voip` plugin for calls: MLow/WASM codec, SRTP, STUN, WebRTC/SCTP relay transport.                                                        |
+| [`@zhuxe-js/voip-media`](packages/voip-media)         | `libmlow-wasm-fork` (optional, to carry media) + `@roamhq/wrtc` (optional, Node host) | Call media plane with no Node or `zhuxe-assistance` dependency, so it runs in the browser: relay transport, STUN, SRTP, RTP/RTCP, MLow codec.             |
+| [`@zhuxe-js/wam`](packages/wam)                       | (none)                                                                                | `client.wam` plugin emitting the client-side WAM telemetry batches WA Web sends, for wire parity and anti-fingerprinting.                        |
+| [`@zhuxe-js/fake-server`](packages/fake-server)       | (none)                                                                                | In-process fake WhatsApp Web server for end-to-end testing.                                                                                      |
+| [`@zhuxe-js/mcp-server`](packages/mcp-server)         | `@modelcontextprotocol/sdk`                                                           | **Dev-only.** MCP server exposing multi-session `WaClient`s as dynamic tools for an LLM agent (Claude Code / Cursor / etc.). Not for production. |
 
 Each package's README has the install + config + integration notes.
 
 ## Documentation
 
-- **[zapo.to](https://zapo.to/)** - guides, full API reference, examples,
-  protocol notes ([llms.txt](https://zapo.to/llms.txt) index or
-  [llms-full.txt](https://zapo.to/llms-full.txt) for LLM context)
+- **[zhuxe.to](https://zhuxe.to/)** - guides, full API reference, examples,
+  protocol notes ([llms.txt](https://zhuxe.to/llms.txt) index or
+  [llms-full.txt](https://zhuxe.to/llms-full.txt) for LLM context)
 - **[`abay62096-dotcom/zhuxe-docs`](https://github.com/abay62096-dotcom/zhuxe-docs)** -
-  source of zapo.to (open issues/PRs there for doc fixes)
+  source of zhuxe.to (open issues/PRs there for doc fixes)
 - **Per-package READMEs** under [`packages/`](packages/) - one per
   optional package
 - **[`AGENTS.md`](AGENTS.md)** - architecture spec + coding rules
@@ -180,7 +180,7 @@ disclosure timeline are documented in [`SECURITY.md`](SECURITY.md).
 
 ## Support the Project
 
-If `zapo` is useful in your production or study setup, you can support
+If `zhuxe` is useful in your production or study setup, you can support
 ongoing development on GitHub Sponsors:
 [github.com/sponsors/vinikjkkj](https://github.com/sponsors/vinikjkkj).
 
@@ -193,6 +193,6 @@ WhatsApp.
 ---
 
 ## Credits & Acknowledgments
-This project is a rebranded/forked version of the original **[zapo](https://github.com/vinikjkkj/zapo)** created by **[vinikjkkj](https://github.com/vinikjkkj)**. 
+This project is a rebranded/forked version of the original **[zhuxe](https://github.com/vinikjkkj/zhuxe)** created by **[vinikjkkj](https://github.com/vinikjkkj)**. 
 We are deeply grateful for their incredible work on the original WhatsApp Web protocol implementation. 
 The original code is licensed under the MIT License.
