@@ -1,5 +1,5 @@
 use napi::bindgen_prelude::{Error, Status};
-use zapo_native_core::CoreError;
+use zhuxe_native_core::CoreError;
 
 pub mod x25519;
 pub mod xeddsa;

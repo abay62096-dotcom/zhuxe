@@ -1,5 +1,5 @@
-import type { WaRetryOutboundMessageRecord, WaRetryOutboundState } from 'zhuxee-assistance/retry'
-import type { WaRetryStore } from 'zhuxee-assistance/store'
+import type { WaRetryOutboundMessageRecord, WaRetryOutboundState } from 'zhuxe-assistance/retry'
+import type { WaRetryStore } from 'zhuxe-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import { affectedRows, queryFirst, toBytes } from './helpers'

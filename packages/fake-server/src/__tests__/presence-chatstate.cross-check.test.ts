@@ -5,11 +5,11 @@ import { FakeWaServer } from '../api/FakeWaServer'
 import { buildChatstate } from '../protocol/push/chatstate'
 import { buildIncomingPresence } from '../protocol/push/presence'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('fake server pushes presence stanzas and the lib emits enriched presence events', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'presence-stanza' })
+    const { client } = createZhuxeClient(server, { sessionId: 'presence-stanza' })
     const peerJid = '5511777777777@s.whatsapp.net'
     const groupJid = '120363000000000000@g.us'
 
@@ -79,7 +79,7 @@ test('fake server pushes presence stanzas and the lib emits enriched presence ev
 
 test('fake server pushes chatstate stanzas and the lib emits enriched chatstate events', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'chatstate-stanza' })
+    const { client } = createZhuxeClient(server, { sessionId: 'chatstate-stanza' })
     const peerJid = '5511777777777@s.whatsapp.net'
 
     const events: {
@@ -132,7 +132,7 @@ test('fake server pushes chatstate stanzas and the lib emits enriched chatstate 
 
 test('the lib sends presence subscribe and chatstate stanzas the server captures', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'chatstate-out' })
+    const { client } = createZhuxeClient(server, { sessionId: 'chatstate-out' })
     const peerJid = '5511777777777@s.whatsapp.net'
 
     try {

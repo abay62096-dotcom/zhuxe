@@ -1,5 +1,5 @@
 {
-    "name": "zapo-protogen",
+    "name": "zhuxe-protogen",
     "private": true,
     "scripts": {
         "generate": "node ./scripts/generate-proto.cjs"

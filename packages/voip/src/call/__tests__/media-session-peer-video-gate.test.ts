@@ -1,15 +1,15 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import { createNoopLogger, type Logger } from 'zhuxee-assistance'
-import type { BinaryNode } from 'zhuxee-assistance/transport'
+import { createNoopLogger, type Logger } from 'zhuxe-assistance'
+import type { BinaryNode } from 'zhuxe-assistance/transport'
 
 import {
     type WaCallMediaMessage,
     WaCallMediaPlane,
     type WaCallMediaPlanUpdate
-} from '@zapo-js/voip-media'
-import { nodeMediaHost } from '@zapo-js/voip-media/node'
+} from '@zhuxe-js/voip-media'
+import { nodeMediaHost } from '@zhuxe-js/voip-media/node'
 
 import { readUInt32BE } from '../../bytes.js'
 import { WA_VIDEO_STATE, WA_VIDEO_UPGRADE_RESULT } from '../../signaling/video-state.js'

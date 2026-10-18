@@ -6,13 +6,13 @@ import { join } from 'node:path'
 import { Readable } from 'node:stream'
 import { pipeline } from 'node:stream/promises'
 
-import type { Logger } from 'zhuxee-assistance'
+import type { Logger } from 'zhuxe-assistance'
 import type {
     WaMediaProcessorImageResult,
     WaMediaProcessorInput,
     WaMediaProcessorProbeResult,
     WaMediaProcessorWaveformResult
-} from 'zhuxee-assistance/media'
+} from 'zhuxe-assistance/media'
 
 import { generateImageThumbnail } from './sharp'
 
@@ -128,7 +128,7 @@ export async function probeWithFfmpeg(
 }
 
 async function inputToTempFile(input: Uint8Array | Readable): Promise<string> {
-    const path = join(tmpdir(), `zapo-tmp-${Date.now()}-${Math.random().toString(36).slice(2)}`)
+    const path = join(tmpdir(), `zhuxe-tmp-${Date.now()}-${Math.random().toString(36).slice(2)}`)
     let output: ReturnType<typeof createWriteStream> | undefined
     try {
         if (input instanceof Uint8Array) {

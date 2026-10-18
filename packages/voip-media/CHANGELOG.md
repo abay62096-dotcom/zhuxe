@@ -1,4 +1,4 @@
-# @zapo-js/voip-media
+# @zhuxe-js/voip-media
 
 ## 0.3.0
 

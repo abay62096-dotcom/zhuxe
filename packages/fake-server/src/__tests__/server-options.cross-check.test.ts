@@ -1,12 +1,12 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import type { BinaryNode } from '../transport/codec'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('successNodeAttributes reach the client success node and onPipeline fans out', async () => {
     const server = await FakeWaServer.start({
@@ -24,7 +24,7 @@ test('successNodeAttributes reach the client success node and onPipeline fans ou
         pipelineHits.push('second')
     })
 
-    const { client } = createZapoClient(server, { sessionId: 'server-options' })
+    const { client } = createZhuxeClient(server, { sessionId: 'server-options' })
     const successNodePromise = new Promise<BinaryNode>((resolve, reject) => {
         const timer = setTimeout(() => reject(new Error('success node timeout')), 15_000)
         client.once(

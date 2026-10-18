@@ -3,8 +3,8 @@ import {
     getNodeChildren,
     getNodeChildrenByTag,
     getNodeTextContent
-} from 'zhuxee-assistance/transport'
-import { bytesToBase64 } from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance/transport'
+import { bytesToBase64 } from 'zhuxe-assistance/util'
 
 import type { RelayData, RelayEndpoint } from '../types.js'
 

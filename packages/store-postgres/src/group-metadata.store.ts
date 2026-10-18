@@ -1,4 +1,4 @@
-import type { WaGroupMetadataSnapshot, WaGroupMetadataStore } from 'zhuxee-assistance/store'
+import type { WaGroupMetadataSnapshot, WaGroupMetadataStore } from 'zhuxe-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import { affectedRows, queryFirst } from './helpers'

@@ -1,4 +1,4 @@
-import { setBoundedMapEntry } from 'zhuxee-assistance/util'
+import { setBoundedMapEntry } from 'zhuxe-assistance/util'
 
 /** How long a terminate that found no call waits for its offer, and how many are kept. */
 const TERMINATED_BEFORE_OFFER_TTL_MS = 30_000

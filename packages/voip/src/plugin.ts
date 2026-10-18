@@ -1,4 +1,4 @@
-import { defineWaClientPlugin } from 'zhuxee-assistance'
+import { defineWaClientPlugin } from 'zhuxe-assistance'
 
 import type { VoipEvents } from './events.js'
 import { WaVoipCoordinator, type WaVoipCoordinatorOptions } from './WaVoipCoordinator.js'
@@ -10,8 +10,8 @@ export interface VoipPluginOptions extends WaVoipCoordinatorOptions {}
  *
  * @example
  * ```ts
- * import { WaClient } from 'zhuxee-assistance'
- * import { voipPlugin } from '@zapo-js/voip'
+ * import { WaClient } from 'zhuxe-assistance'
+ * import { voipPlugin } from '@zhuxe-js/voip'
  *
  * const client = new WaClient({
  *   store,
@@ -26,7 +26,7 @@ export interface VoipPluginOptions extends WaVoipCoordinatorOptions {}
  */
 export function voipPlugin(options: VoipPluginOptions = {}) {
     return defineWaClientPlugin<'voip', WaVoipCoordinator, VoipEvents>({
-        id: '@zapo-js/voip',
+        id: '@zhuxe-js/voip',
         exposeAs: 'voip',
         setup(ctx) {
             return new WaVoipCoordinator(ctx, options)

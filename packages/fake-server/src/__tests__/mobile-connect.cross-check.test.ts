@@ -3,11 +3,11 @@ import test from 'node:test'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoMobileClient } from './helpers/zapo-mobile-client'
+import { createZhuxeMobileClient } from './helpers/zhuxe-mobile-client'
 
 test('mobile client completes the noise handshake over the raw tcp listener', async () => {
     const server = await FakeWaServer.start({ tcp: true })
-    const { client, primary } = await createZapoMobileClient(server, {
+    const { client, primary } = await createZhuxeMobileClient(server, {
         sessionId: 'mobile-connect',
         phoneNumber: '5511988887777'
     })

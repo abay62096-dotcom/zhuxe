@@ -9,7 +9,7 @@ import {
     WaMessageMemoryStore,
     WaPrivacyTokenMemoryStore,
     WaThreadMemoryStore
-} from 'zhuxee-assistance/store'
+} from 'zhuxe-assistance/store'
 
 import { WaContactSqliteStore } from '../contact.store'
 import { WaMessageSqliteStore } from '../message.store'
@@ -25,7 +25,7 @@ interface Destroyable {
 test('message store contract parity between memory and sqlite providers', async () => {
     await runMessageStoreContract(async () => new WaMessageMemoryStore({ maxMessages: 10 }))
 
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-message-contract-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-message-contract-'))
     try {
         await runMessageStoreContract(
             async () =>
@@ -44,7 +44,7 @@ test('thread/contact contract parity between memory and sqlite providers', async
     await runThreadStoreContract(async () => new WaThreadMemoryStore({ maxThreads: 10 }))
     await runContactStoreContract(async () => new WaContactMemoryStore({ maxContacts: 10 }))
 
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-mailbox-contract-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-mailbox-contract-'))
     try {
         await runThreadStoreContract(
             async () =>
@@ -70,7 +70,7 @@ test('thread/contact contract parity between memory and sqlite providers', async
 test('privacy token store contract parity between memory and sqlite providers', async () => {
     await runPrivacyTokenStoreContract(async () => new WaPrivacyTokenMemoryStore(10))
 
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-privacy-token-contract-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-privacy-token-contract-'))
     try {
         await runPrivacyTokenStoreContract(
             async () =>

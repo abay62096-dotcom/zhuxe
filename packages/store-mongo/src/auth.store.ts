@@ -1,7 +1,7 @@
 import type { Binary } from 'mongodb'
-import type { WaAuthCredentials } from 'zhuxee-assistance/auth'
-import { proto } from 'zhuxee-assistance/proto'
-import type { WaAuthStore } from 'zhuxee-assistance/store'
+import type { WaAuthCredentials } from 'zhuxe-assistance/auth'
+import { proto } from 'zhuxe-assistance/proto'
+import type { WaAuthStore } from 'zhuxe-assistance/store'
 
 import { BaseMongoStore } from './BaseMongoStore'
 import { fromBinary, fromBinaryOrNull, toBinary } from './helpers'

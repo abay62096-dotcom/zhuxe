@@ -1,6 +1,6 @@
 # Security Policy
 
-`zhuxee-assistance` implements end-to-end-encrypted messaging primitives (Signal
+`zhuxe-assistance` implements end-to-end-encrypted messaging primitives (Signal
 Protocol, Noise XX/IK handshakes, app-state MACs, media encryption). The
 threat model is non-trivial, so we treat security reports differently
 from regular bugs.
@@ -22,7 +22,7 @@ published minor of the current major.
 channels below so the issue can be triaged and patched before disclosure.
 
 - **Preferred:** GitHub Security Advisories – click
-  [_Report a vulnerability_](https://github.com/abay62096-dotcom/zhuxee/security/advisories/new)
+  [_Report a vulnerability_](https://github.com/abay62096-dotcom/zhuxe/security/advisories/new)
   on the repo. GitHub will route the report to the maintainer privately,
   with a built-in coordination flow and optional CVE assignment.
 - **Email:** `contact@vinicius.email` if you prefer email over GitHub.
@@ -34,7 +34,7 @@ A fix or mitigation timeline follows from there based on severity.
 
 Include in your report:
 
-- Affected version (`zhuxee-assistance` and any `@zapo-js/*` packages involved)
+- Affected version (`zhuxe-assistance` and any `@zhuxe-js/*` packages involved)
 - A minimal reproducer (PoC code, sequence of calls, expected vs actual
   behavior)
 - Impact assessment from your perspective (what does this let an
@@ -76,7 +76,7 @@ Include in your report:
 - Divergences from WhatsApp Web behavior that don't compromise crypto
   (e.g. wrong stanza attribute order, missing parsing of a notification).
 - Parsing bugs that produce wrong-but-non-sensitive output.
-- Issues in optional packages (`@zapo-js/store-*`, `@zapo-js/media-utils`)
+- Issues in optional packages (`@zhuxe-js/store-*`, `@zhuxe-js/media-utils`)
   that don't touch credential storage or encryption keys.
 - Vulnerabilities in `wa-web/` or `wa-mob/` bundles themselves – those
   belong upstream with Meta.
@@ -106,7 +106,7 @@ will coordinate the extension with you before the deadline.
   project; there is no budget for that. Acknowledgement in the
   advisory and CVE credit is the recognition path.
 - We will not act on raw scanner output (Snyk, Dependabot, generic SAST
-  reports) without a concrete proof-of-concept tied to `zapo` code.
+  reports) without a concrete proof-of-concept tied to `zhuxe` code.
   Most scanner findings on a TypeScript library are noise; if it is
   real, please demonstrate it.
 - We will not respond to extortion attempts ("pay me or I publish") –

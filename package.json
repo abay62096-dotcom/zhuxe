@@ -10,7 +10,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/abay62096-dotcom/zhuxee.git"
+        "url": "git+https://github.com/abay62096-dotcom/zhuxe.git"
     },
     "packageManager": "npm@10.0.0",
     "main": "dist/index.js",

@@ -1,13 +1,13 @@
 import type { Binary } from 'mongodb'
-import { signalAddressKey } from 'zhuxee-assistance/protocol'
+import { signalAddressKey } from 'zhuxe-assistance/protocol'
 import {
     decodeSignalSessionRecord,
     encodeSignalSessionRecord,
     type SignalAddress,
     type SignalSessionRecord,
     toSignalAddressParts
-} from 'zhuxee-assistance/signal'
-import type { WaSessionStore } from 'zhuxee-assistance/store'
+} from 'zhuxe-assistance/signal'
+import type { WaSessionStore } from 'zhuxe-assistance/store'
 
 import { BaseMongoStore } from './BaseMongoStore'
 import { fromBinary, toBinary } from './helpers'

@@ -1,6 +1,6 @@
-# @zapo-js/fake-server
+# @zhuxe-js/fake-server
 
-In-process fake WhatsApp server that drives the real `zhuxee-assistance` `WaClient` end-to-end - full Noise XX/IK handshake, QR pairing, Signal Protocol (X3DH + Double Ratchet), SenderKey for groups, media upload/download over self-signed HTTPS, app-state sync - all without touching WhatsApp servers.
+In-process fake WhatsApp server that drives the real `zhuxe-assistance` `WaClient` end-to-end - full Noise XX/IK handshake, QR pairing, Signal Protocol (X3DH + Double Ratchet), SenderKey for groups, media upload/download over self-signed HTTPS, app-state sync - all without touching WhatsApp servers.
 
 It serves both transports: companions over WebSocket, and phones over the
 mobile TCP transport, including the companion-hosting side of a primary
@@ -9,16 +9,16 @@ mobile TCP transport, including the companion-hosting side of a primary
 ## Install
 
 ```bash
-npm i -D @zapo-js/fake-server zhuxee-assistance
+npm i -D @zhuxe-js/fake-server zhuxe-assistance
 ```
 
-`zhuxee-assistance` is a peer dependency - the fake server reuses the core's binary codec, crypto, and protos. Everything below works from any project; nothing requires this monorepo.
+`zhuxe-assistance` is a peer dependency - the fake server reuses the core's binary codec, crypto, and protos. Everything below works from any project; nothing requires this monorepo.
 
 ## Quick start
 
 ```ts
-import { FakeWaServer } from '@zapo-js/fake-server'
-import { createStore, WaClient } from 'zhuxee-assistance'
+import { FakeWaServer } from '@zhuxe-js/fake-server'
+import { createStore, WaClient } from 'zhuxe-assistance'
 
 const server = await FakeWaServer.start()
 const client = new WaClient({
@@ -64,9 +64,9 @@ src/
 ├── state/                   # State stores
 │   ├── fake-media-store.ts  # In-memory media blob store
 │   └── fake-app-state-collection.ts  # App-state patch/snapshot provider
-├── transport/               # Re-exports from zhuxee-assistance (codec, crypto, protos)
+├── transport/               # Re-exports from zhuxe-assistance (codec, crypto, protos)
 └── __tests__/               # Cross-check test suite
-    └── helpers/             # Shared test utilities (zapo-client factory)
+    └── helpers/             # Shared test utilities (zhuxe-client factory)
 
 bench/
 ├── messaging.bench.ts       # 4-scenario messaging profiler (send/recv × 1:1/group)
@@ -237,7 +237,7 @@ Every outbound IQ the lib sends during normal operation is handled:
 | `newsletter` get `<my_addons>`                                                   | `newsletter-my-addons`        | Ack                                       |
 | `urn:xmpp:whatsapp:dirty` set                                                    | `dirty-bits-clear`            | Captures cleared bits                     |
 
-## Using with non-zapo-js clients
+## Using with non-zhuxe-js clients
 
 The fake server speaks the real wire protocol, so other WhatsApp Web libraries (Baileys forks, whatsmeow, ...) can connect to it too. The recipe:
 
@@ -251,14 +251,14 @@ The fake server speaks the real wire protocol, so other WhatsApp Web libraries (
 
 ```bash
 # Default: 1000 contacts × 2 devices, 4 groups × 500 members, 1000 msgs/scenario
-npm --workspace=@zapo-js/fake-server run bench:messaging
+npm --workspace=@zhuxe-js/fake-server run bench:messaging
 
 # With CPU + heap profiling (separate process for clean lib-only profiles)
 node --expose-gc --import tsx packages/fake-server/bench/messaging.bench.ts \
   --separate-process --cpu --per-scenario --heap --out-dir=./profiles
 
 # Focused on a single scenario
-ZAPO_BENCH_SCENARIOS=send_group ZAPO_BENCH_MESSAGES=2000 \
+ZHUXE_BENCH_SCENARIOS=send_group ZHUXE_BENCH_MESSAGES=2000 \
 node --expose-gc --import tsx packages/fake-server/bench/messaging.bench.ts --cpu
 ```
 
@@ -278,14 +278,14 @@ node --expose-gc --import tsx packages/fake-server/bench/messaging.bench.ts --cp
 
 | Var                          | Default | Description                                                  |
 | ---------------------------- | ------- | ------------------------------------------------------------ |
-| `ZAPO_BENCH_CONTACTS`        | 1000    | Number of contacts                                           |
-| `ZAPO_BENCH_CONTACT_DEVICES` | 2       | Devices per contact                                          |
-| `ZAPO_BENCH_GROUPS`          | 4       | Number of groups                                             |
-| `ZAPO_BENCH_GROUP_MEMBERS`   | 500     | Members per group                                            |
-| `ZAPO_BENCH_MESSAGES`        | 1000    | Messages per scenario                                        |
-| `ZAPO_BENCH_SCENARIOS`       | all     | CSV of: `send_1to1`, `recv_1to1`, `send_group`, `recv_group` |
-| `ZAPO_BENCH_JSON`            | 0       | Set to `1` to print JSON results                             |
-| `ZAPO_BENCH_VERBOSE`         | 0       | Set to `1` to forward lib warns/errors                       |
+| `ZHUXE_BENCH_CONTACTS`        | 1000    | Number of contacts                                           |
+| `ZHUXE_BENCH_CONTACT_DEVICES` | 2       | Devices per contact                                          |
+| `ZHUXE_BENCH_GROUPS`          | 4       | Number of groups                                             |
+| `ZHUXE_BENCH_GROUP_MEMBERS`   | 500     | Members per group                                            |
+| `ZHUXE_BENCH_MESSAGES`        | 1000    | Messages per scenario                                        |
+| `ZHUXE_BENCH_SCENARIOS`       | all     | CSV of: `send_1to1`, `recv_1to1`, `send_group`, `recv_group` |
+| `ZHUXE_BENCH_JSON`            | 0       | Set to `1` to print JSON results                             |
+| `ZHUXE_BENCH_VERBOSE`         | 0       | Set to `1` to forward lib warns/errors                       |
 
 ## CLI
 
@@ -293,7 +293,7 @@ The package ships a `fake-wa-server` bin, so the standalone server works from an
 
 ```bash
 # One-off via npx
-npx @zapo-js/fake-server --port 5222 --peer 5511888@s.whatsapp.net --log
+npx @zhuxe-js/fake-server --port 5222 --peer 5511888@s.whatsapp.net --log
 
 # Installed as a dev dependency
 npx fake-wa-server --port 5222 --peer 5511888@s.whatsapp.net --log
@@ -308,7 +308,7 @@ npx fake-wa-server --json
 From inside this monorepo (runs the source, no build needed):
 
 ```bash
-npm --workspace=@zapo-js/fake-server run cli -- --port 5222 --peer 5511888@s.whatsapp.net --log
+npm --workspace=@zhuxe-js/fake-server run cli -- --port 5222 --peer 5511888@s.whatsapp.net --log
 ```
 
 Run with `--help` for the full flag list.
@@ -316,7 +316,7 @@ Run with `--help` for the full flag list.
 ## Test suite
 
 ```bash
-npm --workspace=@zapo-js/fake-server test
+npm --workspace=@zhuxe-js/fake-server test
 # 164 tests, --test-concurrency=1
 ```
 

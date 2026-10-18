@@ -1,12 +1,12 @@
 [package]
-name = "zapo-native-core"
+name = "zhuxe-native-core"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
-description = "Shared curve25519 crypto core for zhuxee-assistance native accelerators (X25519 + XEdDSA)"
+description = "Shared curve25519 crypto core for zhuxe-assistance native accelerators (X25519 + XEdDSA)"
 
 [lib]
-name = "zapo_native_core"
+name = "zhuxe_native_core"
 
 [dependencies]
 curve25519-dalek = { version = "4", default-features = false, features = ["alloc", "precomputed-tables", "zeroize"] }

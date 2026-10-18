@@ -1,13 +1,13 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
 import { waitForCompanionPipeline } from './helpers/companion-pipeline'
-import { createZapoClient } from './helpers/zapo-client'
-import { createZapoMobileClient } from './helpers/zapo-mobile-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
+import { createZhuxeMobileClient } from './helpers/zhuxe-mobile-client'
 
 const PHONE = '5511970002222'
 
@@ -92,11 +92,11 @@ async function linkByCodeWhenReady(
 
 test('link-code pairing runs end to end between two real clients', async () => {
     const server = await FakeWaServer.start({ tcp: true })
-    const { client: primary } = await createZapoMobileClient(server, {
+    const { client: primary } = await createZhuxeMobileClient(server, {
         sessionId: 'link-code-primary',
         phoneNumber: PHONE
     })
-    const { client: companion } = createZapoClient(server, {
+    const { client: companion } = createZhuxeClient(server, {
         sessionId: 'link-code-companion'
     })
 
@@ -138,7 +138,7 @@ test('link-code pairing runs end to end between two real clients', async () => {
 
 test('pairing code request is rejected when the primary is offline', async () => {
     const server = await FakeWaServer.start({ tcp: true })
-    const { client: companion } = createZapoClient(server, {
+    const { client: companion } = createZhuxeClient(server, {
         sessionId: 'link-code-no-primary'
     })
 
@@ -158,16 +158,16 @@ test('pairing code request is rejected when the primary is offline', async () =>
 
 test('a second account logging into the same session gets no companion-host wiring', async () => {
     const server = await FakeWaServer.start({ tcp: true })
-    const { client: owner } = await createZapoMobileClient(server, {
+    const { client: owner } = await createZhuxeMobileClient(server, {
         sessionId: 'link-code-owner',
         phoneNumber: PHONE
     })
     const intruderPhone = '5511970004444'
-    const { client: intruder } = await createZapoMobileClient(server, {
+    const { client: intruder } = await createZhuxeMobileClient(server, {
         sessionId: 'link-code-intruder',
         phoneNumber: intruderPhone
     })
-    const { client: companion } = createZapoClient(server, {
+    const { client: companion } = createZhuxeClient(server, {
         sessionId: 'link-code-intruder-companion'
     })
 

@@ -4,16 +4,16 @@ import assert from 'node:assert/strict'
 import { randomBytes } from 'node:crypto'
 import test from 'node:test'
 
-import type { WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import { FakeAppStateCollection } from '../state/fake-app-state-collection'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('client.chat.setChatMute uploads an encrypted patch the fake server decrypts', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'app-state-outgoing' })
+    const { client } = createZhuxeClient(server, { sessionId: 'app-state-outgoing' })
 
     const targetChatJid = '5511777777777@s.whatsapp.net'
     const placeholderChatJid = '5511555555555@s.whatsapp.net'

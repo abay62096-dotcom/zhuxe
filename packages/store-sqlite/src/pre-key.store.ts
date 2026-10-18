@@ -3,9 +3,9 @@ import {
     type PreKeyRecord,
     type SignalMetaRow,
     type SignalPreKeyRow
-} from 'zhuxee-assistance/signal'
-import type { WaPreKeyStore as WaPreKeyStoreContract } from 'zhuxee-assistance/store'
-import { asNumber, resolvePositive, toBoolOrUndef } from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance/signal'
+import type { WaPreKeyStore as WaPreKeyStoreContract } from 'zhuxe-assistance/store'
+import { asNumber, resolvePositive, toBoolOrUndef } from 'zhuxe-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

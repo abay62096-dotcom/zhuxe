@@ -3,7 +3,7 @@ import test from 'node:test'
 import { FakeWaServer } from '../api/FakeWaServer'
 import type { BinaryNode } from '../transport/codec'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function summarizeStanza(node: BinaryNode): string {
     const tag = node.tag
@@ -19,7 +19,7 @@ function summarizeStanza(node: BinaryNode): string {
 
 test('capture: stanzas the client sends in the first 5s after success', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'capture' })
+    const { client } = createZhuxeClient(server, { sessionId: 'capture' })
 
     const events: string[] = []
     client.on('connection', (event) => {

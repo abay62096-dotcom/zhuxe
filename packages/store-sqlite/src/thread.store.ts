@@ -1,11 +1,11 @@
-import type { WaThreadStore as Contract, WaStoredThreadRecord } from 'zhuxee-assistance/store'
+import type { WaThreadStore as Contract, WaStoredThreadRecord } from 'zhuxe-assistance/store'
 import {
     asOptionalNumber,
     asOptionalString,
     asString,
     normalizeQueryLimit,
     toBoolOrUndef
-} from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

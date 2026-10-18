@@ -1,7 +1,7 @@
 import { performance } from 'node:perf_hooks'
 
-import { createNoopLogger, type Logger } from 'zhuxee-assistance'
-import { toError } from 'zhuxee-assistance/util'
+import { createNoopLogger, type Logger } from 'zhuxe-assistance'
+import { toError } from 'zhuxe-assistance/util'
 
 import { type AudioSender, DEFAULT_AUDIO_CONFIG, type WaAudioEngineConfig } from '../types.js'
 

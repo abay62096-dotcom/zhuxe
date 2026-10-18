@@ -4,7 +4,7 @@
  * groups on demand. Used by every messaging-flavored bench.
  */
 
-import { WaClient, type WaClientEventMap } from 'zhuxee-assistance'
+import { WaClient, type WaClientEventMap } from 'zhuxe-assistance'
 
 import { type FakePeer } from '../src/api/FakePeer'
 import { FakeWaServer, type WaFakeConnectionPipeline } from '../src/api/FakeWaServer'
@@ -39,7 +39,7 @@ export async function bringUpPairedClient(
     const client = new WaClient(
         {
             store: storeFixture.store,
-            sessionId: options.sessionId ?? 'zapo-bench',
+            sessionId: options.sessionId ?? 'zhuxe-bench',
             chatSocketUrls: [server.url],
             connectTimeoutMs: 60_000,
             history: options.historyEnabled ? { enabled: true } : undefined,
@@ -134,7 +134,7 @@ export async function bringUpPairedClientViaRpc(
     const client = new WaClient(
         {
             store: storeFixture.store,
-            sessionId: options.sessionId ?? 'zapo-bench-separate',
+            sessionId: options.sessionId ?? 'zhuxe-bench-separate',
             chatSocketUrls: [rpc.serverUrl],
             connectTimeoutMs: 60_000,
             history: options.historyEnabled ? { enabled: true } : undefined,

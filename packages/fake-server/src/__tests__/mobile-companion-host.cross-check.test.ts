@@ -1,23 +1,23 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
 import { linkCompanionViaQr, waitForCompanionPipeline } from './helpers/companion-pipeline'
-import { createZapoClient } from './helpers/zapo-client'
-import { createZapoMobileClient } from './helpers/zapo-mobile-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
+import { createZhuxeMobileClient } from './helpers/zhuxe-mobile-client'
 
 const PHONE = '5511970001111'
 
 test('mobile primary links a real companion client end to end', async () => {
     const server = await FakeWaServer.start({ tcp: true })
-    const { client: primary } = await createZapoMobileClient(server, {
+    const { client: primary } = await createZhuxeMobileClient(server, {
         sessionId: 'companion-host-primary',
         phoneNumber: PHONE
     })
-    const { client: companion } = createZapoClient(server, {
+    const { client: companion } = createZhuxeClient(server, {
         sessionId: 'companion-host-companion'
     })
 
@@ -84,11 +84,11 @@ test('mobile primary links a real companion client end to end', async () => {
 
 test('primary revoking a companion is not read as its own logout', async () => {
     const server = await FakeWaServer.start({ tcp: true })
-    const { client: primary } = await createZapoMobileClient(server, {
+    const { client: primary } = await createZhuxeMobileClient(server, {
         sessionId: 'companion-host-revoke-primary',
         phoneNumber: PHONE
     })
-    const { client: companion } = createZapoClient(server, {
+    const { client: companion } = createZhuxeClient(server, {
         sessionId: 'companion-host-revoke-companion'
     })
 
@@ -120,7 +120,7 @@ test('primary revoking a companion is not read as its own logout', async () => {
 
 test('pair-device upload with an unknown ref is rejected', async () => {
     const server = await FakeWaServer.start({ tcp: true })
-    const { client: primary } = await createZapoMobileClient(server, {
+    const { client: primary } = await createZhuxeMobileClient(server, {
         sessionId: 'companion-host-unknown-ref',
         phoneNumber: PHONE
     })

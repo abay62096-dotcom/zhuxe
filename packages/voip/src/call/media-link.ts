@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises'
 
-import type { Logger } from 'zhuxee-assistance'
-import { toBytesView } from 'zhuxee-assistance/util'
+import type { Logger } from 'zhuxe-assistance'
+import { toBytesView } from 'zhuxe-assistance/util'
 
 import {
     dialableRelayEndpoints,
@@ -18,8 +18,8 @@ import {
     WaCallMediaPlane,
     type WaCallMediaPlanUpdate,
     type WaCallReaction
-} from '@zapo-js/voip-media'
-import { nodeMediaHost, WaRawUdpLeg } from '@zapo-js/voip-media/node'
+} from '@zhuxe-js/voip-media'
+import { nodeMediaHost, WaRawUdpLeg } from '@zhuxe-js/voip-media/node'
 
 import { WaAudioEngine } from '../media/WaAudioEngine.js'
 

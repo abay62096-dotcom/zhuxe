@@ -1,4 +1,4 @@
-import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zhuxee-assistance/store'
+import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zhuxe-assistance/store'
 
 import { BaseRedisStore } from './BaseRedisStore'
 import { deleteKeysChunked, scanKeys } from './helpers'

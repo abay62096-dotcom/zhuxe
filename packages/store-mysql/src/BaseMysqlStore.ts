@@ -1,6 +1,6 @@
 import type { Pool, PoolConnection } from 'mysql2/promise'
-import type { Logger } from 'zhuxee-assistance'
-import { resolvePositive } from 'zhuxee-assistance/util'
+import type { Logger } from 'zhuxe-assistance'
+import { resolvePositive } from 'zhuxe-assistance/util'
 
 import { ensureMysqlMigrations } from './connection'
 import { assertSafeTablePrefix } from './helpers'

@@ -3,11 +3,11 @@ import test from 'node:test'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('client.group.createGroup mints a new group in the registry and returns metadata', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'group-create-auto' })
+    const { client } = createZhuxeClient(server, { sessionId: 'group-create-auto' })
     const captured: Array<{ action: string; subject?: string }> = []
     server.onOutboundGroupOp((op) => {
         if (op.action === 'create') {
@@ -37,7 +37,7 @@ test('client.group.createGroup mints a new group in the registry and returns met
 
 test('client.group.{add,remove}Participants mutate the registry via auto handlers', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'group-participants-auto' })
+    const { client } = createZhuxeClient(server, { sessionId: 'group-participants-auto' })
 
     const groupJid = '120363222222222222@g.us'
 
@@ -80,7 +80,7 @@ test('client.group.{add,remove}Participants mutate the registry via auto handler
 
 test('client.group.setSubject + setDescription update the registry', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'group-meta-auto' })
+    const { client } = createZhuxeClient(server, { sessionId: 'group-meta-auto' })
 
     const groupJid = '120363333333333333@g.us'
 
@@ -108,7 +108,7 @@ test('client.group.setSubject + setDescription update the registry', async () =>
 
 test('client.group.leaveGroup removes the group from the registry', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'group-leave-auto' })
+    const { client } = createZhuxeClient(server, { sessionId: 'group-leave-auto' })
 
     const groupJid = '120363444444444444@g.us'
 

@@ -1,11 +1,11 @@
-import { type Logger, type LogLevel, type WaClientPluginContext } from 'zhuxee-assistance'
-import { WA_MESSAGE_TAGS } from 'zhuxee-assistance/protocol'
+import { type Logger, type LogLevel, type WaClientPluginContext } from 'zhuxe-assistance'
+import { WA_MESSAGE_TAGS } from 'zhuxe-assistance/protocol'
 
 import type {
     MLowRedOptions,
     WaCallMediaEventMessage,
     WaCallMediaMessage
-} from '@zapo-js/voip-media'
+} from '@zhuxe-js/voip-media'
 
 import type { CallInfo } from './call/call-state.js'
 import { WaCallManager } from './call/WaCallManager.js'
@@ -101,7 +101,7 @@ export class WaVoipCoordinator {
 
     constructor(ctx: WaClientPluginContext, options: WaVoipCoordinatorOptions = {}) {
         this.deps = ctx.deps
-        this.logger = ctx.logger.child({ scope: '@zapo-js/voip' }, { level: options.logLevel })
+        this.logger = ctx.logger.child({ scope: '@zhuxe-js/voip' }, { level: options.logLevel })
         this.manager = new WaCallManager({
             deps: ctx.deps,
             stores: ctx.stores,

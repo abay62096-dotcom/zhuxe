@@ -14,8 +14,8 @@
  * heavily.
  *
  * Tunables:
- *   ZAPO_BENCH_USYNC_SIZES   csv (default "50,200,500")
- *   ZAPO_BENCH_USYNC_DEVICES (default 1) devices per member
+ *   ZHUXE_BENCH_USYNC_SIZES   csv (default "50,200,500")
+ *   ZHUXE_BENCH_USYNC_DEVICES (default 1) devices per member
  *
  * Profiling flags: same as messaging.bench. With --separate-process
  * the fake server runs in a forked child and gets its own
@@ -157,16 +157,16 @@ async function main(): Promise<void> {
     const profiler = new BenchProfiler(readProfilerOptions(argSet))
     await profiler.start()
 
-    const sizes = readCsvEnv('ZAPO_BENCH_USYNC_SIZES', ['50', '200', '500']).map((s) => {
+    const sizes = readCsvEnv('ZHUXE_BENCH_USYNC_SIZES', ['50', '200', '500']).map((s) => {
         const n = Number.parseInt(s, 10)
         if (!Number.isFinite(n) || n <= 0) throw new Error(`invalid size "${s}"`)
         return n
     })
-    const devicesPerMember = readPositiveIntEnv('ZAPO_BENCH_USYNC_DEVICES', 1)
-    const backendName = process.env.ZAPO_BENCH_STORE ?? 'memory'
+    const devicesPerMember = readPositiveIntEnv('ZHUXE_BENCH_USYNC_DEVICES', 1)
+    const backendName = process.env.ZHUXE_BENCH_STORE ?? 'memory'
     const separate = argSet.has('--separate-process')
 
-    console.log('zhuxee-assistance bulk-usync bench')
+    console.log('zhuxe-assistance bulk-usync bench')
     console.log('────────────────────────')
     console.log(`  member counts  : ${sizes.join(', ')}`)
     console.log(`  devices/member : ${devicesPerMember}`)

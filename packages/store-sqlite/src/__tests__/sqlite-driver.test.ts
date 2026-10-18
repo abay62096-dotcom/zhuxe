@@ -4,8 +4,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import test from 'node:test'
 
-import type { SignalAddress } from 'zhuxee-assistance/signal'
-import { isBunRuntime } from 'zhuxee-assistance/util'
+import type { SignalAddress } from 'zhuxe-assistance/signal'
+import { isBunRuntime } from 'zhuxe-assistance/util'
 
 import { openSqliteConnection } from '../connection'
 import { WaIdentitySqliteStore } from '../identity.store'
@@ -72,7 +72,7 @@ test('node:sqlite driver opens and reports itself', async (t) => {
         t.skip('node:sqlite is unavailable on this runtime')
         return
     }
-    await withTempDir('zapo-sqlite-node-driver-', async (dir) => {
+    await withTempDir('zhuxe-sqlite-node-driver-', async (dir) => {
         const connection = await openSqliteConnection({
             path: join(dir, 'state.sqlite'),
             sessionId: 'session-node',
@@ -98,7 +98,7 @@ test('node:sqlite driver runs migrations and round-trips store records', async (
         t.skip('node:sqlite is unavailable on this runtime')
         return
     }
-    await withTempDir('zapo-sqlite-node-store-', async (dir) => {
+    await withTempDir('zhuxe-sqlite-node-store-', async (dir) => {
         const options = {
             path: join(dir, 'state.sqlite'),
             sessionId: 'session-node',
@@ -150,7 +150,7 @@ test('databases are interchangeable between the better-sqlite3 and node drivers'
         t.skip('the swap needs both better-sqlite3 and node:sqlite')
         return
     }
-    await withTempDir('zapo-sqlite-driver-swap-', async (dir) => {
+    await withTempDir('zhuxe-sqlite-driver-swap-', async (dir) => {
         const path = join(dir, 'state.sqlite')
         const address = makeAddress('5511900000009', 1)
 
@@ -202,7 +202,7 @@ test('auto driver prefers better-sqlite3 when the addon is installed', async (t)
         t.skip('better-sqlite3 is not installed')
         return
     }
-    await withTempDir('zapo-sqlite-auto-driver-', async (dir) => {
+    await withTempDir('zhuxe-sqlite-auto-driver-', async (dir) => {
         const connection = await openSqliteConnection({
             path: join(dir, 'state.sqlite'),
             sessionId: 'session-auto',
@@ -234,7 +234,7 @@ test('auto driver falls back to node:sqlite when the addon is absent', async (t)
         t.skip('node:sqlite is unavailable on this runtime')
         return
     }
-    await withTempDir('zapo-sqlite-auto-fallback-', async (dir) => {
+    await withTempDir('zhuxe-sqlite-auto-fallback-', async (dir) => {
         const connection = await openSqliteConnection({
             path: join(dir, 'state.sqlite'),
             sessionId: 'session-auto-fallback',

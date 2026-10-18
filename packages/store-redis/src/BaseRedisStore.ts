@@ -1,5 +1,5 @@
 import type { ChainableCommander, default as Redis } from 'ioredis'
-import type { Logger } from 'zhuxee-assistance'
+import type { Logger } from 'zhuxe-assistance'
 
 import { assertSafeKeyPrefix } from './helpers'
 import type { WaRedisStorageOptions } from './types'

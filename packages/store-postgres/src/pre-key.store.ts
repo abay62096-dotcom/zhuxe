@@ -1,6 +1,6 @@
 import type { PoolClient } from 'pg'
-import type { PreKeyRecord } from 'zhuxee-assistance/signal'
-import type { WaPreKeyStore } from 'zhuxee-assistance/store'
+import type { PreKeyRecord } from 'zhuxe-assistance/signal'
+import type { WaPreKeyStore } from 'zhuxe-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import { type PgRow, queryFirst, queryRows, safeLimit, toBytes } from './helpers'

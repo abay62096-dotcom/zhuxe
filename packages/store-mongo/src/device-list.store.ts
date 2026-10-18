@@ -1,4 +1,4 @@
-import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zhuxee-assistance/store'
+import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zhuxe-assistance/store'
 
 import { BaseMongoStore } from './BaseMongoStore'
 import type { WaMongoStorageOptions } from './types'

@@ -9,9 +9,9 @@ import {
     type SignalAddress,
     type SignalAddressParts,
     toSignalAddressParts
-} from 'zhuxee-assistance/signal'
-import type { WaSenderKeyStore as WaSenderKeyStoreContract } from 'zhuxee-assistance/store'
-import { asNumber, asString } from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance/signal'
+import type { WaSenderKeyStore as WaSenderKeyStoreContract } from 'zhuxe-assistance/store'
+import { asNumber, asString } from 'zhuxe-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

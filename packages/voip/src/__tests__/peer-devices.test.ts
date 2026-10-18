@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import { createNoopLogger } from 'zhuxee-assistance'
+import { createNoopLogger } from 'zhuxe-assistance'
 
 import { resolveOfferParticipantDevices, resolvePeerLid } from '../peer-devices.js'
 import type { WaVoipDeps } from '../types.js'

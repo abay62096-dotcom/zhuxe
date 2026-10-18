@@ -1,8 +1,8 @@
-import type { Logger } from 'zhuxee-assistance'
-import { toUserJid } from 'zhuxee-assistance/protocol'
-import { toError } from 'zhuxee-assistance/util'
+import type { Logger } from 'zhuxe-assistance'
+import { toUserJid } from 'zhuxe-assistance/protocol'
+import { toError } from 'zhuxe-assistance/util'
 
-import type { WaCallMediaKeys, WaCallMediaSsrcs } from '@zapo-js/voip-media'
+import type { WaCallMediaKeys, WaCallMediaSsrcs } from '@zhuxe-js/voip-media'
 
 import { WA_AUDIO_CALL_SSRC_SLOTS, WA_SSRC_SLOT, WA_VIDEO_CALL_SSRC_SLOTS } from '../crypto/ssrc.js'
 import { relayListedDeviceJid, toDeviceJid } from '../jid.js'

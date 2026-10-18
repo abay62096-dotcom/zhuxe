@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import {
@@ -10,18 +10,18 @@ import {
 } from '../protocol/push/mobile-notification'
 
 import { linkCompanionViaQr } from './helpers/companion-pipeline'
-import { createZapoClient } from './helpers/zapo-client'
-import { createZapoMobileClient } from './helpers/zapo-mobile-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
+import { createZhuxeMobileClient } from './helpers/zhuxe-mobile-client'
 
 const PHONE = '5511970003333'
 
 test('account_sync prunes a companion the server no longer lists', async () => {
     const server = await FakeWaServer.start({ tcp: true })
-    const { client: primary } = await createZapoMobileClient(server, {
+    const { client: primary } = await createZhuxeMobileClient(server, {
         sessionId: 'account-sync-primary',
         phoneNumber: PHONE
     })
-    const { client: companion } = createZapoClient(server, {
+    const { client: companion } = createZhuxeClient(server, {
         sessionId: 'account-sync-companion'
     })
 
@@ -59,11 +59,11 @@ test('account_sync prunes a companion the server no longer lists', async () => {
 
 test('account_sync keeps companions the server still lists', async () => {
     const server = await FakeWaServer.start({ tcp: true })
-    const { client: primary } = await createZapoMobileClient(server, {
+    const { client: primary } = await createZhuxeMobileClient(server, {
         sessionId: 'account-sync-keep-primary',
         phoneNumber: PHONE
     })
-    const { client: companion } = createZapoClient(server, {
+    const { client: companion } = createZhuxeClient(server, {
         sessionId: 'account-sync-keep-companion'
     })
 
@@ -94,7 +94,7 @@ test('account_sync keeps companions the server still lists', async () => {
 
 test('registration notifications surface the login code and takeover warning', async () => {
     const server = await FakeWaServer.start({ tcp: true })
-    const { client: primary } = await createZapoMobileClient(server, {
+    const { client: primary } = await createZhuxeMobileClient(server, {
         sessionId: 'registration-notifications',
         phoneNumber: PHONE
     })

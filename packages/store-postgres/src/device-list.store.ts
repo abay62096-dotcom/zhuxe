@@ -1,4 +1,4 @@
-import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zhuxee-assistance/store'
+import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zhuxe-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import { affectedRows, queryRows } from './helpers'

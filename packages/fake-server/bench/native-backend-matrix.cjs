@@ -38,13 +38,13 @@ const LABELS = {
 }
 
 const WORKLOAD = {
-    ZAPO_BENCH_STORE: 'sqlite',
-    ZAPO_BENCH_CONTACTS: '1000',
-    ZAPO_BENCH_CONTACT_DEVICES: '2',
-    ZAPO_BENCH_GROUPS: '4',
-    ZAPO_BENCH_GROUP_MEMBERS: '500',
-    ZAPO_BENCH_MESSAGES: '1000',
-    ZAPO_BENCH_JSON: '1'
+    ZHUXE_BENCH_STORE: 'sqlite',
+    ZHUXE_BENCH_CONTACTS: '1000',
+    ZHUXE_BENCH_CONTACT_DEVICES: '2',
+    ZHUXE_BENCH_GROUPS: '4',
+    ZHUXE_BENCH_GROUP_MEMBERS: '500',
+    ZHUXE_BENCH_MESSAGES: '1000',
+    ZHUXE_BENCH_JSON: '1'
 }
 
 function parseTrailingJson(stdout) {
@@ -58,10 +58,10 @@ function runOnce(backend) {
     const env = {
         ...process.env,
         ...WORKLOAD,
-        ZAPO_NATIVE_BACKEND: backend
+        ZHUXE_NATIVE_BACKEND: backend
     }
-    delete env.ZAPO_XEDDSA_FORCE_JS
-    delete env.ZAPO_X25519_FORCE_JS
+    delete env.ZHUXE_XEDDSA_FORCE_JS
+    delete env.ZHUXE_X25519_FORCE_JS
     const res = spawnSync(process.execPath, ['--expose-gc', '--import', 'tsx', BENCH], {
         cwd: REPO_ROOT,
         env,

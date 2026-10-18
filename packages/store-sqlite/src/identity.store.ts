@@ -1,12 +1,12 @@
-import { signalAddressKey } from 'zhuxee-assistance/protocol'
+import { signalAddressKey } from 'zhuxe-assistance/protocol'
 import {
     decodeSignalRemoteIdentity,
     type SignalAddress,
     type SignalIdentityRow,
     toSignalAddressParts
-} from 'zhuxee-assistance/signal'
-import type { WaIdentityStore as WaIdentityStoreContract } from 'zhuxee-assistance/store'
-import { asNumber, asString, resolvePositive } from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance/signal'
+import type { WaIdentityStore as WaIdentityStoreContract } from 'zhuxe-assistance/store'
+import { asNumber, asString, resolvePositive } from 'zhuxe-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

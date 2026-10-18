@@ -38,7 +38,7 @@ jobs:
                   npm run build
                   npm run build:packages
 
-            - name: build @zapo-js/native wasm backend
+            - name: build @zhuxe-js/native wasm backend
               # wasm-bindgen-cli must match the wasm-bindgen crate version pinned
               # in packages/native/wasm/Cargo.toml (=0.2.100)
               run: |
@@ -46,15 +46,15 @@ jobs:
                   cargo install wasm-bindgen-cli@0.2.100 --locked
                   npm run build:wasm -w packages/native
 
-            - name: publish core (zhuxee-assistance), skip if version already on npm
+            - name: publish core (zhuxe-assistance), skip if version already on npm
               run: |
                   VERSION="$(node -p "require('./package.json').version")"
-                  PUBLISHED="$(npm view "zhuxee-assistance@$VERSION" version 2>/dev/null || true)"
+                  PUBLISHED="$(npm view "zhuxe-assistance@$VERSION" version 2>/dev/null || true)"
                   if [ -n "$PUBLISHED" ]; then
-                    echo "zhuxee-assistance@$VERSION already on npm, skipping"
+                    echo "zhuxe-assistance@$VERSION already on npm, skipping"
                   else
                     npm publish
                   fi
 
-            - name: publish add-ons (@zapo-js/*)
-              run: npx changeset publish # publishes only the @zapo-js/* whose version is not yet on npm
+            - name: publish add-ons (@zhuxe-js/*)
+              run: npx changeset publish # publishes only the @zhuxe-js/* whose version is not yet on npm

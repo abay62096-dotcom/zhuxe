@@ -2,8 +2,8 @@ import type {
     WaMediaProcessor,
     WaMediaProcessorCallContext,
     WaMediaProcessorInput
-} from 'zhuxee-assistance/media'
-import { toError } from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance/media'
+import { toError } from 'zhuxe-assistance/util'
 
 import {
     computeWaveformWithFfmpeg,
@@ -35,8 +35,8 @@ export type { WaMediaProcessorOptions } from './types'
  *
  * @example
  * ```ts
- * import { WaClient } from 'zhuxee-assistance'
- * import { createMediaProcessor } from '@zapo-js/media-utils'
+ * import { WaClient } from 'zhuxe-assistance'
+ * import { createMediaProcessor } from '@zhuxe-js/media-utils'
  *
  * // One processor, multiple sessions - safe.
  * const processor = createMediaProcessor()

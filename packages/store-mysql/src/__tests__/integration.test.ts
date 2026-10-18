@@ -2,9 +2,9 @@ import assert from 'node:assert/strict'
 import { after, before, describe, it } from 'node:test'
 
 import type { Pool } from 'mysql2/promise'
-import { toSerializedPubKey, X25519 } from 'zhuxee-assistance/crypto'
-import { WA_APP_STATE_COLLECTIONS } from 'zhuxee-assistance/protocol'
-import type { SignalAddress, SignalSessionRecord } from 'zhuxee-assistance/signal'
+import { toSerializedPubKey, X25519 } from 'zhuxe-assistance/crypto'
+import { WA_APP_STATE_COLLECTIONS } from 'zhuxe-assistance/protocol'
+import type { SignalAddress, SignalSessionRecord } from 'zhuxe-assistance/signal'
 
 import {
     createMysqlPool,
@@ -13,8 +13,8 @@ import {
     type WaMysqlStoreResult
 } from '../index'
 
-const host = process.env.ZAPO_TEST_MYSQL_HOST
-const port = process.env.ZAPO_TEST_MYSQL_PORT
+const host = process.env.ZHUXE_TEST_MYSQL_HOST
+const port = process.env.ZHUXE_TEST_MYSQL_PORT
 let sessionSeed = 0
 
 function nextSessionId(label: string): string {
@@ -81,9 +81,9 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
         pool = createMysqlPool({
             host,
             port: Number(port),
-            user: process.env.ZAPO_TEST_MYSQL_USER ?? 'root',
-            password: process.env.ZAPO_TEST_MYSQL_PASSWORD ?? 'test',
-            database: process.env.ZAPO_TEST_MYSQL_DATABASE ?? 'zapo_test'
+            user: process.env.ZHUXE_TEST_MYSQL_USER ?? 'root',
+            password: process.env.ZHUXE_TEST_MYSQL_PASSWORD ?? 'test',
+            database: process.env.ZHUXE_TEST_MYSQL_DATABASE ?? 'zhuxe_test'
         })
 
         await ensureMysqlMigrations(pool, [
@@ -107,7 +107,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('auth: save, load, clear', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const auth = store.stores.auth('test-session')
         assert.equal(await auth.load(), null)
@@ -139,7 +139,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('messages: upsert, getById, listByThread, deleteById', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const messages = store.stores.messages('test-session')
 
@@ -173,7 +173,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('retry: upsertOutbound, getOutbound, incrementInbound, cleanupExpired', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const retry = store.caches.retry('test-session')
         await retry.clear()
@@ -219,7 +219,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('signal: registration and prekeys', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const signal = store.stores.signal('test-session')
         const preKeyStore = store.stores.preKey('test-session')
@@ -256,7 +256,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('mailbox stores: thread/contact/privacy-token coalesce updates', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('mailbox')
         const threads = store.stores.threads(sessionId)
@@ -314,7 +314,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('appstate: sync keys and collection state roundtrip', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('appstate')
         const appState = store.stores.appState(sessionId)
@@ -366,7 +366,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('retry: requester status and delivered transition', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('retry')
         const retry = store.caches.retry(sessionId)
@@ -415,7 +415,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('messages: upsertBatch and beforeTimestamp pagination', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('messages-batch')
         const messages = store.stores.messages(sessionId)
@@ -459,7 +459,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('cache stores: chat-metadata round-trips disappearing settings', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('chatmeta')
         const chatMetadata = store.caches.chatMetadata(sessionId)
@@ -493,7 +493,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('cache stores: group-metadata and device-list basic lifecycle', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('caches')
         const groupMetadata = store.caches.groupMetadata(sessionId)
@@ -560,7 +560,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('cache stores: messageSecret basic lifecycle', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('messageSecret')
         const secretStore = store.caches.messageSecret(sessionId)
@@ -604,7 +604,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('signal: prekey generation mark-uploaded and consume', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('signal-prekeys')
         const preKey = store.stores.preKey(sessionId)
@@ -634,7 +634,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('auth: saves and loads optional credential fields', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('auth-optional')
         const auth = store.stores.auth(sessionId)
@@ -664,7 +664,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
             advSecretKey: new Uint8Array(32).fill(8),
             meJid: 'me@s.whatsapp.net',
             meLid: '12345@lid',
-            meDisplayName: 'Zapo User',
+            meDisplayName: 'Zhuxe User',
             companionEncStatic: new Uint8Array([10, 11, 12]),
             platform: 'android',
             serverStaticKey: new Uint8Array([13, 14, 15]),
@@ -695,7 +695,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('retry: updateOutboundMessageState and deleteOutboundMessage', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('retry-update')
         const retry = store.caches.retry(sessionId)
@@ -727,7 +727,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('sender-key: upsert batch, lookup and forget by participant', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('sender-key')
         const senderKey = store.stores.senderKey(sessionId)
@@ -797,7 +797,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('signal: signed prekey and meta snapshot', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('signal-meta')
         const signal = store.stores.signal(sessionId)
@@ -834,7 +834,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('signal: getPreKeysById preserves order and missing entries', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('signal-prekeys-order')
         const preKey = store.stores.preKey(sessionId)
@@ -868,7 +868,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('appstate: exportData returns keys and collections snapshot', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('appstate-export')
         const appState = store.stores.appState(sessionId)
@@ -922,7 +922,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('messages: binary payload roundtrip', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('messages-binary')
         const messages = store.stores.messages(sessionId)
@@ -952,7 +952,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('messages: upsert same id can move message across threads', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('messages-move')
         const messages = store.stores.messages(sessionId)
@@ -987,7 +987,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('retry: requester status is null when no eligible requesters', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('retry-no-eligible')
         const retry = store.caches.retry(sessionId)
@@ -1027,7 +1027,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('signal: remote identities batch roundtrip keeps order and nulls', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('signal-identities')
         const identity = store.stores.identity(sessionId)
@@ -1055,7 +1055,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('sender-key: deleteDeviceSenderKey without group clears all groups for sender', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('sender-key-delete-all')
         const senderKey = store.stores.senderKey(sessionId)
@@ -1118,7 +1118,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('signal: session lifecycle and batch queries', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('signal-sessions')
         const session = store.stores.session(sessionId)
@@ -1150,7 +1150,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
 
     it('signal: setSessionsBatch chunked split runs in withTransaction', async (t) => {
         if (!pool) {
-            t.skip('ZAPO_TEST_MYSQL_* not set')
+            t.skip('ZHUXE_TEST_MYSQL_* not set')
             return
         }
 
@@ -1183,7 +1183,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
 
     it('rejects invalid batchInsertChunkSize', (t) => {
         if (!pool) {
-            t.skip('ZAPO_TEST_MYSQL_* not set')
+            t.skip('ZHUXE_TEST_MYSQL_* not set')
             return
         }
         const livePool = pool
@@ -1204,7 +1204,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('appstate: updating same collection replaces previous index entries', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('appstate-overwrite')
         const appState = store.stores.appState(sessionId)
@@ -1241,7 +1241,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('retry: inbound counters are isolated by message and requester', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('retry-inbound-isolation')
         const retry = store.caches.retry(sessionId)
@@ -1258,7 +1258,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('sender-key: deleteDeviceSenderKey with group keeps other groups', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('sender-key-delete-group')
         const senderKey = store.stores.senderKey(sessionId)
@@ -1293,7 +1293,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('contacts: upsertBatch updates records and delete missing returns zero', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('contacts-batch')
         const contacts = store.stores.contacts(sessionId)
@@ -1330,7 +1330,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('threads: list respects limit and delete missing returns zero', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('threads-limit')
         const threads = store.stores.threads(sessionId)
@@ -1350,7 +1350,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('appstate: getSyncKeyDataBatch preserves duplicates and missing keys', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('appstate-batch-keys')
         const appState = store.stores.appState(sessionId)
@@ -1376,7 +1376,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('signal: markKeyAsUploaded rejects out-of-bound key id', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('signal-upload-boundary')
         const preKey = store.stores.preKey(sessionId)
@@ -1397,7 +1397,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('messages: listByThread limit keeps newest ordering', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('messages-limit')
         const messages = store.stores.messages(sessionId)
@@ -1433,7 +1433,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('contacts: records are isolated by session id', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionA = nextSessionId('contacts-session-a')
         const sessionB = nextSessionId('contacts-session-b')
@@ -1454,7 +1454,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('appstate: getCollectionStates keeps requested order', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('appstate-collections-order')
         const appState = store.stores.appState(sessionId)
@@ -1489,7 +1489,7 @@ describe('store-mysql integration', { timeout: 60_000 }, () => {
     })
 
     it('signal: getSession returns null for missing and value for existing', async (t) => {
-        if (!store) return t.skip('ZAPO_TEST_MYSQL_* not set')
+        if (!store) return t.skip('ZHUXE_TEST_MYSQL_* not set')
 
         const sessionId = nextSessionId('signal-get-session')
         const session = store.stores.session(sessionId)

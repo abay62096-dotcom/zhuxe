@@ -1,6 +1,6 @@
-import type { Logger } from 'zhuxee-assistance'
-import { isLidJid } from 'zhuxee-assistance/protocol'
-import { toError } from 'zhuxee-assistance/util'
+import type { Logger } from 'zhuxe-assistance'
+import { isLidJid } from 'zhuxe-assistance/protocol'
+import { toError } from 'zhuxe-assistance/util'
 
 import { groupParticipantAccountKey, toDeviceJid } from './jid.js'
 import type { CallOfferParticipant, WaVoipDeps } from './types.js'

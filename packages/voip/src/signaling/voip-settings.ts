@@ -1,6 +1,6 @@
-import { createNoopLogger, type Logger } from 'zhuxee-assistance'
-import { type BinaryNode, findNodeChild, getNodeChildren } from 'zhuxee-assistance/transport'
-import { base64ToBytes, TEXT_DECODER, toError, tryAsNumber } from 'zhuxee-assistance/util'
+import { createNoopLogger, type Logger } from 'zhuxe-assistance'
+import { type BinaryNode, findNodeChild, getNodeChildren } from 'zhuxe-assistance/transport'
+import { base64ToBytes, TEXT_DECODER, toError, tryAsNumber } from 'zhuxe-assistance/util'
 
 const VOIP_SETTINGS_TAG = 'voip_settings'
 

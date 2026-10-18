@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient } from 'zhuxee-assistance'
+import type { WaClient } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import {
@@ -10,7 +10,7 @@ import {
     buildStreamErrorReplaced
 } from '../protocol/stream/stream-error'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 interface CloseEvent {
     readonly status: 'close'
@@ -43,7 +43,7 @@ async function pushStreamErrorAndWaitForClose(
         })
     })
 
-    const { client } = createZapoClient(server, { sessionId: `stream-error-${Date.now()}` })
+    const { client } = createZhuxeClient(server, { sessionId: `stream-error-${Date.now()}` })
     const closePromise = waitForCloseReason(client)
 
     await client.connect()

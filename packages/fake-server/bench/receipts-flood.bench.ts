@@ -5,14 +5,14 @@
  * + event dispatch + retry-tracker map under sustained inbound load.
  *
  * Tunables:
- *   ZAPO_BENCH_RECEIPTS      (default 5000)
- *   ZAPO_BENCH_RECEIPT_TYPES (default "delivery,read") types to cycle
+ *   ZHUXE_BENCH_RECEIPTS      (default 5000)
+ *   ZHUXE_BENCH_RECEIPT_TYPES (default "delivery,read") types to cycle
  *
  * Profiling flags: same as messaging.bench. With --separate-process
  * the fake server runs in a forked child and gets its own profiles.
  */
 
-import type { WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClientEventMap } from 'zhuxe-assistance'
 
 import { buildReceipt, type FakeReceiptType } from '../src/protocol/push/receipt'
 
@@ -184,8 +184,8 @@ async function main(): Promise<void> {
     const profiler = new BenchProfiler(readProfilerOptions(argSet))
     await profiler.start()
 
-    const totalReceipts = readPositiveIntEnv('ZAPO_BENCH_RECEIPTS', 5_000)
-    const typesRaw = readCsvEnv('ZAPO_BENCH_RECEIPT_TYPES', ['delivery', 'read'])
+    const totalReceipts = readPositiveIntEnv('ZHUXE_BENCH_RECEIPTS', 5_000)
+    const typesRaw = readCsvEnv('ZHUXE_BENCH_RECEIPT_TYPES', ['delivery', 'read'])
     const types: FakeReceiptType[] = []
     for (const t of typesRaw) {
         if (!ALLOWED_TYPES.has(t as FakeReceiptType)) {
@@ -193,10 +193,10 @@ async function main(): Promise<void> {
         }
         types.push(t as FakeReceiptType)
     }
-    const backendName = process.env.ZAPO_BENCH_STORE ?? 'memory'
+    const backendName = process.env.ZHUXE_BENCH_STORE ?? 'memory'
     const separate = argSet.has('--separate-process')
 
-    console.log('zhuxee-assistance receipts-flood bench')
+    console.log('zhuxe-assistance receipts-flood bench')
     console.log('────────────────────────────')
     console.log(`  receipts : ${totalReceipts}`)
     console.log(`  types    : ${types.join(', ')}`)

@@ -1,12 +1,12 @@
-import type { WaClientPluginContext } from 'zhuxee-assistance'
-import type { BinaryNode } from 'zhuxee-assistance/transport'
+import type { WaClientPluginContext } from 'zhuxe-assistance'
+import type { BinaryNode } from 'zhuxe-assistance/transport'
 
 import type {
     InboundVideoFrame,
     InboundVideoRtpPacket,
     WaCallMediaMessage,
     WaCallReaction
-} from '@zapo-js/voip-media'
+} from '@zhuxe-js/voip-media'
 
 import type { CallInfo } from './call/call-state.js'
 import type { WaGroupCompositionDiff } from './call/group-participants.js'

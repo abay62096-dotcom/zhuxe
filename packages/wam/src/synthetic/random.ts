@@ -1,4 +1,4 @@
-import { bytesToBase64 } from 'zhuxee-assistance/util'
+import { bytesToBase64 } from 'zhuxe-assistance/util'
 
 export const rand = (min: number, max: number): number => min + Math.random() * (max - min)
 export const randInt = (min: number, max: number): number => Math.floor(rand(min, max))

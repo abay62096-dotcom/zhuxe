@@ -1,7 +1,7 @@
-# @zapo-js/media-utils
+# @zhuxe-js/media-utils
 
 ## 1.0.0
 
 ### Major Changes
 
-- Align with the `zapo-js` 1.0.0 stable release. Now requires `zapo-js@^1.0.0`.
+- Align with the `zhuxe-js` 1.0.0 stable release. Now requires `zhuxe-js@^1.0.0`.

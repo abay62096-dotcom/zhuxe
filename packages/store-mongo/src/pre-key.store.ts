@@ -1,6 +1,6 @@
 import type { Binary } from 'mongodb'
-import type { PreKeyRecord } from 'zhuxee-assistance/signal'
-import type { WaPreKeyStore } from 'zhuxee-assistance/store'
+import type { PreKeyRecord } from 'zhuxe-assistance/signal'
+import type { WaPreKeyStore } from 'zhuxe-assistance/store'
 
 import { BaseMongoStore } from './BaseMongoStore'
 import { fromBinary, safeLimit, toBinary } from './helpers'

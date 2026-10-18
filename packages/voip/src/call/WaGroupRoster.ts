@@ -1,7 +1,7 @@
-import type { Logger } from 'zhuxee-assistance'
-import { toUserJid } from 'zhuxee-assistance/protocol'
-import type { BinaryNode } from 'zhuxee-assistance/transport'
-import { toError } from 'zhuxee-assistance/util'
+import type { Logger } from 'zhuxe-assistance'
+import { toUserJid } from 'zhuxe-assistance/protocol'
+import type { BinaryNode } from 'zhuxe-assistance/transport'
+import { toError } from 'zhuxe-assistance/util'
 
 import { groupParticipantAccountKey } from '../jid.js'
 import { type GroupCallRoster, readGroupCallRoster } from '../signaling/group-info.js'

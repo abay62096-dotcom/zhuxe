@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function waitForEvent<K extends keyof WaClientEventMap>(
     client: WaClient,
@@ -26,7 +26,7 @@ function waitForEvent<K extends keyof WaClientEventMap>(
 
 test('fake peer encrypts a Signal message and the lib emits message event', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'fake-peer-msg' })
+    const { client } = createZhuxeClient(server, { sessionId: 'fake-peer-msg' })
 
     const messagePromise = waitForEvent(client, 'message', 8_000)
 

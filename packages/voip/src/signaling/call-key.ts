@@ -1,8 +1,8 @@
-import { createNoopLogger, type Logger, unpadPkcs7, writeRandomPadMax16 } from 'zhuxee-assistance'
-import { proto } from 'zhuxee-assistance/proto'
-import { parseSignalAddressFromJid } from 'zhuxee-assistance/protocol'
-import { type BinaryNode, findNodeChild, getNodeChildren } from 'zhuxee-assistance/transport'
-import { toError } from 'zhuxee-assistance/util'
+import { createNoopLogger, type Logger, unpadPkcs7, writeRandomPadMax16 } from 'zhuxe-assistance'
+import { proto } from 'zhuxe-assistance/proto'
+import { parseSignalAddressFromJid } from 'zhuxe-assistance/protocol'
+import { type BinaryNode, findNodeChild, getNodeChildren } from 'zhuxe-assistance/transport'
+import { toError } from 'zhuxe-assistance/util'
 
 import type { WaVoipDeps } from '../types.js'
 

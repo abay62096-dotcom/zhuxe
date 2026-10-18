@@ -1,5 +1,5 @@
-export { WA_APP_DATA_PAYLOAD_TYPE, WA_VIDEO_QUALITY } from '@zapo-js/voip-media'
-export type { WaCallArEffect, WaCallReaction } from '@zapo-js/voip-media'
+export { WA_APP_DATA_PAYLOAD_TYPE, WA_VIDEO_QUALITY } from '@zhuxe-js/voip-media'
+export type { WaCallArEffect, WaCallReaction } from '@zhuxe-js/voip-media'
 export { voipPlugin } from './plugin.js'
 export type { VoipPluginOptions } from './plugin.js'
 export type { WaVoipMediaApi } from './WaVoipCoordinator.js'

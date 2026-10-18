@@ -3,13 +3,13 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import { parsePairingQrString } from '../protocol/auth/pair-device'
 import type { BinaryNode } from '../transport/codec'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function findEncSomewhere(node: BinaryNode): BinaryNode | null {
     if (node.tag === 'enc') return node
@@ -23,7 +23,7 @@ function findEncSomewhere(node: BinaryNode): BinaryNode | null {
 
 test('paired client.sendMessage reaches the wire as a real <message> stanza', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'send-message' })
+    const { client } = createZhuxeClient(server, { sessionId: 'send-message' })
 
     const materialPromise = new Promise<{
         readonly advSecretKey: Uint8Array

@@ -1,5 +1,5 @@
 /**
- * End-to-end retry bench driven through @zapo-js/fake-server.
+ * End-to-end retry bench driven through @zhuxe-js/fake-server.
  *
  * Exercises the full retry round-trip in BOTH directions, validated
  * against `WAWebRetryRequestParser` from the WhatsApp Web bundle.
@@ -27,11 +27,11 @@
  *       resend via the rotated bundle. Measures replays/s.
  *
  * Tunables (env vars):
- *   ZAPO_BENCH_RETRY_MESSAGES         (default 100)
- *   ZAPO_BENCH_RETRY_SCENARIOS        (csv; default = all)
- *   ZAPO_BENCH_STORE                  (memory | sqlite | mysql | ...)
- *   ZAPO_BENCH_VERBOSE                (=1 to print lib warn/error)
- *   ZAPO_BENCH_JSON                   (=1 to also print as JSON)
+ *   ZHUXE_BENCH_RETRY_MESSAGES         (default 100)
+ *   ZHUXE_BENCH_RETRY_SCENARIOS        (csv; default = all)
+ *   ZHUXE_BENCH_STORE                  (memory | sqlite | mysql | ...)
+ *   ZHUXE_BENCH_VERBOSE                (=1 to print lib warn/error)
+ *   ZHUXE_BENCH_JSON                   (=1 to also print as JSON)
  *
  * Profiling flags:
  *   --cpu / --heap / --snapshot / --per-scenario /
@@ -46,7 +46,7 @@
 
 import assert from 'node:assert/strict'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import type { FakePeer } from '../src/api/FakePeer'
 import type { FakeWaServer, WaFakeConnectionPipeline } from '../src/api/FakeWaServer'
@@ -83,7 +83,7 @@ const ALL_SCENARIOS = new Set<string>([
 ])
 
 function readScenarioFilter(): ReadonlySet<string> {
-    const raw = process.env.ZAPO_BENCH_RETRY_SCENARIOS
+    const raw = process.env.ZHUXE_BENCH_RETRY_SCENARIOS
     if (!raw) return ALL_SCENARIOS
     const out = new Set<string>()
     for (const part of raw.split(',')) {
@@ -91,7 +91,7 @@ function readScenarioFilter(): ReadonlySet<string> {
         if (!trimmed) continue
         if (!ALL_SCENARIOS.has(trimmed)) {
             throw new Error(
-                `unknown ZAPO_BENCH_RETRY_SCENARIOS entry "${trimmed}"; valid: ${[...ALL_SCENARIOS].join(',')}`
+                `unknown ZHUXE_BENCH_RETRY_SCENARIOS entry "${trimmed}"; valid: ${[...ALL_SCENARIOS].join(',')}`
             )
         }
         out.add(trimmed)
@@ -106,7 +106,7 @@ interface BenchConfig {
 
 function readConfig(): BenchConfig {
     return {
-        messages: readPositiveIntEnv('ZAPO_BENCH_RETRY_MESSAGES', 100),
+        messages: readPositiveIntEnv('ZHUXE_BENCH_RETRY_MESSAGES', 100),
         scenarios: readScenarioFilter()
     }
 }
@@ -543,10 +543,10 @@ async function main(): Promise<void> {
     await profiler.start()
 
     const config = readConfig()
-    const backendName = process.env.ZAPO_BENCH_STORE ?? 'memory'
+    const backendName = process.env.ZHUXE_BENCH_STORE ?? 'memory'
     const separate = argSet.has('--separate-process')
 
-    console.log('zhuxee-assistance retry bench')
+    console.log('zhuxe-assistance retry bench')
     console.log('───────────────────')
     console.log(`  messages/scenario : ${config.messages}`)
     console.log(`  scenarios         : ${[...config.scenarios].join(', ')}`)
@@ -579,7 +579,7 @@ async function runInProcess(
     aggregated: ScenarioResult[]
 ): Promise<void> {
     const storeFixture = await buildBenchStore()
-    const fixture = await bringUpPairedClient(storeFixture, { sessionId: 'zapo-bench-retry' })
+    const fixture = await bringUpPairedClient(storeFixture, { sessionId: 'zhuxe-bench-retry' })
     const { server, client, pipeline } = fixture
     try {
         if (config.scenarios.has('incoming_retry')) {
@@ -624,7 +624,7 @@ async function runSeparateProcess(
     aggregated: ScenarioResult[]
 ): Promise<void> {
     const storeFixture = await buildBenchStore()
-    const fixture = await bringUpPairedClientViaRpc(storeFixture, { sessionId: 'zapo-bench-retry' })
+    const fixture = await bringUpPairedClientViaRpc(storeFixture, { sessionId: 'zhuxe-bench-retry' })
     const { rpc, client } = fixture
     try {
         await startServerProfilingIfRequested(rpc, profiler.options, argSet)

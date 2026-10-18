@@ -3,12 +3,12 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { BinaryNode, WaClientEventMap } from 'zhuxee-assistance'
+import type { BinaryNode, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import { parsePairingQrString } from '../protocol/auth/pair-device'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 const GROUP_JID = '120363000000000000@g.us'
 const ALICE = '5511777777777@s.whatsapp.net'
@@ -38,7 +38,7 @@ test('shareGroupHistory uploads a bundle and addresses only the chosen members',
     server.setAbProps({
         props: [{ configCode: GROUP_HISTORY_SEND_CONFIG_CODE, configValue: 'true' }]
     })
-    const { client } = createZapoClient(server, { sessionId: 'group-history-share' })
+    const { client } = createZhuxeClient(server, { sessionId: 'group-history-share' })
 
     const materialPromise = new Promise<{
         readonly advSecretKey: Uint8Array

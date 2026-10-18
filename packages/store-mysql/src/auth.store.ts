@@ -1,6 +1,6 @@
-import type { WaAuthCredentials } from 'zhuxee-assistance/auth'
-import { proto } from 'zhuxee-assistance/proto'
-import type { WaAuthStore } from 'zhuxee-assistance/store'
+import type { WaAuthCredentials } from 'zhuxe-assistance/auth'
+import { proto } from 'zhuxe-assistance/proto'
+import type { WaAuthStore } from 'zhuxe-assistance/store'
 
 import { BaseMysqlStore } from './BaseMysqlStore'
 import { queryFirst, toBytes, toBytesOrNull } from './helpers'

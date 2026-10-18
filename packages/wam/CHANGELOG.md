@@ -1,4 +1,4 @@
-# @zapo-js/wam
+# @zhuxe-js/wam
 
 ## 0.1.1
 

@@ -1,5 +1,5 @@
 import type { Db } from 'mongodb'
-import type { Logger } from 'zhuxee-assistance'
+import type { Logger } from 'zhuxe-assistance'
 
 export interface WaMongoStorageOptions {
     readonly db: Db

@@ -1,20 +1,20 @@
 /**
  * Pluggable store factory for the fake-server bench suite. Selects a
- * backend via `ZAPO_BENCH_STORE` (memory | sqlite | postgres | mysql |
- * redis | mongo) and wires the matching `@zapo-js/store-*` package into
- * `createStore()` from `zhuxee-assistance`.
+ * backend via `ZHUXE_BENCH_STORE` (memory | sqlite | postgres | mysql |
+ * redis | mongo) and wires the matching `@zhuxe-js/store-*` package into
+ * `createStore()` from `zhuxe-assistance`.
  *
  * - `memory` (default): in-process bounded maps. No external dep.
- * - `sqlite`: file or `:memory:`. Driver via `ZAPO_BENCH_SQLITE_PATH`
+ * - `sqlite`: file or `:memory:`. Driver via `ZHUXE_BENCH_SQLITE_PATH`
  *   (default `:memory:`). Persistent domains (`auth`, `signal`, etc.)
  *   resolve to the sqlite backend; mailbox / cache domains stay in
  *   memory unless explicitly switched.
  * - `postgres` / `mysql`: needs a live server. Reads the same
- *   `ZAPO_TEST_PG_*` / `ZAPO_TEST_MYSQL_*` env vars used by
+ *   `ZHUXE_TEST_PG_*` / `ZHUXE_TEST_MYSQL_*` env vars used by
  *   `scripts/test-stores.cjs` and the per-package integration tests.
- * - `redis`: needs a live redis. Reads `ZAPO_TEST_REDIS_HOST/PORT`.
+ * - `redis`: needs a live redis. Reads `ZHUXE_TEST_REDIS_HOST/PORT`.
  * - `mongo`: needs a live mongo (replica set). Reads
- *   `ZAPO_TEST_MONGO_HOST/PORT`.
+ *   `ZHUXE_TEST_MONGO_HOST/PORT`.
  *
  * The factory returns a teardown that:
  * - calls `await store.destroy()` (the WaStore handles per-domain
@@ -27,7 +27,7 @@ import { unlink } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join as joinPath } from 'node:path'
 
-import { createStore, type WaCreateStoreOptions, type WaStore } from 'zhuxee-assistance'
+import { createStore, type WaCreateStoreOptions, type WaStore } from 'zhuxe-assistance'
 
 type ProvidersFor<B extends string> = Required<NonNullable<WaCreateStoreOptions<B>['providers']>>
 
@@ -43,9 +43,9 @@ const ALL_BACKENDS: ReadonlySet<StoreBackendName> = new Set([
 ])
 
 export function resolveStoreBackend(): StoreBackendName {
-    const raw = process.env.ZAPO_BENCH_STORE ?? 'memory'
+    const raw = process.env.ZHUXE_BENCH_STORE ?? 'memory'
     if (!ALL_BACKENDS.has(raw as StoreBackendName)) {
-        throw new Error(`unknown ZAPO_BENCH_STORE=${raw}; valid: ${[...ALL_BACKENDS].join(', ')}`)
+        throw new Error(`unknown ZHUXE_BENCH_STORE=${raw}; valid: ${[...ALL_BACKENDS].join(', ')}`)
     }
     return raw as StoreBackendName
 }
@@ -117,10 +117,10 @@ function buildMemoryStore(): BenchStoreFixture {
 }
 
 async function buildSqliteStore(): Promise<BenchStoreFixture> {
-    const { createSqliteStore } = await import('@zapo-js/store-sqlite')
-    const userPath = process.env.ZAPO_BENCH_SQLITE_PATH
+    const { createSqliteStore } = await import('@zhuxe-js/store-sqlite')
+    const userPath = process.env.ZHUXE_BENCH_SQLITE_PATH
     const ownsFile = !userPath
-    const path = userPath ?? joinPath(tmpdir(), `zapo-bench-${process.pid}-${Date.now()}.sqlite`)
+    const path = userPath ?? joinPath(tmpdir(), `zhuxe-bench-${process.pid}-${Date.now()}.sqlite`)
     const backend = createSqliteStore({ path })
     const store = createStore({
         backends: { sqlite: backend },
@@ -142,17 +142,17 @@ async function buildSqliteStore(): Promise<BenchStoreFixture> {
 }
 
 async function buildPostgresStore(): Promise<BenchStoreFixture> {
-    const { createPostgresStore } = await import('@zapo-js/store-postgres')
+    const { createPostgresStore } = await import('@zhuxe-js/store-postgres')
     const pg = await import('pg')
-    const host = requireEnv('ZAPO_TEST_PG_HOST')
-    const port = parsePort('ZAPO_TEST_PG_PORT')
-    const user = process.env.ZAPO_TEST_PG_USER ?? 'postgres'
-    const password = process.env.ZAPO_TEST_PG_PASSWORD ?? 'test'
-    const database = process.env.ZAPO_TEST_PG_DATABASE ?? 'zapo_test'
+    const host = requireEnv('ZHUXE_TEST_PG_HOST')
+    const port = parsePort('ZHUXE_TEST_PG_PORT')
+    const user = process.env.ZHUXE_TEST_PG_USER ?? 'postgres'
+    const password = process.env.ZHUXE_TEST_PG_PASSWORD ?? 'test'
+    const database = process.env.ZHUXE_TEST_PG_DATABASE ?? 'zhuxe_test'
     const tablePrefix = uniquePrefix('pg')
 
     const rawPool = new pg.Pool({ host, port, user, password, database, max: 16 })
-    const trace = process.env.ZAPO_BENCH_TRACE_QUERIES === '1'
+    const trace = process.env.ZHUXE_BENCH_TRACE_QUERIES === '1'
     const queryStats = new Map<string, { count: number; totalUs: number }>()
     const sqlKey = (sql: string): string => {
         const compact = sql.replace(/\s+/g, ' ').trim()
@@ -254,13 +254,13 @@ async function buildPostgresStore(): Promise<BenchStoreFixture> {
 }
 
 async function buildMysqlStore(): Promise<BenchStoreFixture> {
-    const { createMysqlStore } = await import('@zapo-js/store-mysql')
+    const { createMysqlStore } = await import('@zhuxe-js/store-mysql')
     const mysql = await import('mysql2/promise')
-    const host = requireEnv('ZAPO_TEST_MYSQL_HOST')
-    const port = parsePort('ZAPO_TEST_MYSQL_PORT')
-    const user = process.env.ZAPO_TEST_MYSQL_USER ?? 'root'
-    const password = process.env.ZAPO_TEST_MYSQL_PASSWORD ?? 'test'
-    const database = process.env.ZAPO_TEST_MYSQL_DATABASE ?? 'zapo_test'
+    const host = requireEnv('ZHUXE_TEST_MYSQL_HOST')
+    const port = parsePort('ZHUXE_TEST_MYSQL_PORT')
+    const user = process.env.ZHUXE_TEST_MYSQL_USER ?? 'root'
+    const password = process.env.ZHUXE_TEST_MYSQL_PASSWORD ?? 'test'
+    const database = process.env.ZHUXE_TEST_MYSQL_DATABASE ?? 'zhuxe_test'
     const tablePrefix = uniquePrefix('mysql')
 
     const rawPool = mysql.createPool({
@@ -271,7 +271,7 @@ async function buildMysqlStore(): Promise<BenchStoreFixture> {
         database,
         connectionLimit: 16
     })
-    const trace = process.env.ZAPO_BENCH_TRACE_QUERIES === '1'
+    const trace = process.env.ZHUXE_BENCH_TRACE_QUERIES === '1'
     const queryStats = new Map<string, { count: number; totalUs: number }>()
     const sqlKey = (sql: string): string => {
         const compact = sql.replace(/\s+/g, ' ').trim()
@@ -371,14 +371,14 @@ async function buildMysqlStore(): Promise<BenchStoreFixture> {
 }
 
 async function buildRedisStore(): Promise<BenchStoreFixture> {
-    const { createRedisStore } = await import('@zapo-js/store-redis')
+    const { createRedisStore } = await import('@zhuxe-js/store-redis')
     const { Redis } = await import('ioredis')
-    const host = requireEnv('ZAPO_TEST_REDIS_HOST')
-    const port = parsePort('ZAPO_TEST_REDIS_PORT')
+    const host = requireEnv('ZHUXE_TEST_REDIS_HOST')
+    const port = parsePort('ZHUXE_TEST_REDIS_PORT')
     const keyPrefix = uniquePrefix('redis')
 
     const rawClient = new Redis({ host, port, lazyConnect: false })
-    const trace = process.env.ZAPO_BENCH_TRACE_QUERIES === '1'
+    const trace = process.env.ZHUXE_BENCH_TRACE_QUERIES === '1'
     const callStats = new Map<string, { count: number; totalUs: number }>()
     const recordCall = (cmd: string, start: bigint): void => {
         const elapsedUs = Number(process.hrtime.bigint() - start) / 1000
@@ -444,14 +444,14 @@ async function buildRedisStore(): Promise<BenchStoreFixture> {
 }
 
 async function buildMongoStore(): Promise<BenchStoreFixture> {
-    const { createMongoStore } = await import('@zapo-js/store-mongo')
+    const { createMongoStore } = await import('@zhuxe-js/store-mongo')
     const { MongoClient } = await import('mongodb')
-    const host = requireEnv('ZAPO_TEST_MONGO_HOST')
-    const port = parsePort('ZAPO_TEST_MONGO_PORT')
+    const host = requireEnv('ZHUXE_TEST_MONGO_HOST')
+    const port = parsePort('ZHUXE_TEST_MONGO_PORT')
     const uri = `mongodb://${host}:${port}/?directConnection=true`
-    const database = `zapo_bench_${Date.now().toString(36)}`
+    const database = `zhuxe_bench_${Date.now().toString(36)}`
 
-    const trace = process.env.ZAPO_BENCH_TRACE_QUERIES === '1'
+    const trace = process.env.ZHUXE_BENCH_TRACE_QUERIES === '1'
     const cmdStats = new Map<string, { count: number; totalUs: number }>()
     const rawClient = new MongoClient(uri, { monitorCommands: trace })
     if (trace) {
@@ -523,8 +523,8 @@ function requireEnv(name: string): string {
     const v = process.env[name]
     if (!v) {
         throw new Error(
-            `env ${name} is required for ZAPO_BENCH_STORE=${process.env.ZAPO_BENCH_STORE}; ` +
-                `start the docker-compose stack or use ZAPO_BENCH_STORE=memory`
+            `env ${name} is required for ZHUXE_BENCH_STORE=${process.env.ZHUXE_BENCH_STORE}; ` +
+                `start the docker-compose stack or use ZHUXE_BENCH_STORE=memory`
         )
     }
     return v

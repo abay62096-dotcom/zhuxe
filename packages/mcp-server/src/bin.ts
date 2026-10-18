@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { toError } from 'zhuxee-assistance/util'
+import { toError } from 'zhuxe-assistance/util'
 
 import { runMcpServer } from './server'
 

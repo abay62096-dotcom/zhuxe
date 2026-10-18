@@ -1,5 +1,5 @@
-import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zhuxee-assistance/store'
-import { asNumber, asString, resolvePositive } from 'zhuxee-assistance/util'
+import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zhuxe-assistance/store'
+import { asNumber, asString, resolvePositive } from 'zhuxe-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

@@ -3,11 +3,11 @@ import test from 'node:test'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('client.profile.getProfilePicture returns a pre-seeded record from the registry', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'profile-pic-get' })
+    const { client } = createZhuxeClient(server, { sessionId: 'profile-pic-get' })
     const targetJid = '5511777777777@s.whatsapp.net'
 
     server.setProfilePictureRecord(targetJid, {
@@ -33,7 +33,7 @@ test('client.profile.getProfilePicture returns a pre-seeded record from the regi
 
 test('client.profile.setProfilePicture mints a new record and fires the listener', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'profile-pic-set' })
+    const { client } = createZhuxeClient(server, { sessionId: 'profile-pic-set' })
 
     const captured: Array<{ byteLen: number }> = []
     server.onOutboundProfilePictureSet((op) => {
@@ -56,7 +56,7 @@ test('client.profile.setProfilePicture mints a new record and fires the listener
 
 test('client.profile.setStatus reaches the fake server and fires the listener', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'profile-status-set' })
+    const { client } = createZhuxeClient(server, { sessionId: 'profile-status-set' })
 
     const captured: Array<{ text: string }> = []
     server.onOutboundStatusSet((op) => {
@@ -78,7 +78,7 @@ test('client.profile.setStatus reaches the fake server and fires the listener', 
 
 test('client.business.getBusinessProfile returns a pre-seeded record from the registry', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'business-profile-get' })
+    const { client } = createZhuxeClient(server, { sessionId: 'business-profile-get' })
     const bizJid = '5511666666666@s.whatsapp.net'
 
     server.setBusinessProfileRecord(bizJid, {

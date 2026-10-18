@@ -4,11 +4,11 @@ import test from 'node:test'
 import { FakeWaServer } from '../api/FakeWaServer'
 import { buildStreamErrorCode } from '../protocol/stream/stream-error'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('client reconnects after a stream:error and the fake server sees a fresh pipeline', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'reconnect-after-error' })
+    const { client } = createZhuxeClient(server, { sessionId: 'reconnect-after-error' })
 
     try {
         await client.connect()

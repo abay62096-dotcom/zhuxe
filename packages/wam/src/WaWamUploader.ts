@@ -1,6 +1,6 @@
-import type { BinaryNode, Logger, WaClientPluginContext } from 'zhuxee-assistance'
-import { WA_DEFAULTS, WA_IQ_TYPES, WA_NODE_TAGS } from 'zhuxee-assistance/protocol'
-import { delay, toError } from 'zhuxee-assistance/util'
+import type { BinaryNode, Logger, WaClientPluginContext } from 'zhuxe-assistance'
+import { WA_DEFAULTS, WA_IQ_TYPES, WA_NODE_TAGS } from 'zhuxe-assistance/protocol'
+import { delay, toError } from 'zhuxe-assistance/util'
 
 /** WAM-telemetry upload stanza namespace + child tag (`<iq xmlns="w:stats"><add t>`). WAM-specific, not a core concept. */
 const WAM_STATS_XMLNS = 'w:stats'

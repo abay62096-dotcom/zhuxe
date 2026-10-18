@@ -1,4 +1,4 @@
-import type { WaMessageSecretEntry, WaMessageSecretStore } from 'zhuxee-assistance/store'
+import type { WaMessageSecretEntry, WaMessageSecretStore } from 'zhuxe-assistance/store'
 
 import { BaseRedisStore } from './BaseRedisStore'
 import { deleteKeysChunked, scanKeys, toBytesOrNull, toRedisBuffer } from './helpers'

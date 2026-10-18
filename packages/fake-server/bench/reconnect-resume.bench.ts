@@ -11,7 +11,7 @@
  *   - full ready signal (connection_open)
  *
  * Tunables:
- *   ZAPO_BENCH_RECONNECT_ITERATIONS  (default 20)
+ *   ZHUXE_BENCH_RECONNECT_ITERATIONS  (default 20)
  *
  * Profiling flags: same as messaging.bench.
  */
@@ -19,7 +19,7 @@
 import type { Agent } from 'node:https'
 import { performance } from 'node:perf_hooks'
 
-import { WaClient, type WaClientEventMap, type WaStore } from 'zhuxee-assistance'
+import { WaClient, type WaClientEventMap, type WaStore } from 'zhuxe-assistance'
 
 import type { FakeWaServer } from '../src/api/FakeWaServer'
 
@@ -126,11 +126,11 @@ async function main(): Promise<void> {
     const profiler = new BenchProfiler(readProfilerOptions(argSet))
     await profiler.start()
 
-    const iterations = readPositiveIntEnv('ZAPO_BENCH_RECONNECT_ITERATIONS', 20)
-    const backendName = process.env.ZAPO_BENCH_STORE ?? 'memory'
+    const iterations = readPositiveIntEnv('ZHUXE_BENCH_RECONNECT_ITERATIONS', 20)
+    const backendName = process.env.ZHUXE_BENCH_STORE ?? 'memory'
     const separate = argSet.has('--separate-process')
 
-    console.log('zhuxee-assistance reconnect-resume bench')
+    console.log('zhuxe-assistance reconnect-resume bench')
     console.log('──────────────────────────────')
     console.log(`  iterations : ${iterations}`)
     console.log(`  store      : ${backendName}`)

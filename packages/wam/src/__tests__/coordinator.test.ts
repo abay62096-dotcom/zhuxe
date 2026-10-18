@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import type { BinaryNode, WaClientPluginContext } from 'zhuxee-assistance'
+import type { BinaryNode, WaClientPluginContext } from 'zhuxe-assistance'
 
 import { WaWamCoordinator } from '../WaWamCoordinator.js'
 

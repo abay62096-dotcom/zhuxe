@@ -585,7 +585,7 @@ test('updateCoverPhoto throws on invalid json body', async () => {
 })
 
 test('updateCoverPhoto accepts a file path source', async () => {
-    const filePath = join(tmpdir(), `zapo-cover-test-${Date.now()}-${Math.random()}.bin`)
+    const filePath = join(tmpdir(), `zhuxe-cover-test-${Date.now()}-${Math.random()}.bin`)
     await writeFile(filePath, new Uint8Array([10, 20, 30, 40, 50]))
     try {
         const coordinator = makeUploadStub(

@@ -2,18 +2,18 @@
     "compilerOptions": {
         "baseUrl": "..",
         "paths": {
-            "zhuxee-assistance": ["dist/index.d.ts"],
-            "zhuxee-assistance/store": ["dist/store/index.d.ts"],
-            "zhuxee-assistance/signal": ["dist/signal/index.d.ts"],
-            "zhuxee-assistance/auth": ["dist/auth/index.d.ts"],
-            "zhuxee-assistance/appstate": ["dist/appstate/index.d.ts"],
-            "zhuxee-assistance/retry": ["dist/retry/index.d.ts"],
-            "zhuxee-assistance/proto": ["dist/proto.d.ts"],
-            "zhuxee-assistance/protocol": ["dist/protocol/index.d.ts"],
-            "zhuxee-assistance/crypto": ["dist/crypto/index.d.ts"],
-            "zhuxee-assistance/media": ["dist/media/index.d.ts"],
-            "zhuxee-assistance/util": ["dist/util/index.d.ts"],
-            "zhuxee-assistance/transport": ["dist/transport/index.d.ts"]
+            "zhuxe-assistance": ["dist/index.d.ts"],
+            "zhuxe-assistance/store": ["dist/store/index.d.ts"],
+            "zhuxe-assistance/signal": ["dist/signal/index.d.ts"],
+            "zhuxe-assistance/auth": ["dist/auth/index.d.ts"],
+            "zhuxe-assistance/appstate": ["dist/appstate/index.d.ts"],
+            "zhuxe-assistance/retry": ["dist/retry/index.d.ts"],
+            "zhuxe-assistance/proto": ["dist/proto.d.ts"],
+            "zhuxe-assistance/protocol": ["dist/protocol/index.d.ts"],
+            "zhuxe-assistance/crypto": ["dist/crypto/index.d.ts"],
+            "zhuxe-assistance/media": ["dist/media/index.d.ts"],
+            "zhuxe-assistance/util": ["dist/util/index.d.ts"],
+            "zhuxe-assistance/transport": ["dist/transport/index.d.ts"]
         }
     }
 }

@@ -1,7 +1,7 @@
-import type { Logger } from 'zhuxee-assistance'
-import { toUserJid } from 'zhuxee-assistance/protocol'
-import { type BinaryNode, findNodeChild, getNodeChildrenByTag } from 'zhuxee-assistance/transport'
-import { toError, uint8TimingSafeEqual } from 'zhuxee-assistance/util'
+import type { Logger } from 'zhuxe-assistance'
+import { toUserJid } from 'zhuxe-assistance/protocol'
+import { type BinaryNode, findNodeChild, getNodeChildrenByTag } from 'zhuxe-assistance/transport'
+import { toError, uint8TimingSafeEqual } from 'zhuxe-assistance/util'
 
 import {
     type WaCallMediaEvent,
@@ -10,7 +10,7 @@ import {
     type WaCallMediaMessage,
     type WaCallMediaSsrcs,
     type WaCallReaction
-} from '@zapo-js/voip-media'
+} from '@zhuxe-js/voip-media'
 
 import { derivePerJidSrtpKey } from '../crypto/encryption.js'
 import { isSameDeviceJid, toDeviceJid } from '../jid.js'

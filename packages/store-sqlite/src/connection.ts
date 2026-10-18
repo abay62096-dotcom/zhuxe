@@ -1,5 +1,5 @@
-import type { Logger } from 'zhuxee-assistance'
-import { isBunRuntime, toSafeNumber } from 'zhuxee-assistance/util'
+import type { Logger } from 'zhuxe-assistance'
+import { isBunRuntime, toSafeNumber } from 'zhuxe-assistance/util'
 
 import {
     createSqliteTableNameSqlResolver,

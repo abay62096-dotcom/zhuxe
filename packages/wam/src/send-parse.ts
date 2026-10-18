@@ -1,5 +1,5 @@
-import type { BinaryNode } from 'zhuxee-assistance'
-import { proto } from 'zhuxee-assistance/proto'
+import type { BinaryNode } from 'zhuxe-assistance'
+import { proto } from 'zhuxe-assistance/proto'
 import {
     isGroupJid,
     isNewsletterJid,
@@ -8,7 +8,7 @@ import {
     WA_ENC_CIPHERTEXT_TYPES,
     WA_ENC_MEDIA_TYPES,
     WA_MESSAGE_TAGS
-} from 'zhuxee-assistance/protocol'
+} from 'zhuxe-assistance/protocol'
 
 export type WamCiphertextTypeKey =
     | 'MESSAGE'

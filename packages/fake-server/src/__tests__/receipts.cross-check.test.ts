@@ -4,11 +4,11 @@ import test from 'node:test'
 import { FakeWaServer } from '../api/FakeWaServer'
 import { buildReceipt } from '../protocol/push/receipt'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('fake server pushes a read receipt and the lib emits receipt', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'receipts-inbound' })
+    const { client } = createZhuxeClient(server, { sessionId: 'receipts-inbound' })
 
     const peerJid = '5511777777777@s.whatsapp.net'
     const messageId = 'wa-msg-id-12345'
@@ -56,7 +56,7 @@ test('fake server pushes a read receipt and the lib emits receipt', async () => 
 
 test('client.sendReceipt emits a real <receipt/> stanza captured by the fake server', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'receipts-outbound' })
+    const { client } = createZhuxeClient(server, { sessionId: 'receipts-outbound' })
 
     const peerJid = '5511777777777@s.whatsapp.net'
     const messageId = 'outbound-receipt-id'

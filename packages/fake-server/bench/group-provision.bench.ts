@@ -10,8 +10,8 @@
  *                      calls (per-jid, sequential)
  *
  * Tunables:
- *   ZAPO_BENCH_GROUP_OPS         (default 100)  ops per scenario
- *   ZAPO_BENCH_GROUP_MEMBERS_PER_CREATE (default 5) jids per group on create
+ *   ZHUXE_BENCH_GROUP_OPS         (default 100)  ops per scenario
+ *   ZHUXE_BENCH_GROUP_MEMBERS_PER_CREATE (default 5) jids per group on create
  *
  * Profiling flags: same as messaging.bench. With --separate-process
  * the fake server runs in a forked child and gets its own profiles.
@@ -301,13 +301,13 @@ async function main(): Promise<void> {
     await profiler.start()
 
     const config: GroupBenchConfig = {
-        ops: readPositiveIntEnv('ZAPO_BENCH_GROUP_OPS', 100),
-        membersPerCreate: readPositiveIntEnv('ZAPO_BENCH_GROUP_MEMBERS_PER_CREATE', 5)
+        ops: readPositiveIntEnv('ZHUXE_BENCH_GROUP_OPS', 100),
+        membersPerCreate: readPositiveIntEnv('ZHUXE_BENCH_GROUP_MEMBERS_PER_CREATE', 5)
     }
-    const backendName = process.env.ZAPO_BENCH_STORE ?? 'memory'
+    const backendName = process.env.ZHUXE_BENCH_STORE ?? 'memory'
     const separate = argSet.has('--separate-process')
 
-    console.log('zhuxee-assistance group-provision bench')
+    console.log('zhuxe-assistance group-provision bench')
     console.log('─────────────────────────────')
     console.log(`  ops / scenario     : ${config.ops}`)
     console.log(`  members per create : ${config.membersPerCreate}`)

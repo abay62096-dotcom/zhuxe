@@ -1,12 +1,12 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer, type WaFakeConnectionPipeline } from '../api/FakeWaServer'
 import { parsePairingQrString } from '../protocol/auth/pair-device'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 interface PairedClient {
     readonly client: WaClient
@@ -40,7 +40,7 @@ async function pairAndLogin(
     sessionId: string,
     deviceJid: string
 ): Promise<PairedClient> {
-    const { client } = createZapoClient(server, { sessionId })
+    const { client } = createZhuxeClient(server, { sessionId })
 
     const materialPromise = new Promise<{
         readonly advSecretKey: Uint8Array

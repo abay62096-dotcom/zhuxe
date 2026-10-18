@@ -1,4 +1,4 @@
-import type { WaMessageStore, WaStoredMessageRecord } from 'zhuxee-assistance/store'
+import type { WaMessageStore, WaStoredMessageRecord } from 'zhuxe-assistance/store'
 
 import { BaseRedisStore } from './BaseRedisStore'
 import { safeLimit, scanKeys, toBytesOrNull, toRedisBuffer, toStringOrNull } from './helpers'

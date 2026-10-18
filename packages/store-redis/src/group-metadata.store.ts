@@ -1,4 +1,4 @@
-import type { WaGroupMetadataSnapshot, WaGroupMetadataStore } from 'zhuxee-assistance/store'
+import type { WaGroupMetadataSnapshot, WaGroupMetadataStore } from 'zhuxe-assistance/store'
 
 import { BaseRedisStore } from './BaseRedisStore'
 import { deleteKeysChunked, scanKeys } from './helpers'

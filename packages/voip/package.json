@@ -1,12 +1,12 @@
 {
-    "name": "@zapo-js/voip",
+    "name": "@zhuxe-js/voip",
     "version": "1.4.0",
-    "description": "WhatsApp VOIP (calling) plugin for zhuxee-assistance — MLow/WASM codec, SRTP, STUN and WebRTC/SCTP relay transport",
+    "description": "WhatsApp VOIP (calling) plugin for zhuxe-assistance — MLow/WASM codec, SRTP, STUN and WebRTC/SCTP relay transport",
     "license": "MIT",
     "author": "vinikjkkj <contact@vinicius.email> (https://github.com/vinikjkkj)",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/abay62096-dotcom/zhuxee.git",
+        "url": "git+https://github.com/abay62096-dotcom/zhuxe.git",
         "directory": "packages/voip"
     },
     "main": "dist/index.js",
@@ -32,12 +32,12 @@
         "test": "node --import tsx --test \"src/**/__tests__/**/*.test.ts\""
     },
     "dependencies": {
-        "@zapo-js/voip-media": "^0.3.0"
+        "@zhuxe-js/voip-media": "^0.3.0"
     },
     "peerDependencies": {
         "@roamhq/wrtc": ">=0.10.0",
         "libmlow-wasm-fork": "^0.2.0",
-        "zhuxee-assistance": "^1.0.0"
+        "zhuxe-assistance": "^1.0.0"
     },
     "peerDependenciesMeta": {
         "@roamhq/wrtc": {
@@ -50,7 +50,7 @@
     "devDependencies": {
         "@roamhq/wrtc": "^0.10.0",
         "libmlow-wasm-fork": "^0.2.0",
-        "zhuxee-assistance": "file:../.."
+        "zhuxe-assistance": "file:../.."
     },
     "engines": {
         "node": ">=20.9.0"

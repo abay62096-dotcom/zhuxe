@@ -2,9 +2,9 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { test } from 'node:test'
 
-import { createNoopLogger } from 'zhuxee-assistance'
+import { createNoopLogger } from 'zhuxe-assistance'
 
-import type { WaCallMediaMessage, WaCallReaction } from '@zapo-js/voip-media'
+import type { WaCallMediaMessage, WaCallReaction } from '@zhuxe-js/voip-media'
 
 import {
     toCompanionModelSource,

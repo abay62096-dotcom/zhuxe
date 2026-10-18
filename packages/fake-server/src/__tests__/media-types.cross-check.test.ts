@@ -1,14 +1,14 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import type { FakePeer } from '../api/FakePeer'
 import { FakeWaServer } from '../api/FakeWaServer'
 import type { FakeMediaType } from '../state/fake-media-store'
 import type { Proto } from '../transport/protos'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 interface MediaTypeCase {
     readonly name: string
@@ -104,7 +104,7 @@ function waitForMessage(
 for (const testCase of cases) {
     test(`fake peer pushes a ${testCase.name} message and the lib downloads + decrypts it`, async () => {
         const server = await FakeWaServer.start()
-        const { client } = createZapoClient(server, { sessionId: `media-${testCase.name}` })
+        const { client } = createZhuxeClient(server, { sessionId: `media-${testCase.name}` })
 
         const plaintext = new Uint8Array(1024)
         for (let index = 0; index < plaintext.byteLength; index += 1) {

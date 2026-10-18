@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import type { BinaryNode } from 'zhuxee-assistance/transport'
-import { bytesToBase64, TEXT_ENCODER } from 'zhuxee-assistance/util'
+import type { BinaryNode } from 'zhuxe-assistance/transport'
+import { bytesToBase64, TEXT_ENCODER } from 'zhuxe-assistance/util'
 
 import { parseVoipSettings, WaVoipSettings } from '../voip-settings.js'
 

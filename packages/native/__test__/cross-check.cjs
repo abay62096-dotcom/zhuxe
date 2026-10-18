@@ -2,14 +2,14 @@
 // plus X25519 shared-secret parity against node:crypto.
 //
 // The accelerator side goes through the runtime resolver, so
-// ZAPO_NATIVE_BACKEND selects the backend under test (auto / napi / wasm).
+// ZHUXE_NATIVE_BACKEND selects the backend under test (auto / napi / wasm).
 // Run from repo root via tsx so the @crypto path aliases resolve:
 //   node --import tsx packages/native/__test__/cross-check.cjs
 
-// Force the JS implementations on the zhuxee-assistance side BEFORE it loads, so the
+// Force the JS implementations on the zhuxe-assistance side BEFORE it loads, so the
 // comparison is accelerator vs pure JS instead of accelerator vs itself.
-process.env.ZAPO_XEDDSA_FORCE_JS = '1'
-process.env.ZAPO_X25519_FORCE_JS = '1'
+process.env.ZHUXE_XEDDSA_FORCE_JS = '1'
+process.env.ZHUXE_X25519_FORCE_JS = '1'
 
 const assert = require('node:assert')
 const { randomBytes, createPrivateKey } = require('node:crypto')
@@ -23,8 +23,8 @@ async function main() {
         typeof native.xeddsaVerify !== 'function' ||
         typeof native.x25519ScalarMult !== 'function'
     ) {
-        const backend = process.env.ZAPO_NATIVE_BACKEND ?? 'auto'
-        console.error(`no accelerator backend loaded (ZAPO_NATIVE_BACKEND=${backend})`)
+        const backend = process.env.ZHUXE_NATIVE_BACKEND ?? 'auto'
+        console.error(`no accelerator backend loaded (ZHUXE_NATIVE_BACKEND=${backend})`)
         process.exit(2)
     }
 

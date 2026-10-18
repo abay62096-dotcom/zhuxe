@@ -1,4 +1,4 @@
-import type { WaGroupMetadataSnapshot, WaGroupMetadataStore } from 'zhuxee-assistance/store'
+import type { WaGroupMetadataSnapshot, WaGroupMetadataStore } from 'zhuxe-assistance/store'
 
 import { BaseMongoStore } from './BaseMongoStore'
 import type { WaMongoStorageOptions } from './types'

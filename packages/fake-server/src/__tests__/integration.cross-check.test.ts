@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function waitForEvent<K extends keyof WaClientEventMap>(
     client: WaClient,
@@ -24,9 +24,9 @@ function waitForEvent<K extends keyof WaClientEventMap>(
     })
 }
 
-test('zhuxee-assistance client completes a full noise XX handshake against the fake server', async () => {
+test('zhuxe-assistance client completes a full noise XX handshake against the fake server', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'fake-server-test' })
+    const { client } = createZhuxeClient(server, { sessionId: 'fake-server-test' })
 
     try {
         const successPromise = waitForEvent(client, 'debug_connection_success', 5_000)

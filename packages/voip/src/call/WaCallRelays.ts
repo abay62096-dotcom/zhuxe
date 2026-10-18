@@ -1,11 +1,11 @@
-import type { Logger } from 'zhuxee-assistance'
-import { type BinaryNode, getFirstNodeChild } from 'zhuxee-assistance/transport'
+import type { Logger } from 'zhuxe-assistance'
+import { type BinaryNode, getFirstNodeChild } from 'zhuxe-assistance/transport'
 
 import {
     dialableRelayEndpoints,
     type WaCallMediaRelay,
     type WaCallMediaRelays
-} from '@zapo-js/voip-media'
+} from '@zhuxe-js/voip-media'
 
 import { readUInt32BE } from '../bytes.js'
 import { parseRelayFromAck } from '../relay/relay-ack.js'

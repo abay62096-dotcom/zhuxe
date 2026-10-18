@@ -1,5 +1,5 @@
-import type { Logger } from 'zhuxee-assistance'
-import { toError } from 'zhuxee-assistance/util'
+import type { Logger } from 'zhuxe-assistance'
+import { toError } from 'zhuxe-assistance/util'
 
 import { generateCallKey } from '../crypto/encryption.js'
 import { groupParticipantAccountKey } from '../jid.js'

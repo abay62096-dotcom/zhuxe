@@ -1,6 +1,6 @@
-import type { Logger } from 'zhuxee-assistance'
-import type { BinaryNode } from 'zhuxee-assistance/transport'
-import { toError } from 'zhuxee-assistance/util'
+import type { Logger } from 'zhuxe-assistance'
+import type { BinaryNode } from 'zhuxe-assistance/transport'
+import { toError } from 'zhuxe-assistance/util'
 
 import type { WaVoipDeps } from '../types.js'
 

@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import { createNoopLogger } from 'zhuxee-assistance'
+import { createNoopLogger } from 'zhuxe-assistance'
 
-import type { WaCallMediaMessage } from '@zapo-js/voip-media'
+import type { WaCallMediaMessage } from '@zhuxe-js/voip-media'
 
 import { WaVoipSettings } from '../../signaling/voip-settings.js'
 import { CallMediaType, CallState, EndCallReason, type WaVoipDeps } from '../../types.js'

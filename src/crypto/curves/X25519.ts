@@ -19,7 +19,7 @@ import { assertByteLength, concatBytes, decodeBase64Url, toBytesView } from '@ut
 
 type NativeX25519ScalarMult = (privateKey: Uint8Array, publicKey: Uint8Array) => Uint8Array
 const nativeX25519ScalarMult: NativeX25519ScalarMult | null = (() => {
-    if (process.env.ZAPO_X25519_FORCE_JS) return null
+    if (process.env.ZHUXE_X25519_FORCE_JS) return null
     const mod = resolveNativeCryptoBackend()
     if (mod && typeof mod.x25519ScalarMult === 'function') {
         return mod.x25519ScalarMult

@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import type { WaConnectionEvent } from 'zhuxee-assistance'
-import { proto } from 'zhuxee-assistance/proto'
+import type { WaConnectionEvent } from 'zhuxe-assistance'
+import { proto } from 'zhuxe-assistance/proto'
 
 import { WaWamAutoEmitter, type WaWamAutoEmitterContext } from '../WaWamAutoEmitter.js'
 import type { WaWamCoordinator } from '../WaWamCoordinator.js'

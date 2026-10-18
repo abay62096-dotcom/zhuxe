@@ -4,11 +4,11 @@ import test from 'node:test'
 import { FakeWaServer } from '../api/FakeWaServer'
 import type { BinaryNode } from '../transport/codec'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('client.privacy.getDisallowedList returns the seeded jids per category', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'privacy-disallowed' })
+    const { client } = createZhuxeClient(server, { sessionId: 'privacy-disallowed' })
     const seededJids = ['5511aaa@s.whatsapp.net', '5511bbb@s.whatsapp.net']
     server.setPrivacyDisallowedList('groupadd', seededJids)
 

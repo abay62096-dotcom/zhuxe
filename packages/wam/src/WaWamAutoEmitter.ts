@@ -12,7 +12,7 @@ import {
     type WaIncomingReceiptEvent,
     type WaIncomingUnhandledStanzaEvent,
     type WaOutgoingMessageEvent
-} from 'zhuxee-assistance'
+} from 'zhuxe-assistance'
 import {
     isGroupJid,
     isLidJid,
@@ -26,8 +26,8 @@ import {
     WA_NODE_TAGS,
     WA_REGISTRATION_NOTIFICATION_TAGS,
     WA_XMLNS
-} from 'zhuxee-assistance/protocol'
-import { findNodeChild } from 'zhuxee-assistance/transport'
+} from 'zhuxe-assistance/protocol'
+import { findNodeChild } from 'zhuxe-assistance/transport'
 
 import {
     ciphertextTypeKey,

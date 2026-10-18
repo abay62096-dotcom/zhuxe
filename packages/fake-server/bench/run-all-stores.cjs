@@ -19,7 +19,7 @@
  * `packages/docker-compose.test.yml` services for stores that need
  * them, captures the ephemeral ports, and tears them down at the end.
  * Without the flag, the stores are expected to be reachable via the
- * `ZAPO_TEST_*` env vars (set the same way `scripts/test-stores.cjs`
+ * `ZHUXE_TEST_*` env vars (set the same way `scripts/test-stores.cjs`
  * does).
  *
  * The bench files themselves are run with:
@@ -124,26 +124,26 @@ function ensureDocker(stores) {
     })
     const env = {}
     if (stores.includes('mysql')) {
-        env.ZAPO_TEST_MYSQL_HOST = 'localhost'
-        env.ZAPO_TEST_MYSQL_PORT = getComposePort('mysql', 3306)
-        env.ZAPO_TEST_MYSQL_USER = 'root'
-        env.ZAPO_TEST_MYSQL_PASSWORD = 'test'
-        env.ZAPO_TEST_MYSQL_DATABASE = 'zapo_test'
+        env.ZHUXE_TEST_MYSQL_HOST = 'localhost'
+        env.ZHUXE_TEST_MYSQL_PORT = getComposePort('mysql', 3306)
+        env.ZHUXE_TEST_MYSQL_USER = 'root'
+        env.ZHUXE_TEST_MYSQL_PASSWORD = 'test'
+        env.ZHUXE_TEST_MYSQL_DATABASE = 'zhuxe_test'
     }
     if (stores.includes('postgres')) {
-        env.ZAPO_TEST_PG_HOST = 'localhost'
-        env.ZAPO_TEST_PG_PORT = getComposePort('postgres', 5432)
-        env.ZAPO_TEST_PG_USER = 'postgres'
-        env.ZAPO_TEST_PG_PASSWORD = 'test'
-        env.ZAPO_TEST_PG_DATABASE = 'zapo_test'
+        env.ZHUXE_TEST_PG_HOST = 'localhost'
+        env.ZHUXE_TEST_PG_PORT = getComposePort('postgres', 5432)
+        env.ZHUXE_TEST_PG_USER = 'postgres'
+        env.ZHUXE_TEST_PG_PASSWORD = 'test'
+        env.ZHUXE_TEST_PG_DATABASE = 'zhuxe_test'
     }
     if (stores.includes('redis')) {
-        env.ZAPO_TEST_REDIS_HOST = 'localhost'
-        env.ZAPO_TEST_REDIS_PORT = getComposePort('redis', 6379)
+        env.ZHUXE_TEST_REDIS_HOST = 'localhost'
+        env.ZHUXE_TEST_REDIS_PORT = getComposePort('redis', 6379)
     }
     if (stores.includes('mongo')) {
-        env.ZAPO_TEST_MONGO_HOST = 'localhost'
-        env.ZAPO_TEST_MONGO_PORT = getComposePort('mongo', 27017)
+        env.ZHUXE_TEST_MONGO_HOST = 'localhost'
+        env.ZHUXE_TEST_MONGO_PORT = getComposePort('mongo', 27017)
     }
     return env
 }
@@ -179,7 +179,7 @@ function runBench(bench, store, outRoot, opts, extraEnv) {
 
     const env = {
         ...process.env,
-        ZAPO_BENCH_STORE: store,
+        ZHUXE_BENCH_STORE: store,
         ...extraEnv
     }
 

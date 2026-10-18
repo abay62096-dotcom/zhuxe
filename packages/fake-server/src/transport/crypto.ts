@@ -1,7 +1,7 @@
 /**
  * Layer 1 – crypto primitives wrapper.
  *
- * Re-exports bit-exact cryptographic primitives from zhuxee-assistance. No protocol
+ * Re-exports bit-exact cryptographic primitives from zhuxe-assistance. No protocol
  * interpretation, so reusing them does not create a test-vs-impl tautology.
  */
 
@@ -26,6 +26,6 @@ export {
     X25519,
     xeddsaSign,
     xeddsaVerify
-} from 'zhuxee-assistance/crypto'
-export type { SignalKeyPair } from 'zhuxee-assistance/crypto'
-export { WaMediaCrypto } from 'zhuxee-assistance/media'
+} from 'zhuxe-assistance/crypto'
+export type { SignalKeyPair } from 'zhuxe-assistance/crypto'
+export { WaMediaCrypto } from 'zhuxe-assistance/media'

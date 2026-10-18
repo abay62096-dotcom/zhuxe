@@ -1,5 +1,5 @@
-import type { WaPrivacyTokenStore, WaStoredPrivacyTokenRecord } from 'zhuxee-assistance/store'
-import { asNumber, asOptionalBytes, asOptionalNumber, asString } from 'zhuxee-assistance/util'
+import type { WaPrivacyTokenStore, WaStoredPrivacyTokenRecord } from 'zhuxe-assistance/store'
+import { asNumber, asOptionalBytes, asOptionalNumber, asString } from 'zhuxe-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

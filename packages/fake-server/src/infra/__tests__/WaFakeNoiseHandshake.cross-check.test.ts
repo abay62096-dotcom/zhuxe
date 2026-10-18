@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import { WaNoiseHandshake } from 'zhuxee-assistance/transport'
+import { WaNoiseHandshake } from 'zhuxe-assistance/transport'
 
 import { aesGcmDecrypt, aesGcmEncrypt, X25519 } from '../../transport/crypto'
 import { proto } from '../../transport/protos'

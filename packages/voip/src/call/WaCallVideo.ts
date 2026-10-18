@@ -1,7 +1,7 @@
-import type { Logger } from 'zhuxee-assistance'
-import { toError } from 'zhuxee-assistance/util'
+import type { Logger } from 'zhuxe-assistance'
+import { toError } from 'zhuxe-assistance/util'
 
-import type { WaCallMediaVideo } from '@zapo-js/voip-media'
+import type { WaCallMediaVideo } from '@zhuxe-js/voip-media'
 
 import {
     buildVideoStateStanza,

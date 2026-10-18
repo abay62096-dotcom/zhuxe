@@ -10,12 +10,12 @@ import {
     WaClient,
     type WaClientEventMap,
     type WaStore
-} from 'zhuxee-assistance'
-import { hexToBytes, resolvePositive, toError } from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance'
+import { hexToBytes, resolvePositive, toError } from 'zhuxe-assistance/util'
 
-import { createMediaProcessor } from '@zapo-js/media-utils'
-import { createSqliteStore } from '@zapo-js/store-sqlite'
-import { wamPlugin } from '@zapo-js/wam'
+import { createMediaProcessor } from '@zhuxe-js/media-utils'
+import { createSqliteStore } from '@zhuxe-js/store-sqlite'
+import { wamPlugin } from '@zhuxe-js/wam'
 
 import { encodeForJson } from './serializer'
 

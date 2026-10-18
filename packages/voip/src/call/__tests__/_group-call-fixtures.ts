@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 
-import type { BinaryNode } from 'zhuxee-assistance/transport'
+import type { BinaryNode } from 'zhuxe-assistance/transport'
 
 import { encodeWAMessage } from '../../signaling/call-key.js'
 import { type WaVoipDeps, type WaVoipStores } from '../../types.js'

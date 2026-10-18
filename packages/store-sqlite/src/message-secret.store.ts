@@ -1,5 +1,5 @@
-import type { WaMessageSecretEntry, WaMessageSecretStore } from 'zhuxee-assistance/store'
-import { asBytes, asNumber, asString } from 'zhuxee-assistance/util'
+import type { WaMessageSecretEntry, WaMessageSecretStore } from 'zhuxe-assistance/store'
+import { asBytes, asNumber, asString } from 'zhuxe-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

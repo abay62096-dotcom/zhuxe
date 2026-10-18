@@ -4,13 +4,13 @@ import assert from 'node:assert/strict'
 import { randomBytes } from 'node:crypto'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import { buildExternalBlobReference } from '../protocol/iq/appstate-sync'
 import { FakeAppStateCollection } from '../state/fake-app-state-collection'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 type WaAppStateMutationEvent = Parameters<WaClientEventMap['mutation']>[0]
 
@@ -40,7 +40,7 @@ function waitForMutation(
 
 test('app-state sync via external md-app-state snapshot blob', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, {
+    const { client } = createZhuxeClient(server, {
         sessionId: 'app-state-external-snapshot',
         emitSnapshotMutations: true
     })

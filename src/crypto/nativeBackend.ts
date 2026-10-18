@@ -1,10 +1,10 @@
 /**
  * Resolves the optional native crypto accelerator backend shared by the
- * X25519 and XEdDSA paths. Selected via `ZAPO_NATIVE_BACKEND`:
+ * X25519 and XEdDSA paths. Selected via `ZHUXE_NATIVE_BACKEND`:
  *
  *   - `auto` (default) – try the NAPI addon first, then the WASM build,
  *                        then no accelerator.
- *   - `napi`           – only the compiled Rust NAPI addon (`@zapo-js/native`).
+ *   - `napi`           – only the compiled Rust NAPI addon (`@zhuxe-js/native`).
  *   - `wasm`           – only the wasm-bindgen build of the same Rust core.
  *                        The shipped artifact targets the web (ESM glue +
  *                        explicit init) so one build serves browsers and
@@ -18,8 +18,8 @@
  * transparently fall back to JS. An absent backend stays silent - that is
  * the expected shape of an optional accelerator - but a present-yet-broken
  * one (corrupt binary, ABI mismatch, unsupported runtime) emits a process
- * warning with code `ZAPO_NATIVE_LOAD_FAILED` so the degradation is
- * visible. The per-primitive `ZAPO_X25519_FORCE_JS` / `ZAPO_XEDDSA_FORCE_JS`
+ * warning with code `ZHUXE_NATIVE_LOAD_FAILED` so the degradation is
+ * visible. The per-primitive `ZHUXE_X25519_FORCE_JS` / `ZHUXE_XEDDSA_FORCE_JS`
  * escape hatches are honoured by the callers, not here.
  */
 import { readFileSync } from 'node:fs'
@@ -36,8 +36,8 @@ export interface NativeCryptoModule {
     ) => boolean
 }
 
-const WASM_MODULE_SPECIFIER = '@zapo-js/native/wasm/pkg/zapo_native_wasm.js'
-const WASM_BINARY_SPECIFIER = '@zapo-js/native/wasm/pkg/zapo_native_wasm_bg.wasm'
+const WASM_MODULE_SPECIFIER = '@zhuxe-js/native/wasm/pkg/zhuxe_native_wasm.js'
+const WASM_BINARY_SPECIFIER = '@zhuxe-js/native/wasm/pkg/zhuxe_native_wasm_bg.wasm'
 
 interface WasmWebModule extends NativeCryptoModule {
     readonly initSync: (input: { readonly module: Uint8Array }) => unknown
@@ -53,8 +53,8 @@ function loadWasmBackend(): NativeCryptoModule {
 let cached: NativeCryptoModule | null | undefined
 
 const ABSENCE_TOKENS = {
-    napi: ["'@zapo-js/native'", 'binding.js', 'Cannot find native binding'],
-    wasm: ["'@zapo-js/native'", 'zapo_native_wasm.js']
+    napi: ["'@zhuxe-js/native'", 'binding.js', 'Cannot find native binding'],
+    wasm: ["'@zhuxe-js/native'", 'zhuxe_native_wasm.js']
 } as const
 
 export type NativeBackendKind = keyof typeof ABSENCE_TOKENS
@@ -82,19 +82,19 @@ export function isBackendAbsence(backend: NativeBackendKind, error: unknown): bo
 
 function warnLoadFailure(backend: string, error: unknown): void {
     process.emitWarning('failed to load native crypto accelerator, falling back', {
-        code: 'ZAPO_NATIVE_LOAD_FAILED',
+        code: 'ZHUXE_NATIVE_LOAD_FAILED',
         detail: `${backend}: ${toError(error).message}`
     })
 }
 
 export function resolveNativeCryptoBackend(): NativeCryptoModule | null {
     if (cached !== undefined) return cached
-    const backend = (process.env.ZAPO_NATIVE_BACKEND ?? 'auto').toLowerCase()
+    const backend = (process.env.ZHUXE_NATIVE_BACKEND ?? 'auto').toLowerCase()
     cached = null
     if (backend === 'js' || backend === 'none') return cached
     if (backend === 'napi' || backend === 'auto') {
         try {
-            cached = require('@zapo-js/native') as NativeCryptoModule
+            cached = require('@zhuxe-js/native') as NativeCryptoModule
         } catch (error) {
             if (!isBackendAbsence('napi', error)) warnLoadFailure('napi', error)
         }

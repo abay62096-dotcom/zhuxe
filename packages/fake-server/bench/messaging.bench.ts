@@ -1,6 +1,6 @@
 /**
- * End-to-end messaging profiling for zhuxee-assistance, driven through the
- * @zapo-js/fake-server. Pairs a single real `WaClient` against an
+ * End-to-end messaging profiling for zhuxe-assistance, driven through the
+ * @zhuxe-js/fake-server. Pairs a single real `WaClient` against an
  * in-process fake server and measures four scenarios:
  *
  *   1. SEND 1:1 – N messages to N distinct contacts (each with M
@@ -20,14 +20,14 @@
  * once and runs all four scenarios in sequence on a single client.
  *
  * Tunables (env vars; defaults match the user-requested numbers):
- *   ZAPO_BENCH_CONTACTS              (default 1000)
- *   ZAPO_BENCH_CONTACT_DEVICES       (default 2)
- *   ZAPO_BENCH_GROUPS                (default 4)
- *   ZAPO_BENCH_GROUP_MEMBERS         (default 500)
- *   ZAPO_BENCH_MESSAGES              (default 1000)
- *   ZAPO_BENCH_SCENARIOS             (csv of: send_1to1, recv_1to1,
+ *   ZHUXE_BENCH_CONTACTS              (default 1000)
+ *   ZHUXE_BENCH_CONTACT_DEVICES       (default 2)
+ *   ZHUXE_BENCH_GROUPS                (default 4)
+ *   ZHUXE_BENCH_GROUP_MEMBERS         (default 500)
+ *   ZHUXE_BENCH_MESSAGES              (default 1000)
+ *   ZHUXE_BENCH_SCENARIOS             (csv of: send_1to1, recv_1to1,
  *                                     send_group, recv_group; default = all)
- *   ZAPO_BENCH_JSON                  (=1 to also print results as JSON)
+ *   ZHUXE_BENCH_JSON                  (=1 to also print results as JSON)
  *
  * Profiling flags (same shape as test/example.cjs):
  *   --cpu                    – V8 CPU profile covering the whole run;
@@ -53,7 +53,7 @@ import * as inspector from 'node:inspector/promises'
 import { resolve as resolvePath } from 'node:path'
 import { performance } from 'node:perf_hooks'
 
-import { type Logger, WaClient, type WaClientEventMap } from 'zhuxee-assistance'
+import { type Logger, WaClient, type WaClientEventMap } from 'zhuxe-assistance'
 
 import type { FakePeer } from '../src/api/FakePeer'
 import { FakeWaServer, type WaFakeConnectionPipeline } from '../src/api/FakeWaServer'
@@ -104,10 +104,10 @@ const benchLogger: Logger = {
     debug: () => {},
     info: () => {},
     warn: (...args: unknown[]) => {
-        if (process.env.ZAPO_BENCH_VERBOSE) console.warn('[lib warn]', ...args)
+        if (process.env.ZHUXE_BENCH_VERBOSE) console.warn('[lib warn]', ...args)
     },
     error: (...args: unknown[]) => {
-        if (process.env.ZAPO_BENCH_VERBOSE) console.error('[lib error]', ...args)
+        if (process.env.ZHUXE_BENCH_VERBOSE) console.error('[lib error]', ...args)
     },
     child: () => benchLogger
 }
@@ -143,7 +143,7 @@ function readProfilerOptions(args: ReadonlySet<string>): ProfilerOptions {
  * optional per-scenario CPU profiles when `--per-scenario` is set.
  *
  * IMPORTANT: this is constructed and `start()`-ed BEFORE any
- * fake-server / zhuxee-assistance modules are imported in main(), so module-
+ * fake-server / zhuxe-assistance modules are imported in main(), so module-
  * level allocations are captured by the heap timeline.
  */
 class BenchProfiler {
@@ -329,7 +329,7 @@ interface BenchConfig {
 const ALL_SCENARIOS = new Set(['send_1to1', 'recv_1to1', 'send_group', 'recv_group'])
 
 function readScenarioFilter(): ReadonlySet<string> {
-    const raw = process.env.ZAPO_BENCH_SCENARIOS
+    const raw = process.env.ZHUXE_BENCH_SCENARIOS
     if (!raw) return ALL_SCENARIOS
     const out = new Set<string>()
     for (const part of raw.split(',')) {
@@ -337,7 +337,7 @@ function readScenarioFilter(): ReadonlySet<string> {
         if (!trimmed) continue
         if (!ALL_SCENARIOS.has(trimmed)) {
             throw new Error(
-                `unknown ZAPO_BENCH_SCENARIOS entry "${trimmed}"; valid: ${[...ALL_SCENARIOS].join(',')}`
+                `unknown ZHUXE_BENCH_SCENARIOS entry "${trimmed}"; valid: ${[...ALL_SCENARIOS].join(',')}`
             )
         }
         out.add(trimmed)
@@ -347,11 +347,11 @@ function readScenarioFilter(): ReadonlySet<string> {
 
 function readConfig(): BenchConfig {
     return {
-        contacts: readPositiveIntEnv('ZAPO_BENCH_CONTACTS', 1_000),
-        contactDevices: readPositiveIntEnv('ZAPO_BENCH_CONTACT_DEVICES', 2),
-        groups: readPositiveIntEnv('ZAPO_BENCH_GROUPS', 4),
-        groupMembers: readPositiveIntEnv('ZAPO_BENCH_GROUP_MEMBERS', 500),
-        messages: readPositiveIntEnv('ZAPO_BENCH_MESSAGES', 1_000),
+        contacts: readPositiveIntEnv('ZHUXE_BENCH_CONTACTS', 1_000),
+        contactDevices: readPositiveIntEnv('ZHUXE_BENCH_CONTACT_DEVICES', 2),
+        groups: readPositiveIntEnv('ZHUXE_BENCH_GROUPS', 4),
+        groupMembers: readPositiveIntEnv('ZHUXE_BENCH_GROUP_MEMBERS', 500),
+        messages: readPositiveIntEnv('ZHUXE_BENCH_MESSAGES', 1_000),
         scenarios: readScenarioFilter()
     }
 }
@@ -373,7 +373,7 @@ async function bringUpPairedClient(): Promise<PairedFixture> {
     const client = new WaClient(
         {
             store: storeFixture.store,
-            sessionId: 'zapo-messaging-bench',
+            sessionId: 'zhuxe-messaging-bench',
             chatSocketUrls: [server.url],
             connectTimeoutMs: 60_000,
             proxy: {
@@ -725,7 +725,7 @@ async function scenarioRecvGroup(
 // ─── Reporting ────────────────────────────────────────────────────────
 
 function printConfig(config: BenchConfig): void {
-    console.log('zhuxee-assistance messaging bench')
+    console.log('zhuxe-assistance messaging bench')
     console.log('────────────────────────')
     console.log(`  contacts          : ${config.contacts}`)
     console.log(`  devices/contact   : ${config.contactDevices}`)
@@ -733,7 +733,7 @@ function printConfig(config: BenchConfig): void {
     console.log(`  members/group     : ${config.groupMembers}`)
     console.log(`  messages/scenario : ${config.messages}`)
     console.log(`  scenarios         : ${[...config.scenarios].join(', ')}`)
-    console.log(`  store             : ${process.env.ZAPO_BENCH_STORE ?? 'memory'}`)
+    console.log(`  store             : ${process.env.ZHUXE_BENCH_STORE ?? 'memory'}`)
     console.log(`  --expose-gc       : ${hasExposedGc() ? 'yes' : 'no'}`)
     console.log('')
 }
@@ -869,7 +869,7 @@ async function mainSeparateProcess(
     const client = new WaClient(
         {
             store: storeFixture.store,
-            sessionId: 'zapo-bench-separate',
+            sessionId: 'zhuxe-bench-separate',
             chatSocketUrls: [rpc.serverUrl],
             connectTimeoutMs: 60_000,
             proxy: {
@@ -1034,7 +1034,7 @@ async function main(): Promise<void> {
         await cleanup()
     }
 
-    if (process.env.ZAPO_BENCH_JSON === '1') {
+    if (process.env.ZHUXE_BENCH_JSON === '1') {
         console.log(
             JSON.stringify(
                 results.map((r) => ({

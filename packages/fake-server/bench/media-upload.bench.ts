@@ -8,8 +8,8 @@
  *   - the message-encrypt-and-send pipeline
  *
  * Tunables:
- *   ZAPO_BENCH_MEDIA_UPLOADS  (default 20)
- *   ZAPO_BENCH_MEDIA_SIZES    (default "10240,102400,1048576,4194304")
+ *   ZHUXE_BENCH_MEDIA_UPLOADS  (default 20)
+ *   ZHUXE_BENCH_MEDIA_SIZES    (default "10240,102400,1048576,4194304")
  *                              bytes per upload, comma-separated
  *
  * Profiling flags: same as messaging.bench. With --separate-process
@@ -159,7 +159,7 @@ async function runMediaScenarioRpc(
 }
 
 function parseSizes(): readonly number[] {
-    const raw = readCsvEnv('ZAPO_BENCH_MEDIA_SIZES', [
+    const raw = readCsvEnv('ZHUXE_BENCH_MEDIA_SIZES', [
         String(10 * 1024),
         String(100 * 1024),
         String(1024 * 1024),
@@ -179,11 +179,11 @@ async function main(): Promise<void> {
     await profiler.start()
 
     const sizes = parseSizes()
-    const uploads = readPositiveIntEnv('ZAPO_BENCH_MEDIA_UPLOADS', 20)
-    const backendName = process.env.ZAPO_BENCH_STORE ?? 'memory'
+    const uploads = readPositiveIntEnv('ZHUXE_BENCH_MEDIA_UPLOADS', 20)
+    const backendName = process.env.ZHUXE_BENCH_STORE ?? 'memory'
     const separate = argSet.has('--separate-process')
 
-    console.log('zhuxee-assistance media-upload bench')
+    console.log('zhuxe-assistance media-upload bench')
     console.log('──────────────────────────')
     console.log(`  uploads per size  : ${uploads}`)
     console.log(`  sizes (bytes)     : ${sizes.map((s) => formatMiB(s)).join(', ')}`)

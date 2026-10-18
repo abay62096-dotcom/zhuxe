@@ -1,10 +1,10 @@
-// WASM bindings for the zapo-native crypto accelerators. The algorithms live
-// in the shared `zapo-native-core` crate (same code the NAPI crate wraps), so
+// WASM bindings for the zhuxe-native crypto accelerators. The algorithms live
+// in the shared `zhuxe-native-core` crate (same code the NAPI crate wraps), so
 // this file is only the wasm-bindgen boundary: &[u8]/Vec<u8> marshalling and
 // CoreError -> JsError mapping. There is no algorithmic duplication.
 
 use wasm_bindgen::prelude::*;
-use zapo_native_core as core;
+use zhuxe_native_core as core;
 
 fn to_js_err(err: core::CoreError) -> JsError {
     JsError::new(err.message())

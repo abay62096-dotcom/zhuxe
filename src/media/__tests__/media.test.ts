@@ -716,7 +716,7 @@ test('media message builder supports file path input for upload and processing',
     const encoder = new TextEncoder()
     const filePath = join(
         tmpdir(),
-        `zapo-media-path-${Date.now()}-${Math.random().toString(36).slice(2)}.bin`
+        `zhuxe-media-path-${Date.now()}-${Math.random().toString(36).slice(2)}.bin`
     )
     const processorInputs: string[] = []
 

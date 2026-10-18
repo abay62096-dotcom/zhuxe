@@ -1,5 +1,5 @@
 import { type Db, MongoClient, type MongoClientOptions } from 'mongodb'
-import type { Logger } from 'zhuxee-assistance'
+import type { Logger } from 'zhuxe-assistance'
 
 import { WaAppStateMongoStore } from './appstate.store'
 import { WaAuthMongoStore } from './auth.store'
@@ -100,8 +100,8 @@ function isDb(value: WaMongoStoreConfig['db']): value is Db {
  *
  * @example
  * ```ts
- * import { createStore, WaClient } from 'zhuxee-assistance'
- * import { createMongoStore } from '@zapo-js/store-mongo'
+ * import { createStore, WaClient } from 'zhuxe-assistance'
+ * import { createMongoStore } from '@zhuxe-js/store-mongo'
  *
  * const store = createStore({
  *     backends: {

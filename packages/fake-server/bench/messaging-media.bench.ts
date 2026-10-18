@@ -1,11 +1,11 @@
 /**
- * End-to-end messaging-with-media bench driven through @zapo-js/fake-server.
+ * End-to-end messaging-with-media bench driven through @zhuxe-js/fake-server.
  *
  * Complements `media-upload.bench.ts` (which sweeps image payload sizes)
  * by sweeping over the WhatsApp media TYPES and exercising both 1:1
  * send, group send (SKDM + SKMSG fanout), and receive + download.
  *
- * Scenarios (selectable via ZAPO_BENCH_MEDIA_SCENARIOS):
+ * Scenarios (selectable via ZHUXE_BENCH_MEDIA_SCENARIOS):
  *   - send_media_image, send_media_video, send_media_audio,
  *     send_media_ptt, send_media_document, send_media_sticker
  *       Each issues N `client.message.send(peerJid, { type, media, ... })`
@@ -23,15 +23,15 @@
  *       (the actual HTTPS download + decrypt) for every iteration.
  *
  * Tunables (env vars):
- *   ZAPO_BENCH_MEDIA_MESSAGES         (default 50)
- *   ZAPO_BENCH_MEDIA_BYTES            (default 65_536)
- *   ZAPO_BENCH_MEDIA_CHUNK_BYTES      (default 65_536, stream chunk size)
- *   ZAPO_BENCH_MEDIA_GROUP_MEMBERS    (default 8)
- *   ZAPO_BENCH_MEDIA_INPUT            (stream | buffer; default stream)
- *   ZAPO_BENCH_MEDIA_SCENARIOS        (csv; default = all)
- *   ZAPO_BENCH_STORE                  (memory | sqlite | mysql | ...)
- *   ZAPO_BENCH_VERBOSE                (=1 to print lib warn/error)
- *   ZAPO_BENCH_JSON                   (=1 to also print as JSON)
+ *   ZHUXE_BENCH_MEDIA_MESSAGES         (default 50)
+ *   ZHUXE_BENCH_MEDIA_BYTES            (default 65_536)
+ *   ZHUXE_BENCH_MEDIA_CHUNK_BYTES      (default 65_536, stream chunk size)
+ *   ZHUXE_BENCH_MEDIA_GROUP_MEMBERS    (default 8)
+ *   ZHUXE_BENCH_MEDIA_INPUT            (stream | buffer; default stream)
+ *   ZHUXE_BENCH_MEDIA_SCENARIOS        (csv; default = all)
+ *   ZHUXE_BENCH_STORE                  (memory | sqlite | mysql | ...)
+ *   ZHUXE_BENCH_VERBOSE                (=1 to print lib warn/error)
+ *   ZHUXE_BENCH_JSON                   (=1 to also print as JSON)
  *
  * `MEDIA_INPUT=stream` (default) feeds `client.message.send` a
  * `Readable` so the lib walks its streaming upload path (spool to temp
@@ -54,7 +54,7 @@
 import { randomBytes } from 'node:crypto'
 import { Readable } from 'node:stream'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import type { FakePeer } from '../src/api/FakePeer'
 import type { FakeWaServer, WaFakeConnectionPipeline } from '../src/api/FakeWaServer'
@@ -102,7 +102,7 @@ const RECV_SCENARIOS = ['recv_media_image', 'recv_media_video'] as const
 const ALL_SCENARIOS = new Set<string>([...SEND_SCENARIOS, ...GROUP_SCENARIOS, ...RECV_SCENARIOS])
 
 function readScenarioFilter(): ReadonlySet<string> {
-    const raw = process.env.ZAPO_BENCH_MEDIA_SCENARIOS
+    const raw = process.env.ZHUXE_BENCH_MEDIA_SCENARIOS
     if (!raw) return ALL_SCENARIOS
     const out = new Set<string>()
     for (const part of raw.split(',')) {
@@ -110,7 +110,7 @@ function readScenarioFilter(): ReadonlySet<string> {
         if (!trimmed) continue
         if (!ALL_SCENARIOS.has(trimmed)) {
             throw new Error(
-                `unknown ZAPO_BENCH_MEDIA_SCENARIOS entry "${trimmed}"; valid: ${[...ALL_SCENARIOS].join(',')}`
+                `unknown ZHUXE_BENCH_MEDIA_SCENARIOS entry "${trimmed}"; valid: ${[...ALL_SCENARIOS].join(',')}`
             )
         }
         out.add(trimmed)
@@ -130,18 +130,18 @@ interface BenchConfig {
 }
 
 function readInputMode(): MediaInputMode {
-    const raw = process.env.ZAPO_BENCH_MEDIA_INPUT
+    const raw = process.env.ZHUXE_BENCH_MEDIA_INPUT
     if (!raw) return 'stream'
     if (raw === 'stream' || raw === 'buffer') return raw
-    throw new Error(`invalid ZAPO_BENCH_MEDIA_INPUT: ${raw} (expected 'stream' or 'buffer')`)
+    throw new Error(`invalid ZHUXE_BENCH_MEDIA_INPUT: ${raw} (expected 'stream' or 'buffer')`)
 }
 
 function readConfig(): BenchConfig {
     return {
-        messages: readPositiveIntEnv('ZAPO_BENCH_MEDIA_MESSAGES', 50),
-        payloadBytes: readPositiveIntEnv('ZAPO_BENCH_MEDIA_BYTES', 64 * 1024),
-        chunkBytes: readPositiveIntEnv('ZAPO_BENCH_MEDIA_CHUNK_BYTES', 64 * 1024),
-        groupMembers: readPositiveIntEnv('ZAPO_BENCH_MEDIA_GROUP_MEMBERS', 8),
+        messages: readPositiveIntEnv('ZHUXE_BENCH_MEDIA_MESSAGES', 50),
+        payloadBytes: readPositiveIntEnv('ZHUXE_BENCH_MEDIA_BYTES', 64 * 1024),
+        chunkBytes: readPositiveIntEnv('ZHUXE_BENCH_MEDIA_CHUNK_BYTES', 64 * 1024),
+        groupMembers: readPositiveIntEnv('ZHUXE_BENCH_MEDIA_GROUP_MEMBERS', 8),
         inputMode: readInputMode(),
         scenarios: readScenarioFilter()
     }
@@ -567,10 +567,10 @@ async function main(): Promise<void> {
     await profiler.start()
 
     const config = readConfig()
-    const backendName = process.env.ZAPO_BENCH_STORE ?? 'memory'
+    const backendName = process.env.ZHUXE_BENCH_STORE ?? 'memory'
     const separate = argSet.has('--separate-process')
 
-    console.log('zhuxee-assistance messaging-with-media bench')
+    console.log('zhuxe-assistance messaging-with-media bench')
     console.log('──────────────────────────────────')
     console.log(`  messages/scenario : ${config.messages}`)
     console.log(
@@ -608,7 +608,7 @@ async function runInProcess(
     aggregated: ScenarioResult[]
 ): Promise<void> {
     const storeFixture = await buildBenchStore()
-    const fixture = await bringUpPairedClient(storeFixture, { sessionId: 'zapo-bench-media' })
+    const fixture = await bringUpPairedClient(storeFixture, { sessionId: 'zhuxe-bench-media' })
     const { server, client, pipeline } = fixture
     try {
         for (const testCase of SEND_CASES) {
@@ -657,7 +657,7 @@ async function runSeparateProcess(
     aggregated: ScenarioResult[]
 ): Promise<void> {
     const storeFixture = await buildBenchStore()
-    const fixture = await bringUpPairedClientViaRpc(storeFixture, { sessionId: 'zapo-bench-media' })
+    const fixture = await bringUpPairedClientViaRpc(storeFixture, { sessionId: 'zhuxe-bench-media' })
     const { rpc, client } = fixture
     try {
         await startServerProfilingIfRequested(rpc, profiler.options, argSet)

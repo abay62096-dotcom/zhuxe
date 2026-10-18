@@ -14,7 +14,7 @@ const missingTestsDirectories = directoriesWithSource.filter(
 )
 
 if (missingTestsDirectories.length > 0) {
-    console.error('[zapo] missing __tests__ coverage for source directories:')
+    console.error('[zhuxe] missing __tests__ coverage for source directories:')
     for (const directory of missingTestsDirectories) {
         console.error(` - ${relative(ROOT_DIR, directory).replaceAll('\\', '/')}`)
     }
@@ -22,7 +22,7 @@ if (missingTestsDirectories.length > 0) {
 }
 
 console.log(
-    `[zapo] test structure check passed (${directoriesWithSource.length} source directories validated)`
+    `[zhuxe] test structure check passed (${directoriesWithSource.length} source directories validated)`
 )
 
 function collectDirectoriesWithSource(rootDirectory) {

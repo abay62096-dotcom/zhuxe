@@ -155,9 +155,9 @@ class WaClientImpl extends EventEmitter {
             if (!this.options.recoverFromClientTooOld) return
             if (event.reason !== WA_DISCONNECT_REASONS.FAILURE_CLIENT_TOO_OLD) return
             this.logger.warn(
-                'wa rejected the connect with client_too_old: the zapo default WA version is outdated. ' +
+                'wa rejected the connect with client_too_old: the zhuxe default WA version is outdated. ' +
                     'Auto-recovering by fetching the current version from the public source – ' +
-                    'please upgrade zapo so the shipped default catches up.'
+                    'please upgrade zhuxe so the shipped default catches up.'
             )
             void this.runClientTooOldRecover()
         })
@@ -868,8 +868,8 @@ export interface WaClientConstructor {
  *
  * @example
  * ```ts
- * import { createPinoLogger, createStore, WaClient } from 'zhuxee-assistance'
- * import { createSqliteStore } from '@zapo-js/store-sqlite'
+ * import { createPinoLogger, createStore, WaClient } from 'zhuxe-assistance'
+ * import { createSqliteStore } from '@zhuxe-js/store-sqlite'
  *
  * const store = createStore({
  *     backends: { sqlite: createSqliteStore({ path: '.auth/state.sqlite' }) },

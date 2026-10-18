@@ -1,5 +1,5 @@
-import type { BinaryNode } from 'zhuxee-assistance/transport'
-import { tryAsNumber } from 'zhuxee-assistance/util'
+import type { BinaryNode } from 'zhuxe-assistance/transport'
+import { tryAsNumber } from 'zhuxe-assistance/util'
 
 import { callStanza } from './call-stanza.js'
 

@@ -1,6 +1,6 @@
 import type { Pool, PoolClient } from 'pg'
-import type { Logger } from 'zhuxee-assistance'
-import { resolvePositive } from 'zhuxee-assistance/util'
+import type { Logger } from 'zhuxe-assistance'
+import { resolvePositive } from 'zhuxe-assistance/util'
 
 import { ensurePgMigrations } from './connection'
 import { assertSafeTablePrefix } from './helpers'

@@ -292,7 +292,7 @@ export class WaMediaCrypto {
         const keys = WaMediaCrypto.deriveKeys(mediaType, mediaKey)
         const filePath = join(
             tmpdir(),
-            `zapo-enc-${Date.now()}-${Math.random().toString(36).slice(2)}`
+            `zhuxe-enc-${Date.now()}-${Math.random().toString(36).slice(2)}`
         )
         const output = createWriteStream(filePath)
         try {

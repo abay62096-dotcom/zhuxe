@@ -7,13 +7,13 @@ const MIN_NODE_VERSION = Object.freeze({
 const currentVersion = parseNodeVersion(process.versions.node)
 
 if (!currentVersion) {
-    console.error('[zapo] failed to parse current node version')
+    console.error('[zhuxe] failed to parse current node version')
     process.exit(1)
 }
 
 if (compareVersions(currentVersion, MIN_NODE_VERSION) < 0) {
     console.error(
-        `[zapo] unsupported node version ${formatVersion(currentVersion)}. minimum required is ${formatVersion(MIN_NODE_VERSION)}`
+        `[zhuxe] unsupported node version ${formatVersion(currentVersion)}. minimum required is ${formatVersion(MIN_NODE_VERSION)}`
     )
     process.exit(1)
 }

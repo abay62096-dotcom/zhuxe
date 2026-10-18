@@ -3,7 +3,7 @@ import type {
     WaMediaProcessorImageResult,
     WaMediaProcessorInput,
     WaMediaProcessorStickerThumbnailResult
-} from 'zhuxee-assistance/media'
+} from 'zhuxe-assistance/media'
 
 const DEFAULT_THUMB_QUALITY = 70
 

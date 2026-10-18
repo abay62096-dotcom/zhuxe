@@ -5,8 +5,8 @@ import {
     type SenderKeyRecord,
     type SignalAddress,
     toSignalAddressParts
-} from 'zhuxee-assistance/signal'
-import type { WaSenderKeyStore } from 'zhuxee-assistance/store'
+} from 'zhuxe-assistance/signal'
+import type { WaSenderKeyStore } from 'zhuxe-assistance/store'
 
 import { BaseRedisStore } from './BaseRedisStore'
 import { deleteKeysChunked, scanKeys, toRedisBuffer } from './helpers'

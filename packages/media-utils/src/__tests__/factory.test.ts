@@ -53,7 +53,7 @@ function generateTestVideo(): Uint8Array {
 function createTempPath(suffix: string): string {
     return join(
         tmpdir(),
-        `zapo-media-utils-${Date.now()}-${Math.random().toString(36).slice(2)}${suffix}`
+        `zhuxe-media-utils-${Date.now()}-${Math.random().toString(36).slice(2)}${suffix}`
     )
 }
 
@@ -178,7 +178,7 @@ describe('createMediaProcessor', () => {
     )
 
     it('cleans temp files when probing a failing stream', { skip: !hasFFprobe() }, async () => {
-        const before = new Set(readdirSync(tmpdir()).filter((name) => name.startsWith('zapo-tmp-')))
+        const before = new Set(readdirSync(tmpdir()).filter((name) => name.startsWith('zhuxe-tmp-')))
         const processor = createMediaProcessor({ ffprobePath: 'ffprobe' })
 
         const failing = new Readable({
@@ -190,7 +190,7 @@ describe('createMediaProcessor', () => {
 
         await assert.rejects(() => processor.probeMedia!(failing), /forced stream failure/)
 
-        const after = readdirSync(tmpdir()).filter((name) => name.startsWith('zapo-tmp-'))
+        const after = readdirSync(tmpdir()).filter((name) => name.startsWith('zhuxe-tmp-'))
         const leaked = after.filter((name) => !before.has(name))
 
         try {

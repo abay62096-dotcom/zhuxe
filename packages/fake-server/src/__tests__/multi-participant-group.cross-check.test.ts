@@ -1,17 +1,17 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import { parsePairingQrString } from '../protocol/auth/pair-device'
 import type { BinaryNode } from '../transport/codec'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('paired client.sendMessage to a 3-participant group fans out via the registries', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'multi-participant-group' })
+    const { client } = createZhuxeClient(server, { sessionId: 'multi-participant-group' })
 
     const materialPromise = new Promise<{
         readonly advSecretKey: Uint8Array

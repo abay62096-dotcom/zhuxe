@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import { buildCall, buildFailure } from '../protocol/push/call-failure'
@@ -11,7 +11,7 @@ import { buildGroupNotification, buildNotification } from '../protocol/push/noti
 import { buildIncomingPresence } from '../protocol/push/presence'
 import { buildReceipt } from '../protocol/push/receipt'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function waitForEvent<K extends keyof WaClientEventMap>(
     client: WaClient,
@@ -44,7 +44,7 @@ test('server pushes <presence/> and lib emits a presence event', async () => {
         })
     })
 
-    const { client } = createZapoClient(server, { sessionId: 'push-presence' })
+    const { client } = createZhuxeClient(server, { sessionId: 'push-presence' })
     const presencePromise = waitForEvent(client, 'presence')
 
     try {
@@ -71,7 +71,7 @@ test('server pushes <chatstate><composing/></> and lib emits a chatstate event',
         })
     })
 
-    const { client } = createZapoClient(server, { sessionId: 'push-chatstate' })
+    const { client } = createZhuxeClient(server, { sessionId: 'push-chatstate' })
     const chatstatePromise = waitForEvent(client, 'chatstate')
 
     try {
@@ -95,7 +95,7 @@ test('server pushes free-standing <error/> and lib emits stanza_error', async ()
         })
     })
 
-    const { client } = createZapoClient(server, { sessionId: 'push-error' })
+    const { client } = createZhuxeClient(server, { sessionId: 'push-error' })
     const errorPromise = waitForEvent(client, 'stanza_error')
 
     try {
@@ -124,7 +124,7 @@ test('server pushes <receipt/> and lib emits incoming_receipt', async () => {
         })
     })
 
-    const { client } = createZapoClient(server, { sessionId: 'push-receipt' })
+    const { client } = createZhuxeClient(server, { sessionId: 'push-receipt' })
     const receiptPromise = waitForEvent(client, 'receipt')
 
     try {
@@ -155,7 +155,7 @@ test('server pushes generic <notification/> and lib emits incoming_notification'
         })
     })
 
-    const { client } = createZapoClient(server, { sessionId: 'push-notification' })
+    const { client } = createZhuxeClient(server, { sessionId: 'push-notification' })
     const notifPromise = waitForEvent(client, 'debug_notification')
 
     try {
@@ -190,7 +190,7 @@ test('server pushes <notification type="group"/> and lib emits a group event', a
         })
     })
 
-    const { client } = createZapoClient(server, { sessionId: 'push-group' })
+    const { client } = createZhuxeClient(server, { sessionId: 'push-group' })
     const groupPromise = waitForEvent(client, 'group')
 
     try {
@@ -226,7 +226,7 @@ test('server pushes <call/> and lib emits incoming_call', async () => {
         })
     })
 
-    const { client } = createZapoClient(server, { sessionId: 'push-call' })
+    const { client } = createZhuxeClient(server, { sessionId: 'push-call' })
     const callPromise = waitForEvent(client, 'call')
 
     try {
@@ -251,7 +251,7 @@ test('server pushes <failure/> and lib emits incoming_failure', async () => {
         })
     })
 
-    const { client } = createZapoClient(server, { sessionId: 'push-failure' })
+    const { client } = createZhuxeClient(server, { sessionId: 'push-failure' })
     const failurePromise = waitForEvent(client, 'stream_failure')
 
     try {

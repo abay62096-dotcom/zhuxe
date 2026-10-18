@@ -12,7 +12,7 @@
  *   T4  client emits `connection_open` (initial sync done, ready)
  *
  * Tunables:
- *   ZAPO_BENCH_CONNECT_ITERATIONS  (default 10)
+ *   ZHUXE_BENCH_CONNECT_ITERATIONS  (default 10)
  *
  * Profiling flags: same as the messaging bench
  *   --cpu --heap --snapshot --per-scenario --snapshot-per-scenario
@@ -21,7 +21,7 @@
 
 import { performance } from 'node:perf_hooks'
 
-import { WaClient, type WaClientEventMap } from 'zhuxee-assistance'
+import { WaClient, type WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../src/api/FakeWaServer'
 import { parsePairingQrString } from '../src/protocol/auth/pair-device'
@@ -85,7 +85,7 @@ async function runOneIterationRpc(
     const client = new WaClient(
         {
             store: storeFixture.store,
-            sessionId: `zapo-connect-bench-rpc-${iteration}`,
+            sessionId: `zhuxe-connect-bench-rpc-${iteration}`,
             chatSocketUrls: [rpc.serverUrl],
             connectTimeoutMs: 60_000,
             proxy: {
@@ -191,7 +191,7 @@ async function runOneIteration(iteration: number): Promise<IterationResult> {
     const client = new WaClient(
         {
             store: storeFixture.store,
-            sessionId: `zapo-connect-bench-${iteration}`,
+            sessionId: `zhuxe-connect-bench-${iteration}`,
             chatSocketUrls: [server.url],
             connectTimeoutMs: 60_000,
             proxy: {
@@ -378,11 +378,11 @@ async function main(): Promise<void> {
     const profiler = new BenchProfiler(readProfilerOptions(argSet))
     await profiler.start()
 
-    const iterations = readPositiveIntEnv('ZAPO_BENCH_CONNECT_ITERATIONS', 10)
-    const backendName = process.env.ZAPO_BENCH_STORE ?? 'memory'
+    const iterations = readPositiveIntEnv('ZHUXE_BENCH_CONNECT_ITERATIONS', 10)
+    const backendName = process.env.ZHUXE_BENCH_STORE ?? 'memory'
     const separate = argSet.has('--separate-process')
 
-    console.log('zhuxee-assistance connect-lifecycle bench')
+    console.log('zhuxe-assistance connect-lifecycle bench')
     console.log('───────────────────────────────')
     console.log(`  iterations  : ${iterations}`)
     console.log(`  store       : ${backendName}`)

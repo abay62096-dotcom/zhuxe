@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import type { BinaryNode } from 'zhuxee-assistance/transport'
+import type { BinaryNode } from 'zhuxe-assistance/transport'
 
 import { toCallServerJid } from '../call-stanza.js'
 import { buildVideoStateStanza, parseVideoStateNode, WA_VIDEO_STATE } from '../video-state.js'

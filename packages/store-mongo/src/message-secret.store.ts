@@ -1,5 +1,5 @@
 import type { Binary } from 'mongodb'
-import type { WaMessageSecretEntry, WaMessageSecretStore } from 'zhuxee-assistance/store'
+import type { WaMessageSecretEntry, WaMessageSecretStore } from 'zhuxe-assistance/store'
 
 import { BaseMongoStore } from './BaseMongoStore'
 import { fromBinary, toBinary } from './helpers'

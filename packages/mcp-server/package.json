@@ -1,19 +1,19 @@
 {
-    "name": "@zapo-js/mcp-server",
+    "name": "@zhuxe-js/mcp-server",
     "version": "1.2.0",
-    "description": "MCP server exposing zhuxee-assistance WaClient as dynamic tools for end-to-end testing",
+    "description": "MCP server exposing zhuxe-assistance WaClient as dynamic tools for end-to-end testing",
     "license": "MIT",
     "author": "vinikjkkj <contact@vinicius.email> (https://github.com/vinikjkkj)",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/abay62096-dotcom/zhuxee.git",
+        "url": "git+https://github.com/abay62096-dotcom/zhuxe.git",
         "directory": "packages/mcp-server"
     },
     "main": "dist/index.js",
     "module": "dist/esm/index.js",
     "types": "dist/index.d.ts",
     "bin": {
-        "zapo-mcp-server": "./dist/bin.js"
+        "zhuxe-mcp-server": "./dist/bin.js"
     },
     "exports": {
         ".": {
@@ -38,18 +38,18 @@
     },
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.29.0",
-        "@zapo-js/media-utils": "^1.0.0",
-        "@zapo-js/store-sqlite": "^1.1.0",
-        "@zapo-js/wam": "^0.1.0",
+        "@zhuxe-js/media-utils": "^1.0.0",
+        "@zhuxe-js/store-sqlite": "^1.1.0",
+        "@zhuxe-js/wam": "^0.1.0",
         "better-sqlite3": "^12.6.2"
     },
     "peerDependencies": {
-        "zhuxee-assistance": "^1.0.0"
+        "zhuxe-assistance": "^1.0.0"
     },
     "devDependencies": {
-        "@zapo-js/fake-server": "file:../fake-server",
+        "@zhuxe-js/fake-server": "file:../fake-server",
         "cross-env": "^7.0.3",
-        "zhuxee-assistance": "file:../.."
+        "zhuxe-assistance": "file:../.."
     },
     "engines": {
         "node": ">=20.9.0"

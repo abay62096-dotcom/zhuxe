@@ -98,7 +98,7 @@ jobs:
               with:
                   name: core-build
                   path: dist/
-            - run: npx turbo run build --filter=@zapo-js/fake-server
+            - run: npx turbo run build --filter=@zhuxe-js/fake-server
             - run: npm test -w packages/fake-server
 
     test-media-utils:
@@ -119,7 +119,7 @@ jobs:
                   sudo apt-get update
                   sudo apt-get install -y ffmpeg
 
-            - run: npx turbo run build --filter=@zapo-js/media-utils
+            - run: npx turbo run build --filter=@zhuxe-js/media-utils
             - run: npm test -w packages/media-utils
 
     test-sqlite:
@@ -134,13 +134,13 @@ jobs:
               with:
                   name: core-build
                   path: dist/
-            - run: npx turbo run build --filter=@zapo-js/store-sqlite
+            - run: npx turbo run build --filter=@zhuxe-js/store-sqlite
             - run: npm test -w packages/store-sqlite
             # better-sqlite3 is an optional peer: prove the whole store surface
             # also works on the built-in node:sqlite backend.
             - run: npm test -w packages/store-sqlite
               env:
-                  ZAPO_SQLITE_TEST_DRIVER: node
+                  ZHUXE_SQLITE_TEST_DRIVER: node
             # Both runs above resolve with the addon present, so neither takes
             # the auto -> node fallback this package exists for. Delete the
             # addon and run once more: the suite then asserts auto picked the
@@ -163,7 +163,7 @@ jobs:
               with:
                   name: core-build
                   path: dist/
-            - run: npx turbo run build --filter=@zapo-js/fake-server --filter=@zapo-js/store-sqlite --filter=@zapo-js/media-utils --filter=@zapo-js/mcp-server
+            - run: npx turbo run build --filter=@zhuxe-js/fake-server --filter=@zhuxe-js/store-sqlite --filter=@zhuxe-js/media-utils --filter=@zhuxe-js/mcp-server
             - run: npm test -w packages/mcp-server
 
     test-voip:
@@ -178,7 +178,7 @@ jobs:
               with:
                   name: core-build
                   path: dist/
-            - run: npx turbo run build --filter=@zapo-js/voip
+            - run: npx turbo run build --filter=@zhuxe-js/voip
             - run: npm test -w packages/voip
 
     test-voip-media:
@@ -188,7 +188,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: ./.github/actions/setup-node
-            - run: npx turbo run build --filter=@zapo-js/voip-media
+            - run: npx turbo run build --filter=@zhuxe-js/voip-media
             - run: npm test -w packages/voip-media
 
     test-wam:
@@ -203,7 +203,7 @@ jobs:
               with:
                   name: core-build
                   path: dist/
-            - run: npx turbo run build --filter=@zapo-js/wam
+            - run: npx turbo run build --filter=@zhuxe-js/wam
             - run: npm test -w packages/wam
 
     test-native:
@@ -241,7 +241,7 @@ jobs:
               run: |
                   cargo fmt --check
                   cargo clippy --all-targets
-                  cargo clippy -p zapo-native-wasm --target wasm32-unknown-unknown
+                  cargo clippy -p zhuxe-native-wasm --target wasm32-unknown-unknown
 
             # prebuilt binary in seconds instead of `cargo install` (~3 min);
             # version must match the wasm-bindgen crate pin in
@@ -257,7 +257,7 @@ jobs:
             - name: cross-check wasm vs pure JS
               run: node --import tsx packages/native/__test__/cross-check.cjs
               env:
-                  ZAPO_NATIVE_BACKEND: wasm
+                  ZHUXE_NATIVE_BACKEND: wasm
 
             # clippy compiles the NAPI crate but cannot catch generated-binding
             # or module-load failures; build the addon and run it once
@@ -266,12 +266,12 @@ jobs:
                   npm run build:napi -w packages/native
                   node --import tsx packages/native/__test__/cross-check.cjs
               env:
-                  ZAPO_NATIVE_BACKEND: napi
+                  ZHUXE_NATIVE_BACKEND: napi
 
             - name: core suite over the wasm backend
               run: npm test
               env:
-                  ZAPO_NATIVE_BACKEND: wasm
+                  ZHUXE_NATIVE_BACKEND: wasm
 
     test-mysql:
         runs-on: ubuntu-latest
@@ -283,7 +283,7 @@ jobs:
                 image: mysql:8
                 env:
                     MYSQL_ROOT_PASSWORD: test
-                    MYSQL_DATABASE: zapo_test
+                    MYSQL_DATABASE: zhuxe_test
                 ports:
                     - 3306:3306
                 options: >-
@@ -298,14 +298,14 @@ jobs:
               with:
                   name: core-build
                   path: dist/
-            - run: npx turbo run build --filter=@zapo-js/store-mysql
+            - run: npx turbo run build --filter=@zhuxe-js/store-mysql
             - run: npm test -w packages/store-mysql
               env:
-                  ZAPO_TEST_MYSQL_HOST: localhost
-                  ZAPO_TEST_MYSQL_PORT: '3306'
-                  ZAPO_TEST_MYSQL_USER: root
-                  ZAPO_TEST_MYSQL_PASSWORD: test
-                  ZAPO_TEST_MYSQL_DATABASE: zapo_test
+                  ZHUXE_TEST_MYSQL_HOST: localhost
+                  ZHUXE_TEST_MYSQL_PORT: '3306'
+                  ZHUXE_TEST_MYSQL_USER: root
+                  ZHUXE_TEST_MYSQL_PASSWORD: test
+                  ZHUXE_TEST_MYSQL_DATABASE: zhuxe_test
 
     test-postgres:
         runs-on: ubuntu-latest
@@ -317,7 +317,7 @@ jobs:
                 image: postgres:16-alpine
                 env:
                     POSTGRES_PASSWORD: test
-                    POSTGRES_DB: zapo_test
+                    POSTGRES_DB: zhuxe_test
                 ports:
                     - 5432:5432
                 options: >-
@@ -332,14 +332,14 @@ jobs:
               with:
                   name: core-build
                   path: dist/
-            - run: npx turbo run build --filter=@zapo-js/store-postgres
+            - run: npx turbo run build --filter=@zhuxe-js/store-postgres
             - run: npm test -w packages/store-postgres
               env:
-                  ZAPO_TEST_PG_HOST: localhost
-                  ZAPO_TEST_PG_PORT: '5432'
-                  ZAPO_TEST_PG_USER: postgres
-                  ZAPO_TEST_PG_PASSWORD: test
-                  ZAPO_TEST_PG_DATABASE: zapo_test
+                  ZHUXE_TEST_PG_HOST: localhost
+                  ZHUXE_TEST_PG_PORT: '5432'
+                  ZHUXE_TEST_PG_USER: postgres
+                  ZHUXE_TEST_PG_PASSWORD: test
+                  ZHUXE_TEST_PG_DATABASE: zhuxe_test
 
     test-redis:
         runs-on: ubuntu-latest
@@ -363,11 +363,11 @@ jobs:
               with:
                   name: core-build
                   path: dist/
-            - run: npx turbo run build --filter=@zapo-js/store-redis
+            - run: npx turbo run build --filter=@zhuxe-js/store-redis
             - run: npm test -w packages/store-redis
               env:
-                  ZAPO_TEST_REDIS_HOST: localhost
-                  ZAPO_TEST_REDIS_PORT: '6379'
+                  ZHUXE_TEST_REDIS_HOST: localhost
+                  ZHUXE_TEST_REDIS_PORT: '6379'
 
     test-mongo:
         runs-on: ubuntu-latest
@@ -388,11 +388,11 @@ jobs:
               with:
                   name: core-build
                   path: dist/
-            - run: npx turbo run build --filter=@zapo-js/store-mongo
+            - run: npx turbo run build --filter=@zhuxe-js/store-mongo
             - run: npm test -w packages/store-mongo
               env:
-                  ZAPO_TEST_MONGO_HOST: localhost
-                  ZAPO_TEST_MONGO_PORT: '27017'
+                  ZHUXE_TEST_MONGO_HOST: localhost
+                  ZHUXE_TEST_MONGO_PORT: '27017'
 
     all-checks:
         name: all checks

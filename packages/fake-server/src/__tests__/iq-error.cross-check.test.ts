@@ -4,7 +4,7 @@ import test from 'node:test'
 import { FakeWaServer } from '../api/FakeWaServer'
 import { buildIqError } from '../protocol/iq/router'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('lib privacy.getPrivacySettings rejects when fake server replies with iq error', async () => {
     const server = await FakeWaServer.start()
@@ -15,7 +15,7 @@ test('lib privacy.getPrivacySettings rejects when fake server replies with iq er
         )
     })
 
-    const { client } = createZapoClient(server, { sessionId: 'iq-error-test' })
+    const { client } = createZhuxeClient(server, { sessionId: 'iq-error-test' })
 
     const successPromise = new Promise<void>((resolve, reject) => {
         const timer = setTimeout(() => reject(new Error('connection timeout')), 5_000)

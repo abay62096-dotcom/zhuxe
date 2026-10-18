@@ -1,12 +1,12 @@
 {
-    "name": "@zapo-js/media-utils",
+    "name": "@zhuxe-js/media-utils",
     "version": "1.0.0",
-    "description": "Media processing utilities for zhuxee-assistance (thumbnails, waveforms, probing)",
+    "description": "Media processing utilities for zhuxe-assistance (thumbnails, waveforms, probing)",
     "license": "MIT",
     "author": "vinikjkkj <contact@vinicius.email> (https://github.com/vinikjkkj)",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/abay62096-dotcom/zhuxee.git",
+        "url": "git+https://github.com/abay62096-dotcom/zhuxe.git",
         "directory": "packages/media-utils"
     },
     "main": "dist/index.js",
@@ -32,7 +32,7 @@
         "test": "node --import tsx --test \"src/**/__tests__/**/*.test.ts\""
     },
     "peerDependencies": {
-        "zhuxee-assistance": "^1.0.0",
+        "zhuxe-assistance": "^1.0.0",
         "sharp": ">=0.33.0",
         "file-type": ">=19.0.0"
     },
@@ -44,7 +44,7 @@
     "devDependencies": {
         "sharp": "^0.33.0",
         "file-type": "^19.0.0",
-        "zhuxee-assistance": "file:../.."
+        "zhuxe-assistance": "file:../.."
     },
     "engines": {
         "node": ">=20.9.0"

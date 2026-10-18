@@ -4,7 +4,7 @@ import type {
     WaGroupMetadataStore,
     WaMessageSecretStore,
     WaRetryStore
-} from 'zhuxee-assistance/store'
+} from 'zhuxe-assistance/store'
 
 export interface PgCleanupPollerOptions {
     readonly intervalMs?: number

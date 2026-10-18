@@ -1,4 +1,4 @@
-import type { WaMessageSecretEntry, WaMessageSecretStore } from 'zhuxee-assistance/store'
+import type { WaMessageSecretEntry, WaMessageSecretStore } from 'zhuxe-assistance/store'
 
 import { BaseMysqlStore } from './BaseMysqlStore'
 import { affectedRows, queryRows, toBytes } from './helpers'

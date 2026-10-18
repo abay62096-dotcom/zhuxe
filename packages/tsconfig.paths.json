@@ -2,18 +2,18 @@
     "compilerOptions": {
         "baseUrl": "..",
         "paths": {
-            "zhuxee-assistance": ["src/index.ts"],
-            "zhuxee-assistance/store": ["src/store/index.ts"],
-            "zhuxee-assistance/signal": ["src/signal/index.ts"],
-            "zhuxee-assistance/auth": ["src/auth/index.ts"],
-            "zhuxee-assistance/appstate": ["src/appstate/index.ts"],
-            "zhuxee-assistance/retry": ["src/retry/index.ts"],
-            "zhuxee-assistance/proto": ["src/proto.ts"],
-            "zhuxee-assistance/protocol": ["src/protocol/index.ts"],
-            "zhuxee-assistance/crypto": ["src/crypto/index.ts"],
-            "zhuxee-assistance/media": ["src/media/index.ts"],
-            "zhuxee-assistance/util": ["src/util/index.ts"],
-            "zhuxee-assistance/transport": ["src/transport/index.ts"],
+            "zhuxe-assistance": ["src/index.ts"],
+            "zhuxe-assistance/store": ["src/store/index.ts"],
+            "zhuxe-assistance/signal": ["src/signal/index.ts"],
+            "zhuxe-assistance/auth": ["src/auth/index.ts"],
+            "zhuxe-assistance/appstate": ["src/appstate/index.ts"],
+            "zhuxe-assistance/retry": ["src/retry/index.ts"],
+            "zhuxe-assistance/proto": ["src/proto.ts"],
+            "zhuxe-assistance/protocol": ["src/protocol/index.ts"],
+            "zhuxe-assistance/crypto": ["src/crypto/index.ts"],
+            "zhuxe-assistance/media": ["src/media/index.ts"],
+            "zhuxe-assistance/util": ["src/util/index.ts"],
+            "zhuxe-assistance/transport": ["src/transport/index.ts"],
             "@abprops-spec": ["src/abprops-spec.ts"],
             "@appstate": ["src/appstate/index.ts"],
             "@appstate/*": ["src/appstate/*"],
@@ -43,9 +43,9 @@
             "@transport/*": ["src/transport/*"],
             "@util/*": ["src/util/*"],
             "@version-spec": ["src/version-spec.ts"],
-            "@zapo-js/voip-media/node": ["packages/voip-media/src/node/index.ts"],
-            "@zapo-js/voip-media/web": ["packages/voip-media/src/web/index.ts"],
-            "@zapo-js/*": ["packages/*/src/index.ts"]
+            "@zhuxe-js/voip-media/node": ["packages/voip-media/src/node/index.ts"],
+            "@zhuxe-js/voip-media/web": ["packages/voip-media/src/web/index.ts"],
+            "@zhuxe-js/*": ["packages/*/src/index.ts"]
         }
     }
 }

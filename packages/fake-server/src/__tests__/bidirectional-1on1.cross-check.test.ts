@@ -1,12 +1,12 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import { parsePairingQrString } from '../protocol/auth/pair-device'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function waitForMessage(
     client: WaClient,
@@ -31,7 +31,7 @@ function waitForMessage(
 
 test('bidirectional 1:1 ping-pong (peer\u2192client\u2192peer\u2192client\u2192peer) decrypts on both sides', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'bidi-1on1' })
+    const { client } = createZhuxeClient(server, { sessionId: 'bidi-1on1' })
 
     const materialPromise = new Promise<{
         readonly advSecretKey: Uint8Array
@@ -139,7 +139,7 @@ test('bidirectional 1:1 ping-pong (peer\u2192client\u2192peer\u2192client\u2192p
 
 test('bidirectional 1:1 starting with the lib (client\u2192peer\u2192client\u2192peer)', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'bidi-bob-first' })
+    const { client } = createZhuxeClient(server, { sessionId: 'bidi-bob-first' })
 
     const materialPromise = new Promise<{
         readonly advSecretKey: Uint8Array

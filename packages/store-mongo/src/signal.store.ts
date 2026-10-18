@@ -1,6 +1,6 @@
 import type { Binary } from 'mongodb'
-import type { RegistrationInfo, SignedPreKeyRecord } from 'zhuxee-assistance/signal'
-import type { WaSignalStore } from 'zhuxee-assistance/store'
+import type { RegistrationInfo, SignedPreKeyRecord } from 'zhuxe-assistance/signal'
+import type { WaSignalStore } from 'zhuxe-assistance/store'
 
 import { BaseMongoStore } from './BaseMongoStore'
 import { fromBinary, toBinary } from './helpers'

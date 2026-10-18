@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function waitForMessage(
     client: WaClient,
@@ -30,7 +30,7 @@ function waitForMessage(
 
 test('fake peer pushes an imageMessage and the lib downloads + decrypts the attachment', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'image-message' })
+    const { client } = createZhuxeClient(server, { sessionId: 'image-message' })
 
     const plaintext = new Uint8Array(2 * 1024)
     for (let index = 0; index < plaintext.byteLength; index += 1) {

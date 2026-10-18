@@ -1,4 +1,4 @@
-import type { WaChatMetadataSnapshot, WaChatMetadataStore } from 'zhuxee-assistance/store'
+import type { WaChatMetadataSnapshot, WaChatMetadataStore } from 'zhuxe-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import { queryFirst } from './helpers'

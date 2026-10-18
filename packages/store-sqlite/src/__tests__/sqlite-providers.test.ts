@@ -48,7 +48,7 @@ function createCredentials() {
 }
 
 test('sqlite auth store saves, loads and clears credentials', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-auth-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-auth-'))
     const store = new WaAuthSqliteStore({
         path: join(dir, 'state.sqlite'),
         sessionId: 'a',
@@ -77,7 +77,7 @@ test('sqlite auth store saves, loads and clears credentials', async () => {
 })
 
 test('sqlite message/thread stores are session-scoped and preserve coalesced fields', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-mailbox-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-mailbox-'))
     const sqlitePath = join(dir, 'state.sqlite')
     const storeA = new WaMessageSqliteStore({
         path: sqlitePath,
@@ -124,7 +124,7 @@ test('sqlite message/thread stores are session-scoped and preserve coalesced fie
 })
 
 test('sqlite privacy token store is session-scoped and preserves coalesced fields', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-privacy-token-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-privacy-token-'))
     const sqlitePath = join(dir, 'state.sqlite')
     const storeA = new WaPrivacyTokenSqliteStore({
         path: sqlitePath,
@@ -195,7 +195,7 @@ test('sqlite privacy token store is session-scoped and preserves coalesced field
 })
 
 test('sqlite connection rejects unsupported pragma names', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-pragma-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-pragma-'))
     try {
         await assert.rejects(
             () =>
@@ -215,7 +215,7 @@ test('sqlite connection rejects unsupported pragma names', async () => {
 })
 
 test('sqlite auth store supports custom table names', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-custom-tables-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-custom-tables-'))
     const options = {
         path: join(dir, 'state.sqlite'),
         sessionId: 'a',
@@ -266,7 +266,7 @@ test('sqlite auth store supports custom table names', async () => {
 })
 
 test('sqlite connection rejects invalid custom table names', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-invalid-custom-tables-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-invalid-custom-tables-'))
     try {
         await assert.rejects(
             () =>
@@ -313,7 +313,7 @@ test('sqlite connection rejects invalid custom table names', async () => {
 })
 
 test('sqlite store reuses externally-owned connection and does not close it on destroy', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-shared-conn-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-shared-conn-'))
     const connection = await openSqliteConnection({
         path: join(dir, 'state.sqlite'),
         sessionId: 'shared',
@@ -349,7 +349,7 @@ test('sqlite store rejects invalid path/connection combinations', async () => {
         await store.load()
     }, /requires either "path" or "connection"/)
 
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-conflict-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-conflict-'))
     const connection = await openSqliteConnection({
         path: join(dir, 'state.sqlite'),
         sessionId: 'x',
@@ -371,7 +371,7 @@ test('sqlite store rejects invalid path/connection combinations', async () => {
 })
 
 test('createSqliteStore accepts an externally-owned connection', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-create-conn-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-create-conn-'))
     const connection = await openSqliteConnection({
         path: join(dir, 'state.sqlite'),
         sessionId: 'shared',
@@ -402,7 +402,7 @@ test('createSqliteStore rejects missing or duplicated connection source', async 
         /createSqliteStore requires exactly one of "path" or "connection"/
     )
 
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-create-conflict-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-create-conflict-'))
     const connection = await openSqliteConnection({
         path: join(dir, 'state.sqlite'),
         sessionId: 'shared',
@@ -420,7 +420,7 @@ test('createSqliteStore rejects missing or duplicated connection source', async 
 })
 
 test('sqlite connection keeps pending open references alive until handle acquisition', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-open-race-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-open-race-'))
     const options = {
         path: join(dir, 'state.sqlite'),
         sessionId: 'race',

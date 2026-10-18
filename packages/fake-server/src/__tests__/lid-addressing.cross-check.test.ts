@@ -1,12 +1,12 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import { parsePairingQrString } from '../protocol/auth/pair-device'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function waitForMessage(
     client: WaClient,
@@ -33,7 +33,7 @@ const lidJid = '5511777777777@lid'
 
 test('fake peer in @lid space pushes a Signal message and the lib emits message', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'lid-inbound' })
+    const { client } = createZhuxeClient(server, { sessionId: 'lid-inbound' })
     const inboundText = 'hello from lid space'
 
     try {
@@ -59,7 +59,7 @@ test('fake peer in @lid space pushes a Signal message and the lib emits message'
 
 test('paired client.sendMessage to a @lid peer is decrypted by the fake peer', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'lid-outbound' })
+    const { client } = createZhuxeClient(server, { sessionId: 'lid-outbound' })
     const outboundText = 'outbound to lid space'
 
     const materialPromise = new Promise<{

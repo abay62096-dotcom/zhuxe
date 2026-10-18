@@ -1,6 +1,6 @@
-import { createNoopLogger, type Logger } from 'zhuxee-assistance'
-import { normalizeDeviceJid, toUserJid } from 'zhuxee-assistance/protocol'
-import { type BinaryNode, buildReceiptNode } from 'zhuxee-assistance/transport'
+import { createNoopLogger, type Logger } from 'zhuxe-assistance'
+import { normalizeDeviceJid, toUserJid } from 'zhuxe-assistance/protocol'
+import { type BinaryNode, buildReceiptNode } from 'zhuxe-assistance/transport'
 
 import type { WaCallGroupParticipant } from '../call/group-participants.js'
 import { groupParticipantAccountKey } from '../jid.js'

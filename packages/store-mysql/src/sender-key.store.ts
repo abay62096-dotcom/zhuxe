@@ -7,8 +7,8 @@ import {
     type SignalAddress,
     type SignalAddressParts,
     toSignalAddressParts
-} from 'zhuxee-assistance/signal'
-import type { WaSenderKeyStore } from 'zhuxee-assistance/store'
+} from 'zhuxe-assistance/signal'
+import type { WaSenderKeyStore } from 'zhuxe-assistance/store'
 
 import { BaseMysqlStore } from './BaseMysqlStore'
 import { affectedRows, queryFirst, queryRows, toBytes } from './helpers'

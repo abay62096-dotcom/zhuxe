@@ -714,7 +714,7 @@ export class WaMessageDispatchCoordinator {
      * Resolves the `peer_recipient_pn` cross-reference for a 1:1 send, or
      * `undefined` to drop the attribute. Only set when the envelope is
      * LID-addressed (`directRecipientJid` is a LID): the PN is the caller's own
-     * JID when they passed a PN (zapo switched it to LID for sending), else the
+     * JID when they passed a PN (zhuxe switched it to LID for sending), else the
      * device-list snapshot counterpart for a recipient passed in LID form.
      * Mirrors wa-web, which sets `peer_recipient_pn = getPhoneNumber($)` for a
      * LID destination.

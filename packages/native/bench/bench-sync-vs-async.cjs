@@ -28,7 +28,7 @@ function derivePub(priv) {
 
 const PRIV = randomBytes(32)
 const PUB = derivePub(PRIV)
-const MSG = Buffer.from('zapo bench message ' + 'x'.repeat(64))
+const MSG = Buffer.from('zhuxe bench message ' + 'x'.repeat(64))
 const SIG = xeddsaSign(PRIV, MSG)
 
 function fmt(ns) {
@@ -90,7 +90,7 @@ async function timeitParallel(label, runs, totalOps, concurrency, makePromise) {
 
 ;(async () => {
     const poolSize = process.env.UV_THREADPOOL_SIZE || '4 (default)'
-    console.log(`zapo-native bench  |  UV_THREADPOOL_SIZE=${poolSize}`)
+    console.log(`zhuxe-native bench  |  UV_THREADPOOL_SIZE=${poolSize}`)
     console.log(`node ${process.version}, ${process.platform}-${process.arch}`)
     console.log('')
 

@@ -3,11 +3,11 @@ import test from 'node:test'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('corrupted ciphertext from fake peer triggers a retry receipt from the lib', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'decrypt-failure-retry' })
+    const { client } = createZhuxeClient(server, { sessionId: 'decrypt-failure-retry' })
     const peerJid = '5511777777777@s.whatsapp.net'
     const messageId = 'corrupted-msg-id'
 

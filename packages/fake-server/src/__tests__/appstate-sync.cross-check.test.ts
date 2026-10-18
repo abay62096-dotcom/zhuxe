@@ -4,7 +4,7 @@ import test from 'node:test'
 import { FakeWaServer } from '../api/FakeWaServer'
 import type { BinaryNode } from '../transport/codec'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function findChild(node: BinaryNode, tag: string): BinaryNode | undefined {
     if (!Array.isArray(node.content)) return undefined
@@ -18,7 +18,7 @@ function findAllChildren(node: BinaryNode, tag: string): readonly BinaryNode[] {
 
 test('server_sync notification triggers a full app-state sync IQ round-trip', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'app-state-sync' })
+    const { client } = createZhuxeClient(server, { sessionId: 'app-state-sync' })
 
     try {
         await client.connect()

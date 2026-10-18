@@ -5,7 +5,7 @@ import {
     toBytesView,
     uint8Equal,
     uint8TimingSafeEqual
-} from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance/util'
 
 export function toBinary(bytes: Uint8Array): Binary {
     return new Binary(bytes)

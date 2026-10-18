@@ -4,8 +4,8 @@ import {
     type SignalAddress,
     type SignalSessionRecord,
     toSignalAddressParts
-} from 'zhuxee-assistance/signal'
-import type { WaSessionStore } from 'zhuxee-assistance/store'
+} from 'zhuxe-assistance/signal'
+import type { WaSessionStore } from 'zhuxe-assistance/store'
 
 import { BaseRedisStore } from './BaseRedisStore'
 import { deleteKeysChunked, scanKeys, toRedisBuffer } from './helpers'

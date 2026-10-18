@@ -1,4 +1,4 @@
-import type { WaMessageSecretEntry, WaMessageSecretStore } from 'zhuxee-assistance/store'
+import type { WaMessageSecretEntry, WaMessageSecretStore } from 'zhuxe-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import { affectedRows, queryFirst, queryRows, toBytes } from './helpers'

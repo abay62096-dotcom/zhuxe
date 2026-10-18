@@ -1,7 +1,7 @@
-import { createNoopLogger, type Logger } from 'zhuxee-assistance'
-import { toUserJid } from 'zhuxee-assistance/protocol'
-import { type BinaryNode, buildReceiptNode } from 'zhuxee-assistance/transport'
-import { toError } from 'zhuxee-assistance/util'
+import { createNoopLogger, type Logger } from 'zhuxe-assistance'
+import { toUserJid } from 'zhuxe-assistance/protocol'
+import { type BinaryNode, buildReceiptNode } from 'zhuxe-assistance/transport'
+import { toError } from 'zhuxe-assistance/util'
 
 import type { WaVoipDeps, WaVoipStores } from '../types.js'
 

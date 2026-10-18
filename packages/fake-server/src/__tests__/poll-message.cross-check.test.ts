@@ -2,11 +2,11 @@ import assert from 'node:assert/strict'
 import { randomBytes } from 'node:crypto'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function waitForMessage(
     client: WaClient,
@@ -31,7 +31,7 @@ function waitForMessage(
 
 test('fake peer pushes a poll creation message and the lib emits message', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'poll-message' })
+    const { client } = createZhuxeClient(server, { sessionId: 'poll-message' })
     const peerJid = '5511777777777@s.whatsapp.net'
     const encKey = new Uint8Array(randomBytes(32))
 

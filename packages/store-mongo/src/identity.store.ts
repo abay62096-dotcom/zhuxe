@@ -1,7 +1,7 @@
 import type { Binary } from 'mongodb'
-import { signalAddressKey } from 'zhuxee-assistance/protocol'
-import { type SignalAddress, toSignalAddressParts } from 'zhuxee-assistance/signal'
-import type { WaIdentityStore } from 'zhuxee-assistance/store'
+import { signalAddressKey } from 'zhuxe-assistance/protocol'
+import { type SignalAddress, toSignalAddressParts } from 'zhuxe-assistance/signal'
+import type { WaIdentityStore } from 'zhuxe-assistance/store'
 
 import { BaseMongoStore } from './BaseMongoStore'
 import { fromBinary, toBinary } from './helpers'

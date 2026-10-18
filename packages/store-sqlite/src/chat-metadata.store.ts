@@ -1,5 +1,5 @@
-import type { WaChatMetadataSnapshot, WaChatMetadataStore } from 'zhuxee-assistance/store'
-import { asNumber, asString } from 'zhuxee-assistance/util'
+import type { WaChatMetadataSnapshot, WaChatMetadataStore } from 'zhuxe-assistance/store'
+import { asNumber, asString } from 'zhuxe-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteStorageOptions } from './types'

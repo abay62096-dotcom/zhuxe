@@ -11,8 +11,8 @@
  *                       and emits `mutation` events.
  *
  * Tunables:
- *   ZAPO_BENCH_APPSTATE_OUTGOING  (default 200)
- *   ZAPO_BENCH_APPSTATE_INCOMING  (default 500)
+ *   ZHUXE_BENCH_APPSTATE_OUTGOING  (default 200)
+ *   ZHUXE_BENCH_APPSTATE_INCOMING  (default 500)
  *
  * Profiling flags: same as messaging.bench. With --separate-process
  * the fake server runs in a forked child and gets its own profiles.
@@ -24,7 +24,7 @@
 
 import { randomBytes } from 'node:crypto'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { buildExternalBlobReference } from '../src/protocol/iq/appstate-sync'
 import { FakeAppStateCollection } from '../src/state/fake-app-state-collection'
@@ -407,12 +407,12 @@ async function main(): Promise<void> {
     const profiler = new BenchProfiler(readProfilerOptions(argSet))
     await profiler.start()
 
-    const outgoingOps = readPositiveIntEnv('ZAPO_BENCH_APPSTATE_OUTGOING', 200)
-    const incomingOps = readPositiveIntEnv('ZAPO_BENCH_APPSTATE_INCOMING', 500)
-    const backendName = process.env.ZAPO_BENCH_STORE ?? 'memory'
+    const outgoingOps = readPositiveIntEnv('ZHUXE_BENCH_APPSTATE_OUTGOING', 200)
+    const incomingOps = readPositiveIntEnv('ZHUXE_BENCH_APPSTATE_INCOMING', 500)
+    const backendName = process.env.ZHUXE_BENCH_STORE ?? 'memory'
     const separate = argSet.has('--separate-process')
 
-    console.log('zhuxee-assistance appstate bench')
+    console.log('zhuxe-assistance appstate bench')
     console.log('──────────────────────')
     console.log(`  outgoing patches  : ${outgoingOps}`)
     console.log(`  incoming mutations: ${incomingOps}`)

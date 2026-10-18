@@ -1,6 +1,6 @@
-# @zapo-js/voip
+# @zhuxe-js/voip
 
-WhatsApp **VOIP / calling** plugin for [`zhuxee-assistance`](https://github.com/abay62096-dotcom/zhuxee).
+WhatsApp **VOIP / calling** plugin for [`zhuxe-assistance`](https://github.com/abay62096-dotcom/zhuxe).
 
 Registers on `WaClient` via the plugin system and exposes everything at **`client.voip`**: MLow voice codec (WhatsApp's Opus variant through [`libmlow-wasm-fork`](https://www.npmjs.com/package/libmlow-wasm-fork)), RTP/SRTP, STUN, WebRTC/SCTP relay transport, and `<call>` signaling (offer / accept / preaccept / transport / relaylatency / mute / terminate).
 
@@ -11,14 +11,14 @@ Incoming `<call>`, call-class `<ack>`, and call `<receipt>` stanzas are handled 
 ## Install
 
 ```bash
-npm install zhuxee-assistance @zapo-js/voip libmlow-wasm-fork
+npm install zhuxe-assistance @zhuxe-js/voip libmlow-wasm-fork
 ```
 
 Peer dependencies:
 
 | Package             | Required    | Purpose                                         |
 | ------------------- | ----------- | ----------------------------------------------- |
-| `zhuxee-assistance`           | yes         | `WaClient` and plugin host                      |
+| `zhuxe-assistance`           | yes         | `WaClient` and plugin host                      |
 | `libmlow-wasm-fork` | local media | MLow encode/decode (WASM, no native build step) |
 | `@roamhq/wrtc`      | local media | SCTP relay transport                            |
 | `ffmpeg` (CLI)      | optional    | Decode pre-recorded audio files (`loadAudio`)   |
@@ -27,15 +27,15 @@ Peer dependencies:
 npm install @roamhq/wrtc
 ```
 
-Node **20.9+**. `libmlow-wasm-fork` is ESM-only; the codec loads it via dynamic `import()`. The media itself runs on [`@zapo-js/voip-media`](../voip-media), a dependency of this package; with [remote media](#media-in-the-browser-media--mode-remote-) neither `libmlow-wasm-fork` nor `@roamhq/wrtc` is needed here.
+Node **20.9+**. `libmlow-wasm-fork` is ESM-only; the codec loads it via dynamic `import()`. The media itself runs on [`@zhuxe-js/voip-media`](../voip-media), a dependency of this package; with [remote media](#media-in-the-browser-media--mode-remote-) neither `libmlow-wasm-fork` nor `@roamhq/wrtc` is needed here.
 
 ## Quick start
 
-Importing from `@zapo-js/voip` applies `WaClient` type extensions (`client.voip` and `voip_*` events):
+Importing from `@zhuxe-js/voip` applies `WaClient` type extensions (`client.voip` and `voip_*` events):
 
 ```ts
-import { WaClient } from 'zhuxee-assistance'
-import { voipPlugin, EndCallReason } from '@zapo-js/voip'
+import { WaClient } from 'zhuxe-assistance'
+import { voipPlugin, EndCallReason } from '@zhuxe-js/voip'
 
 const client = new WaClient({
     store,
@@ -188,7 +188,7 @@ When this side lets a group call ring unanswered, the server ends our ring after
 A group call this side declined, let ring out, left or was taken off as invisible can be joined while it goes on, under the same call id:
 
 ```ts
-import { EndCallReason } from '@zapo-js/voip'
+import { EndCallReason } from '@zhuxe-js/voip'
 
 client.on('voip_call_ended', async (call) => {
     if (call.isGroupCall && call.stateData.endReason === EndCallReason.Timeout) {
@@ -244,12 +244,12 @@ A raised hand travels as one of two distinct message types, and the peer picks w
 
 ## Media in the browser (`media: { mode: 'remote' }`)
 
-By default a call's media - the relays, SRTP, the codec and the audio clock - runs in this process. With `media: { mode: 'remote' }` none of it does: this process keeps the signaling, and the media runs wherever the audio is, typically the browser of whoever answers, on [`@zapo-js/voip-media`](../voip-media). No media flows through the server, and it needs neither `@roamhq/wrtc` nor `libmlow-wasm-fork`.
+By default a call's media - the relays, SRTP, the codec and the audio clock - runs in this process. With `media: { mode: 'remote' }` none of it does: this process keeps the signaling, and the media runs wherever the audio is, typically the browser of whoever answers, on [`@zhuxe-js/voip-media`](../voip-media). No media flows through the server, and it needs neither `@roamhq/wrtc` nor `libmlow-wasm-fork`.
 
 Every change to a call's media plan leaves as `voip_call_media`; the host's events come back through `client.voip.media`. The plan carries the call's SRTP keys and relay credentials, so the channel between the two has to be private to that host.
 
 ```ts
-import { decodeCallMediaEvent, encodeCallMediaMessage } from '@zapo-js/voip-media'
+import { decodeCallMediaEvent, encodeCallMediaMessage } from '@zhuxe-js/voip-media'
 
 const client = new WaClient({
     store,
@@ -272,8 +272,8 @@ import {
     decodeCallMediaMessage,
     encodeCallMediaEvent,
     WaCallMediaReceiver
-} from '@zapo-js/voip-media'
-import { WaWebCallAudio, webMediaHost } from '@zapo-js/voip-media/web'
+} from '@zhuxe-js/voip-media'
+import { WaWebCallAudio, webMediaHost } from '@zhuxe-js/voip-media/web'
 
 const receiver = new WaCallMediaReceiver({
     ...webMediaHost,
@@ -299,7 +299,7 @@ receiver.stop()
 On a video call, build the receiver above with `onInboundVideo` too, for the peer's frames, and hand the plane the camera:
 
 ```ts
-import { WaWebCallVideoReceiver, WaWebCallVideoSender } from '@zapo-js/voip-media/web'
+import { WaWebCallVideoReceiver, WaWebCallVideoSender } from '@zhuxe-js/voip-media/web'
 
 const video = new WaWebCallVideoReceiver({
     onFrame: (frame) => {
@@ -359,7 +359,7 @@ You can also use `client.voip.on('call_state', ...)` etc. for the manager-level 
 When a participant starts or stops sharing its screen, the state is emitted with the sharing device in `participantJid`, and kept on `call.peerScreenShare` on a 1:1 call or on that device's `call.participantMedia` entry on a group call:
 
 ```ts
-import { WA_SCREEN_SHARE_STATE } from '@zapo-js/voip'
+import { WA_SCREEN_SHARE_STATE } from '@zhuxe-js/voip'
 
 client.on('voip_call_screen_share', ({ participantJid, share }) => {
     if (share.state === WA_SCREEN_SHARE_STATE.Started) {
@@ -401,7 +401,7 @@ there is no separate wire enum and nothing is translated.
 Asking for it:
 
 ```ts
-import { WA_VIDEO_UPGRADE_RESULT } from '@zapo-js/voip'
+import { WA_VIDEO_UPGRADE_RESULT } from '@zhuxe-js/voip'
 
 const result = await client.voip.requestVideoUpgrade(callId)
 if (result === WA_VIDEO_UPGRADE_RESULT.Accepted) {
@@ -420,7 +420,7 @@ whether the request was even seen).
 Answering one:
 
 ```ts
-import { WA_VIDEO_STATE } from '@zapo-js/voip'
+import { WA_VIDEO_STATE } from '@zhuxe-js/voip'
 
 client.on('voip_call_peer_video_state', async ({ call, change }) => {
     if (change.state === WA_VIDEO_STATE.UpgradeRequestV2) {

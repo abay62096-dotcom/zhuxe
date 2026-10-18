@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import { proto, type WaClient, type WaClientEventMap } from 'zhuxee-assistance'
+import { proto, type WaClient, type WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function waitForMessage(
     client: WaClient,
@@ -51,7 +51,7 @@ function waitForProtocolMessage(
 
 test('fake peer pushes a message edit and the lib emits a MESSAGE_EDIT protocol message', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'edit-message' })
+    const { client } = createZhuxeClient(server, { sessionId: 'edit-message' })
     const peerJid = '5511777777777@s.whatsapp.net'
 
     try {
@@ -86,7 +86,7 @@ test('fake peer pushes a message edit and the lib emits a MESSAGE_EDIT protocol 
 
 test('fake peer pushes a message revoke and the lib emits a REVOKE protocol message', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'revoke-message' })
+    const { client } = createZhuxeClient(server, { sessionId: 'revoke-message' })
     const peerJid = '5511777777777@s.whatsapp.net'
 
     try {
@@ -113,7 +113,7 @@ test('fake peer pushes a message revoke and the lib emits a REVOKE protocol mess
 
 test('fake peer pushes a reaction message and the lib emits the message event', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'reaction-message' })
+    const { client } = createZhuxeClient(server, { sessionId: 'reaction-message' })
     const peerJid = '5511777777777@s.whatsapp.net'
 
     try {

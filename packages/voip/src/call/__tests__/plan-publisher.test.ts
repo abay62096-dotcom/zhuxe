@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import { createNoopLogger } from 'zhuxee-assistance'
+import { createNoopLogger } from 'zhuxe-assistance'
 
 import { WaCallPlanPublisher } from '../WaCallPlanPublisher.js'
 

@@ -1,6 +1,6 @@
-import type { Logger } from 'zhuxee-assistance'
+import type { Logger } from 'zhuxe-assistance'
 
-import { WA_VIDEO_QUALITY, type WaCallMediaVideoSubscription } from '@zapo-js/voip-media'
+import { WA_VIDEO_QUALITY, type WaCallMediaVideoSubscription } from '@zhuxe-js/voip-media'
 
 import { WA_VIDEO_STATE } from '../signaling/video-state.js'
 import type { CallVideoSubscription } from '../types.js'

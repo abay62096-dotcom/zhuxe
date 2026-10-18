@@ -6,8 +6,8 @@
  * throughput.
  *
  * Tunables:
- *   ZAPO_BENCH_HISTORY_CHUNKS    (default 5)   chunks per scenario
- *   ZAPO_BENCH_HISTORY_SCENARIOS (default "small,medium,large")
+ *   ZHUXE_BENCH_HISTORY_CHUNKS    (default 5)   chunks per scenario
+ *   ZHUXE_BENCH_HISTORY_SCENARIOS (default "small,medium,large")
  *
  * Scenario presets (conversations × msgs/conversation):
  *   small  = 5 × 20      (100 msgs / chunk)
@@ -19,7 +19,7 @@
  * the fake server runs in a forked child and gets its own profiles.
  */
 
-import type { WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClientEventMap } from 'zhuxe-assistance'
 
 import {
     BenchProfiler,
@@ -266,12 +266,12 @@ async function main(): Promise<void> {
     const profiler = new BenchProfiler(readProfilerOptions(argSet))
     await profiler.start()
 
-    const chunks = readPositiveIntEnv('ZAPO_BENCH_HISTORY_CHUNKS', 5)
-    const requested = readCsvEnv('ZAPO_BENCH_HISTORY_SCENARIOS', ['small', 'medium', 'large'])
-    const backendName = process.env.ZAPO_BENCH_STORE ?? 'memory'
+    const chunks = readPositiveIntEnv('ZHUXE_BENCH_HISTORY_CHUNKS', 5)
+    const requested = readCsvEnv('ZHUXE_BENCH_HISTORY_SCENARIOS', ['small', 'medium', 'large'])
+    const backendName = process.env.ZHUXE_BENCH_STORE ?? 'memory'
     const separate = argSet.has('--separate-process')
 
-    console.log('zhuxee-assistance history-sync bench')
+    console.log('zhuxe-assistance history-sync bench')
     console.log('──────────────────────────')
     console.log(`  chunks per scenario : ${chunks}`)
     console.log(`  scenarios           : ${requested.join(', ')}`)

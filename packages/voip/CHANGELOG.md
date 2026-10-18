@@ -1,4 +1,4 @@
-# @zapo-js/voip
+# @zhuxe-js/voip
 
 ## 1.4.0
 
@@ -30,7 +30,7 @@
 
     `RelayData.hbhKey` is removed: the relay forwards the end-to-end SRTP unchanged, so the hop-by-hop key was parsed and never used.
 
-    `InboundVideoFrame` and `InboundVideoRtpPacket` are now the `@zapo-js/voip-media` types, which also carry the optional `senderId` of the stream.
+    `InboundVideoFrame` and `InboundVideoRtpPacket` are now the `@zhuxe-js/voip-media` types, which also carry the optional `senderId` of the stream.
 
     Decoded call audio is copied for `voip_call_inbound_audio` only while the client has a listener for it, including one added after the call started. On a group call, the SSRCs and SRTP keys of every participant are derived once per call key instead of on every roster change. Call ids come from a cryptographically secure random source, in the same 32-character upper-case hex form. The group-call participant type is `WaCallGroupParticipant`.
 
@@ -38,7 +38,7 @@
 
 - Updated dependencies [1ebadd9]
 - Updated dependencies [caeace8]
-    - @zapo-js/voip-media@0.3.0
+    - @zhuxe-js/voip-media@0.3.0
 
 ## 1.3.0
 
@@ -57,13 +57,13 @@
 - Updated dependencies [04073f8]
 - Updated dependencies [04073f8]
 - Updated dependencies [961bdaf]
-    - @zapo-js/voip-media@0.2.0
+    - @zhuxe-js/voip-media@0.2.0
 
 ## 1.2.1
 
 ### Patch Changes
 
-- Require `@zapo-js/voip-media` 0.1.2, whose H.264 key frames a phone answering our video call can render.
+- Require `@zhuxe-js/voip-media` 0.1.2, whose H.264 key frames a phone answering our video call can render.
 
 ## 1.2.0
 
@@ -152,11 +152,11 @@
     collapsed into the single `dec` field.
 
 - 87dd5b0: End incoming calls settled on another device of the account cleanly. A `<terminate>` with `accepted_elsewhere` or `rejected_elsewhere` now ends the call with the new `EndCallReason.AcceptedElsewhere` or `EndCallReason.RejectedElsewhere` instead of `UserEnded`, and an `<accept>` on a call this device is receiving (another device answering) ends it as `AcceptedElsewhere` without sending anything, instead of running the outgoing-call accept flow and ringing until the call times out.
-- 999bd43: Carry call media on `@zapo-js/voip-media`, and let it run outside this process.
+- 999bd43: Carry call media on `@zhuxe-js/voip-media`, and let it run outside this process.
 
     The media of a call - the relays, SRTP, RTP/RTCP, the codec and the jitter
-    buffer - now lives in `@zapo-js/voip-media`, a new package with no dependency on
-    `zapo-js` or Node that runs in a browser as well. `@zapo-js/voip` keeps the
+    buffer - now lives in `@zhuxe-js/voip-media`, a new package with no dependency on
+    `zhuxe-js` or Node that runs in a browser as well. `@zhuxe-js/voip` keeps the
     signaling and derives the media plan from it: the relays, the SSRCs, the SRTP
     keys and the server's settings. Local calls behave as before.
 
@@ -243,7 +243,7 @@
 - Updated dependencies [fa528f1]
 - Updated dependencies [fa528f1]
 - Updated dependencies [fa528f1]
-    - @zapo-js/voip-media@0.1.1
+    - @zhuxe-js/voip-media@0.1.1
 
 ## 1.1.0
 
@@ -275,7 +275,7 @@
 
 ### Major Changes
 
-- Initial release: WhatsApp VOIP (calling) plugin for `zapo-js`. Registers on
+- Initial release: WhatsApp VOIP (calling) plugin for `zhuxe-js`. Registers on
   `WaClient` via `voipPlugin()` and exposes the calling API at `client.voip`.
 - MLow voice codec through `libmlow-wasm` (WASM, no native build step or bundled
   binaries).
@@ -288,5 +288,5 @@
   `canAccept: false` until a slot frees.
 - Incoming `<call>`, call-class `<ack>`, and call `<receipt>` handlers are
   registered automatically (prepend, no double-ack).
-- Requires `zapo-js@^1.0.0` and `libmlow-wasm`. Optional peers: `@roamhq/wrtc`
+- Requires `zhuxe-js@^1.0.0` and `libmlow-wasm`. Optional peers: `@roamhq/wrtc`
   (SCTP relay for real calls), `fluent-ffmpeg` (file decode for `loadAudio`).

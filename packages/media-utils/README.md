@@ -1,6 +1,6 @@
-# @zapo-js/media-utils
+# @zhuxe-js/media-utils
 
-`WaMediaProcessor` implementation for [`zhuxee-assistance`](https://www.npmjs.com/package/zhuxee-assistance). Hooks `sharp` and `ffmpeg`/`ffprobe` into the client so outgoing media gets the right thumbnails, waveforms, and voice-note normalization without you wiring any of that yourself.
+`WaMediaProcessor` implementation for [`zhuxe-assistance`](https://www.npmjs.com/package/zhuxe-assistance). Hooks `sharp` and `ffmpeg`/`ffprobe` into the client so outgoing media gets the right thumbnails, waveforms, and voice-note normalization without you wiring any of that yourself.
 
 ## What it does
 
@@ -16,7 +16,7 @@
 ## Install
 
 ```bash
-npm install @zapo-js/media-utils sharp
+npm install @zhuxe-js/media-utils sharp
 ```
 
 `sharp` is a peer dependency. `ffmpeg` and `ffprobe` are external binaries the
@@ -71,7 +71,7 @@ npm install --save-dev @ffmpeg-installer/ffmpeg @ffprobe-installer/ffprobe
 ```ts
 import { path as ffmpegPath } from '@ffmpeg-installer/ffmpeg'
 import { path as ffprobePath } from '@ffprobe-installer/ffprobe'
-import { createMediaProcessor } from '@zapo-js/media-utils'
+import { createMediaProcessor } from '@zhuxe-js/media-utils'
 
 const processor = createMediaProcessor({ ffmpegPath, ffprobePath })
 ```
@@ -91,8 +91,8 @@ degrades to "no thumbnails / no waveform" instead of crashing.
 ## Quick start
 
 ```ts
-import { WaClient } from 'zhuxee-assistance'
-import { createMediaProcessor } from '@zapo-js/media-utils'
+import { WaClient } from 'zhuxe-assistance'
+import { createMediaProcessor } from '@zhuxe-js/media-utils'
 
 // One processor can be shared across many WaClient sessions. The runtime
 // passes a per-call `ctx.logger` to each method so warnings always land
@@ -140,4 +140,4 @@ standalone (no `ctx`), the processor stays silent.
 - The thumbnail / waveform code paths follow what the official client produces - sticker first-frame extraction matches WhatsApp's expected layout, waveforms render natively on iOS/Android/desktop.
 - Voice-note normalization is needed because WhatsApp only renders Opus 16k mono in the chat UI - other formats play but lose the waveform.
 
-See the main [`zhuxee-assistance`](../../README.md) docs for the `media` option and `WaMediaProcessor` contract.
+See the main [`zhuxe-assistance`](../../README.md) docs for the `media` option and `WaMediaProcessor` contract.

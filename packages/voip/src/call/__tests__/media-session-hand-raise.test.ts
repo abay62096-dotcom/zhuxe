@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import { createNoopLogger } from 'zhuxee-assistance'
-import type { BinaryNode } from 'zhuxee-assistance/transport'
+import { createNoopLogger } from 'zhuxe-assistance'
+import type { BinaryNode } from 'zhuxe-assistance/transport'
 
 import { CallMediaType, type WaVoipDeps } from '../../types.js'
 import { CallInfo } from '../call-state.js'

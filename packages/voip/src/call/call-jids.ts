@@ -1,7 +1,7 @@
-import type { Logger } from 'zhuxee-assistance'
-import { normalizeDeviceJid, toUserJid } from 'zhuxee-assistance/protocol'
-import { type BinaryNode, getNodeChildrenByTag } from 'zhuxee-assistance/transport'
-import { toError } from 'zhuxee-assistance/util'
+import type { Logger } from 'zhuxe-assistance'
+import { normalizeDeviceJid, toUserJid } from 'zhuxe-assistance/protocol'
+import { type BinaryNode, getNodeChildrenByTag } from 'zhuxe-assistance/transport'
+import { toError } from 'zhuxe-assistance/util'
 
 import type { WaVoipDeps } from '../types.js'
 

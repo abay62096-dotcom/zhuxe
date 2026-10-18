@@ -1,5 +1,5 @@
-import { type SignalAddress, toSignalAddressParts } from 'zhuxee-assistance/signal'
-import type { WaIdentityStore } from 'zhuxee-assistance/store'
+import { type SignalAddress, toSignalAddressParts } from 'zhuxe-assistance/signal'
+import type { WaIdentityStore } from 'zhuxe-assistance/store'
 
 import { BaseRedisStore } from './BaseRedisStore'
 import { deleteKeysChunked, scanKeys, toRedisBuffer } from './helpers'

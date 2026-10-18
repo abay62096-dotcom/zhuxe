@@ -1,4 +1,4 @@
-/** Byte helpers of the media plane, kept here because the package runs without `zhuxee-assistance`. */
+/** Byte helpers of the media plane, kept here because the package runs without `zhuxe-assistance`. */
 
 export const TEXT_ENCODER = new TextEncoder()
 export const TEXT_DECODER = new TextDecoder()

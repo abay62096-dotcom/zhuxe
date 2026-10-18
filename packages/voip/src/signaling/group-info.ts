@@ -1,6 +1,6 @@
-import { canonicalizeSignalServer, parseSignalAddressFromJid, WA_DEFAULTS } from 'zhuxee-assistance/protocol'
-import { type BinaryNode, findNodeChild, getNodeChildrenByTag } from 'zhuxee-assistance/transport'
-import { tryAsNumber } from 'zhuxee-assistance/util'
+import { canonicalizeSignalServer, parseSignalAddressFromJid, WA_DEFAULTS } from 'zhuxe-assistance/protocol'
+import { type BinaryNode, findNodeChild, getNodeChildrenByTag } from 'zhuxe-assistance/transport'
+import { tryAsNumber } from 'zhuxe-assistance/util'
 
 import type { WaCallGroupParticipant } from '../call/group-participants.js'
 import { addressDeviceJid } from '../jid.js'

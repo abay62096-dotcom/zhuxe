@@ -28,24 +28,24 @@ try {
 
     const env = {
         ...process.env,
-        ZAPO_TEST_MYSQL_HOST: 'localhost',
-        ZAPO_TEST_MYSQL_PORT: getPort('mysql', 3306),
-        ZAPO_TEST_MYSQL_USER: 'root',
-        ZAPO_TEST_MYSQL_PASSWORD: 'test',
-        ZAPO_TEST_MYSQL_DATABASE: 'zapo_test',
-        ZAPO_TEST_PG_HOST: 'localhost',
-        ZAPO_TEST_PG_PORT: getPort('postgres', 5432),
-        ZAPO_TEST_PG_USER: 'postgres',
-        ZAPO_TEST_PG_PASSWORD: 'test',
-        ZAPO_TEST_PG_DATABASE: 'zapo_test',
-        ZAPO_TEST_REDIS_HOST: 'localhost',
-        ZAPO_TEST_REDIS_PORT: getPort('redis', 6379),
-        ZAPO_TEST_MONGO_HOST: 'localhost',
-        ZAPO_TEST_MONGO_PORT: getPort('mongo', 27017)
+        ZHUXE_TEST_MYSQL_HOST: 'localhost',
+        ZHUXE_TEST_MYSQL_PORT: getPort('mysql', 3306),
+        ZHUXE_TEST_MYSQL_USER: 'root',
+        ZHUXE_TEST_MYSQL_PASSWORD: 'test',
+        ZHUXE_TEST_MYSQL_DATABASE: 'zhuxe_test',
+        ZHUXE_TEST_PG_HOST: 'localhost',
+        ZHUXE_TEST_PG_PORT: getPort('postgres', 5432),
+        ZHUXE_TEST_PG_USER: 'postgres',
+        ZHUXE_TEST_PG_PASSWORD: 'test',
+        ZHUXE_TEST_PG_DATABASE: 'zhuxe_test',
+        ZHUXE_TEST_REDIS_HOST: 'localhost',
+        ZHUXE_TEST_REDIS_PORT: getPort('redis', 6379),
+        ZHUXE_TEST_MONGO_HOST: 'localhost',
+        ZHUXE_TEST_MONGO_PORT: getPort('mongo', 27017)
     }
 
     console.log(
-        `Ports: mysql=${env.ZAPO_TEST_MYSQL_PORT} pg=${env.ZAPO_TEST_PG_PORT} redis=${env.ZAPO_TEST_REDIS_PORT} mongo=${env.ZAPO_TEST_MONGO_PORT}`
+        `Ports: mysql=${env.ZHUXE_TEST_MYSQL_PORT} pg=${env.ZHUXE_TEST_PG_PORT} redis=${env.ZHUXE_TEST_REDIS_PORT} mongo=${env.ZHUXE_TEST_MONGO_PORT}`
     )
 
     console.log('\nRunning package tests...')

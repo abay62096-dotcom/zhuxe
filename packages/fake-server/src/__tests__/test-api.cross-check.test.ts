@@ -4,11 +4,11 @@ import test from 'node:test'
 import { FakeWaServer } from '../api/FakeWaServer'
 import { buildIncomingPresence } from '../protocol/push/presence'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('waitForAuthenticatedPipeline resolves once the noise handshake completes', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'wait-auth' })
+    const { client } = createZhuxeClient(server, { sessionId: 'wait-auth' })
 
     try {
         const pipelinePromise = server.waitForAuthenticatedPipeline(5_000)
@@ -23,7 +23,7 @@ test('waitForAuthenticatedPipeline resolves once the noise handshake completes',
 
 test('expectStanza resolves with the next matching non-iq stanza', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'expect-stanza' })
+    const { client } = createZhuxeClient(server, { sessionId: 'expect-stanza' })
 
     server.scenario((s) => {
         s.afterAuth(async (pipeline) => {
@@ -50,7 +50,7 @@ test('expectStanza resolves with the next matching non-iq stanza', async () => {
 
 test('broadcastStanza pushes to all authenticated pipelines and returns the count', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'broadcast-1' })
+    const { client } = createZhuxeClient(server, { sessionId: 'broadcast-1' })
 
     try {
         await client.connect()

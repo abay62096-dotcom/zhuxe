@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function waitForMessage(
     client: WaClient,
@@ -30,7 +30,7 @@ function waitForMessage(
 
 test('fake peer pushes an ephemeral wrapped conversation and the lib emits message', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'ephemeral-message' })
+    const { client } = createZhuxeClient(server, { sessionId: 'ephemeral-message' })
     const peerJid = '5511777777777@s.whatsapp.net'
     const expirationSeconds = 7 * 24 * 60 * 60 // 7 days
 

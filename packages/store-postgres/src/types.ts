@@ -1,5 +1,5 @@
 import type { Pool, PoolConfig } from 'pg'
-import type { Logger } from 'zhuxee-assistance'
+import type { Logger } from 'zhuxe-assistance'
 
 export type PgParam = string | number | bigint | Uint8Array | boolean | null
 

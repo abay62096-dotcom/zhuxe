@@ -3,7 +3,7 @@ import test from 'node:test'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('scenario.afterAuth fires once the noise handshake completes', async () => {
     const server = await FakeWaServer.start()
@@ -15,7 +15,7 @@ test('scenario.afterAuth fires once the noise handshake completes', async () => 
         })
     })
 
-    const { client } = createZapoClient(server, { sessionId: 'scenario-after-auth' })
+    const { client } = createZhuxeClient(server, { sessionId: 'scenario-after-auth' })
     try {
         await client.connect()
         await new Promise((resolve) => setTimeout(resolve, 100))
@@ -28,7 +28,7 @@ test('scenario.afterAuth fires once the noise handshake completes', async () => 
 
 test('capturedStanzaSnapshot starts empty for the pairing flow', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'snapshot-empty' })
+    const { client } = createZhuxeClient(server, { sessionId: 'snapshot-empty' })
     try {
         await client.connect()
         await new Promise((resolve) => setTimeout(resolve, 200))
@@ -41,7 +41,7 @@ test('capturedStanzaSnapshot starts empty for the pairing flow', async () => {
 
 test('expectIq rejects with a clear timeout when no IQ matches', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'expect-iq-timeout' })
+    const { client } = createZhuxeClient(server, { sessionId: 'expect-iq-timeout' })
     try {
         await client.connect()
         await assert.rejects(

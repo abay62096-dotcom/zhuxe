@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import { createNoopLogger, type Logger } from 'zhuxee-assistance'
+import { createNoopLogger, type Logger } from 'zhuxe-assistance'
 
 import { groupParticipantAccountKey } from '../../jid.js'
 import {

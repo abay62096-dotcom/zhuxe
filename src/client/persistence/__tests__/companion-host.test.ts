@@ -7,7 +7,7 @@ import { test } from 'node:test'
 import { createFileCompanionHostPersistence } from '@client/persistence/companion-host'
 
 test('file persistence round-trips the epoch including companion key bytes', async () => {
-    const path = join(tmpdir(), 'zapo-companion-host-persistence.test.json')
+    const path = join(tmpdir(), 'zhuxe-companion-host-persistence.test.json')
     await rm(path, { force: true })
     const persistence = createFileCompanionHostPersistence(path)
 

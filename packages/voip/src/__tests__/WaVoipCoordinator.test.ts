@@ -2,10 +2,10 @@ import assert from 'node:assert/strict'
 import { EventEmitter } from 'node:events'
 import { test } from 'node:test'
 
-import { createNoopLogger, type WaClientPluginContext } from 'zhuxee-assistance'
-import { WA_MESSAGE_TAGS } from 'zhuxee-assistance/protocol'
+import { createNoopLogger, type WaClientPluginContext } from 'zhuxe-assistance'
+import { WA_MESSAGE_TAGS } from 'zhuxe-assistance/protocol'
 
-import type { WaCallReaction } from '@zapo-js/voip-media'
+import type { WaCallReaction } from '@zhuxe-js/voip-media'
 
 import type { CallInfo } from '../call/call-state.js'
 import type { VoipEvents } from '../events.js'

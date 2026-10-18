@@ -1,12 +1,12 @@
 {
-    "name": "@zapo-js/store-postgres",
+    "name": "@zhuxe-js/store-postgres",
     "version": "1.2.0",
-    "description": "PostgreSQL store provider for zhuxee-assistance",
+    "description": "PostgreSQL store provider for zhuxe-assistance",
     "license": "MIT",
     "author": "vinikjkkj <contact@vinicius.email> (https://github.com/vinikjkkj)",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/abay62096-dotcom/zhuxee.git",
+        "url": "git+https://github.com/abay62096-dotcom/zhuxe.git",
         "directory": "packages/store-postgres"
     },
     "main": "dist/index.js",
@@ -32,13 +32,13 @@
         "test": "node --import tsx --test \"src/**/__tests__/**/*.test.ts\""
     },
     "peerDependencies": {
-        "zhuxee-assistance": "^1.7.0",
+        "zhuxe-assistance": "^1.7.0",
         "pg": ">=8.0.0"
     },
     "devDependencies": {
         "@types/pg": "^8.11.0",
         "pg": "^8.14.1",
-        "zhuxee-assistance": "file:../.."
+        "zhuxe-assistance": "file:../.."
     },
     "engines": {
         "node": ">=20.9.0"

@@ -1,5 +1,5 @@
 /**
- * Runnable VOIP smoke test for `@zapo-js/voip`.
+ * Runnable VOIP smoke test for `@zhuxe-js/voip`.
  *
  * It pairs against its own `.auth/voip.sqlite` store (pass --auth to point it at
  * another one, e.g. the `.auth/state.sqlite` from `npm run example`) and then:
@@ -35,10 +35,10 @@ import { type ChildProcess, spawn } from 'node:child_process'
 import { mkdir, rm, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 
-import { createPinoLogger, createStore, type LogLevel, WaClient } from 'zhuxee-assistance'
+import { createPinoLogger, createStore, type LogLevel, WaClient } from 'zhuxe-assistance'
 
-import { createSqliteStore } from '@zapo-js/store-sqlite'
-import { CallState, EndCallReason, voipPlugin } from '@zapo-js/voip'
+import { createSqliteStore } from '@zhuxe-js/store-sqlite'
+import { CallState, EndCallReason, voipPlugin } from '@zhuxe-js/voip'
 
 const SAMPLE_RATE = 16_000
 // Cap an in-memory recording at ~10 minutes so a long call cannot grow unbounded.

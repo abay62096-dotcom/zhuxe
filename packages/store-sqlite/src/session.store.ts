@@ -1,4 +1,4 @@
-import { signalAddressKey } from 'zhuxee-assistance/protocol'
+import { signalAddressKey } from 'zhuxe-assistance/protocol'
 import {
     decodeSignalSessionRecord,
     encodeSignalSessionRecord,
@@ -6,9 +6,9 @@ import {
     type SignalSessionRecord,
     type SignalSessionRow,
     toSignalAddressParts
-} from 'zhuxee-assistance/signal'
-import type { WaSessionStore as WaSessionStoreContract } from 'zhuxee-assistance/store'
-import { asNumber, asString, resolvePositive } from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance/signal'
+import type { WaSessionStore as WaSessionStoreContract } from 'zhuxe-assistance/store'
+import { asNumber, asString, resolvePositive } from 'zhuxe-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

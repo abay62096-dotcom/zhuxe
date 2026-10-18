@@ -3,11 +3,11 @@ import test from 'node:test'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('client.privacy.getPrivacySettings returns the default fake state', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'privacy-get' })
+    const { client } = createZhuxeClient(server, { sessionId: 'privacy-get' })
     try {
         await client.connect()
         await server.waitForAuthenticatedPipeline()
@@ -23,7 +23,7 @@ test('client.privacy.getPrivacySettings returns the default fake state', async (
 
 test('client.privacy.setPrivacySetting mutates the registry and is observable', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'privacy-set' })
+    const { client } = createZhuxeClient(server, { sessionId: 'privacy-set' })
     const captured: Array<{ category: string; value: string }> = []
     server.onOutboundPrivacySet((op) => {
         captured.push({ category: op.category, value: op.value })
@@ -51,7 +51,7 @@ test('client.privacy.setPrivacySetting mutates the registry and is observable', 
 
 test('client.privacy.getBlocklist + blockUser + unblockUser round-trip via the registry', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'blocklist-roundtrip' })
+    const { client } = createZhuxeClient(server, { sessionId: 'blocklist-roundtrip' })
     const peerJid = '5511777777777@s.whatsapp.net'
 
     try {

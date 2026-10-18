@@ -1,4 +1,4 @@
-# zapo-js
+# zhuxe-js
 
 ## 1.10.0
 
@@ -71,13 +71,13 @@
 ### Minor Changes
 
 - Send and receive the group history bundle a member shares with someone who joined a group late, in both directions. The receiver (`history.groupBundles`, off by default) verifies this account is listed in `historyReceivers` before spending a CDN fetch, drops stubs, foreign-chat entries and ephemeral-expired or over-age messages, persists the rest and emits `group_history_bundle`; out-of-window pins ride along exempt from the age cutoff, and the window limits come from the server-synced AB props rather than hardcoded defaults. The sender, `client.message.shareGroupHistory()`, resolves the requested members against the live participant list, uploads the zlib-compressed `GroupHistory` payload and restricts the per-device fanout to its receivers plus this account, so members who are not receiving it never see the bundle. Bundles derive their media keys from the `Group History` HKDF context, distinct from the `WhatsApp History Keys` used by history sync.
-- Vendor the AB prop catalogue extracted from the WA Web bundle (2151 user props plus 14 group props) under `@abprops-spec`, replacing the hand-maintained 133-entry table. That table carried 21 config codes that no longer match the bundle (`group_size_limit`, `web_image_max_edge`, the `syncd_*` and `after_read_*` families among them), so those rows were dropped on every sync; against a live `abt` response the client now applies 830 of 1582 served props instead of at most 133. `parseConfigValue` gained a float branch for the six catalogued float props, and int values are decoded with `parseInt` like WA Web does, so a served negative no longer loses to the default (eleven props ship `-1` as their own default). The previous surface stays exported from `zapo-js/protocol`, deprecated: `AB_PROP_CONFIGS` is a compatibility view over `WA_ABPROPS` that keeps `configCode`, and `AbPropName` / `AbPropType` / `AbPropValue` alias their `Wa*` counterparts.
+- Vendor the AB prop catalogue extracted from the WA Web bundle (2151 user props plus 14 group props) under `@abprops-spec`, replacing the hand-maintained 133-entry table. That table carried 21 config codes that no longer match the bundle (`group_size_limit`, `web_image_max_edge`, the `syncd_*` and `after_read_*` families among them), so those rows were dropped on every sync; against a live `abt` response the client now applies 830 of 1582 served props instead of at most 133. `parseConfigValue` gained a float branch for the six catalogued float props, and int values are decoded with `parseInt` like WA Web does, so a served negative no longer loses to the default (eleven props ship `-1` as their own default). The previous surface stays exported from `zhuxe-js/protocol`, deprecated: `AB_PROP_CONFIGS` is a compatibility view over `WA_ABPROPS` that keeps `configCode`, and `AbPropName` / `AbPropType` / `AbPropValue` alias their `Wa*` counterparts.
 - Recover messages the server delivers as `<unavailable/>` through a placeholder resend. Those stanzas carry no `<enc>`, so they never reached the queue decrypt failures use and the payload was acked and dropped; a plain fanout placeholder is recoverable, because the primary still holds the plaintext and resends it on a `PLACEHOLDER_MESSAGE_RESEND` peer request. The unrecoverable flavours are derived from the stanza itself (`<bot>` child, `hosted=true`, `type=view_once`) instead of only `attrs.subtype`, the age window comes from `placeholder_message_resend_maximum_days_limit` instead of a hardcoded 30 days, and `message_unavailable` gains `resendRequested` so consumers know whether to expect a follow-up message event with the same key. The resend is not timed out at 30s: a real primary answered at ~30.6s, past the peer-request default, and the recovered message was discarded.
 - Surface privacy changes made on the primary. The `account_sync` dirty bit refetched the settings and the blocklist and dropped both responses, and the live path (`<notification type="account_sync">`) was unmodelled, so it fell through to `debug_notification`. Both paths now run one refresh of the full category set plus the four disallowed lists, debounced by 1s so a burst of changes on the phone collapses into a single refetch, surfaced as one `privacy` event. Adds `setDisallowedList`, the missing write path for a deny-list, which carries the mode and the entries in one stanza and resolves a stale `dhash` (`409`) by refetching and retrying; `setPrivacySetting` now keeps the `dhash` the server echoes back, the stamp the next write needs. `buildGetPrivacyDisallowedListIq` omitted `addressing_mode="lid"`, so every read answered `400: bad-request` on a LID-migrated account, and `pix` and `linked_profiles` were dropped as unmodelled: both are real visibility categories, deny-list included.
 - Resolve the per-chat disappearing settings from a new `chatMetadata` cache domain instead of the `threads` mailbox domain. `threads` defaults to `'none'`, so in the default configuration the lookup returned nothing and `contextInfo.ephemeralSettingTimestamp` was never stamped, leaving the peer warning that the message would not disappear; pointing `threads` at a persistent backend fixed the stamping but made the archive a send dependency. `chatMetadata` defaults to `'memory'`, mirroring `groupMetadata`: the send path reads the cache, falls back to the thread record on a cold miss and warms the cache with it, and degrades to "no ephemeral fields" when either lookup throws. Ordinary inbound traffic now refreshes the setting too, not just history sync and `EPHEMERAL_SETTING`, so a change made while offline no longer stays wrong until the next sync. Groups gain the disappearing-mode trigger the metadata query already parsed and threw away, so a group send carries the trigger the group reports rather than a fabricated one. `disableGroupEphemeralAutoInject` goes back to gating groups only, and 1:1 gets `disableDirectEphemeralAutoInject`.
 - `WaStoreBackend<S, C>` takes optional parameters naming the domains a backend implements, so a backend no longer has to cover the whole matrix: a partial one writes `satisfies WaStoreBackend<'auth', never>`. `createStore()` infers the backend map instead of only the backend names, so routing an undeclared domain (or misspelling a backend name) fails to compile instead of throwing `does not provide <kind>.<domain>` on the first `session()`. Both parameters default to the full matrix, so a bare `WaStoreBackend` keeps meaning every domain: a hand-written full backend has to declare the new `chatMetadata` cache or narrow to `WaStoreBackend<S, C>`. The mandatory coverage of every persistence domain once a backend is registered is unchanged, and `'none'` still resolves to the noop store.
 - Parse the `<ib><thread_metadata>` bulletin into a typed `offline_thread_metadata` event carrying the per-thread preview timestamps plus the optional read watermarks and delayed status/notification backlog counts. It announces which threads have queued traffic just before the server flushes the offline queue, but it was routed through the generic info-bulletin path, which only reads the child tag's own attrs: those are empty here, so every field came back null and the manifest was reachable only by walking `rawNode` by hand. The generic `debug_notification` mirror still fires, so existing listeners keep working. It cannot enrich `offline_resume` instead, because the manifest arrives after `offline_preview`, when the `resuming` event is already out.
-- Add an optional Rust-backed crypto backend, `@zapo-js/native`, for the messaging hot path: XEdDSA sign/verify (avoiding the WebCrypto Ed25519 round-trip that dominates SKDM sign in fanout) and X25519 ECDH scalar mult (avoiding the `createPrivateKey` / `createPublicKey` DER round-trip in `node:crypto.diffieHellman`). The binding is try-required at module load and falls back to the JS implementation when missing, so consumers without the prebuilt binary are unaffected. `ZAPO_XEDDSA_FORCE_JS` and `ZAPO_X25519_FORCE_JS` force the JS path.
+- Add an optional Rust-backed crypto backend, `@zhuxe-js/native`, for the messaging hot path: XEdDSA sign/verify (avoiding the WebCrypto Ed25519 round-trip that dominates SKDM sign in fanout) and X25519 ECDH scalar mult (avoiding the `createPrivateKey` / `createPublicKey` DER round-trip in `node:crypto.diffieHellman`). The binding is try-required at module load and falls back to the JS implementation when missing, so consumers without the prebuilt binary are unaffected. `ZHUXE_XEDDSA_FORCE_JS` and `ZHUXE_X25519_FORCE_JS` force the JS path.
 
 ### Patch Changes
 
@@ -115,10 +115,10 @@
 
 ### Minor Changes
 
-- Add `client.mobile` (`WaMobileCoordinator`): a mobile-primary session can link, host, and revoke its own companion devices, the inverse of zapo's usual companion role. It signs and uploads the companion's `ADVSignedDeviceIdentity` and key-index list, keeps the companion past its ~180s bootstrap by satisfying the client-props LID migration, `INITIAL_BOOTSTRAP` history-sync, and seeded `setting_pushName` gates, revokes one device or every companion in a single `remove-companion-device` stanza, reconciles the hosted set against the server device list on connect and `account_sync`, and shares the app-state sync keys so the companion decrypts collections. Guarded to mobile-primary sessions; companion sessions get a clear error from `client.mobile`.
+- Add `client.mobile` (`WaMobileCoordinator`): a mobile-primary session can link, host, and revoke its own companion devices, the inverse of zhuxe's usual companion role. It signs and uploads the companion's `ADVSignedDeviceIdentity` and key-index list, keeps the companion past its ~180s bootstrap by satisfying the client-props LID migration, `INITIAL_BOOTSTRAP` history-sync, and seeded `setting_pushName` gates, revokes one device or every companion in a single `remove-companion-device` stanza, reconciles the hosted set against the server device list on connect and `account_sync`, and shares the app-state sync keys so the companion decrypts collections. Guarded to mobile-primary sessions; companion sessions get a clear error from `client.mobile`.
 - Unify the web and mobile version fetchers into a single `wa-version-fetcher` and add `fetchLatestWaMobileVersion`, which scrapes the current WhatsApp for Android release (the official page only exposes a stale minimum-requirement version). `recoverFromClientTooOld` now handles mobile sessions by refreshing the Android app version into `deviceInfo.appVersion` for the next connect, the `version` option is honored per transport and validated (mobile requires exactly 4 numeric parts, web accepts 3 to 5), and the web noise payload advertises the 4th and 5th version parts when a longer version is supplied.
 - Add the opt-in `chatEvents.emitLocalMutations` option (default off): when enabled, every app-state action this client sends (mute, pin, archive, read, ...) emits a `mutation` event with `source: 'local'` at action time, so consumers can observe their own changes without waiting for the server to echo them back as a `patch`. Purely additive; default behavior is unchanged.
-- Expose `resolveWaDeviceIdentity`, `getWaBrowserDisplayName`, and `WA_VERSION` from the public barrels (plus `delay` from `zapo-js/util`), so plugins and downstream code can build a client payload that agrees with the pairing device identity. Consumed by `@zapo-js/wam`.
+- Expose `resolveWaDeviceIdentity`, `getWaBrowserDisplayName`, and `WA_VERSION` from the public barrels (plus `delay` from `zhuxe-js/util`), so plugins and downstream code can build a client payload that agrees with the pairing device identity. Consumed by `@zhuxe-js/wam`.
 
 ### Patch Changes
 
@@ -138,7 +138,7 @@
 
 ### Minor Changes
 
-- Add a `WaClient` plugin system via `defineWaClientPlugin`: a plugin either runs setup side effects or exposes an API at `client[exposeAs]`, with the accessor type and its events inferred from the plugin definition. Powers `@zapo-js/voip`.
+- Add a `WaClient` plugin system via `defineWaClientPlugin`: a plugin either runs setup side effects or exposes an API at `client[exposeAs]`, with the accessor type and its events inferred from the plugin definition. Powers `@zhuxe-js/voip`.
 
 ## 1.2.1
 
@@ -167,7 +167,7 @@
 - Map the signal "invalid message mac" error to the bad-MAC retry reason; the previous "invalid mac" match missed it (the word "message" sits in between), so bad-MAC retries went out with `error=0`.
 - Always emit the `error` attribute on the `<retry>` receipt (defaulting to 0) and map the "message too far in future" signal variant to the future-message retry reason.
 - Drop the noisy `clear-pending` warn on a disconnect with no in-flight query, and lower the remaining log to debug.
-- Build via the `prepare` lifecycle hook instead of `prepack`, so installing `zapo-js` straight from a git URL ships a built `dist/` (npm runs `prepare`, not `prepack`, for git dependencies).
+- Build via the `prepare` lifecycle hook instead of `prepack`, so installing `zhuxe-js` straight from a git URL ships a built `dist/` (npm runs `prepare`, not `prepack`, for git dependencies).
 
 ## 1.1.2
 
@@ -206,7 +206,7 @@
 
 - Emit quote `contextInfo.remoteJid` only for cross-chat quotes and clear an inherited value on a same-chat reply, matching wa-web so a 1:1 reply is not treated as a cross-chat reference.
 - Read top-level `fromMe` from `WaMessageKey` quotes, so quoting a self-sent DM resolves to the correct participant instead of the peer.
-- Resolve the vendored spec bridges in the emitted `.d.ts` types and the ESM build, fixing `TS2307` on the published types and a runtime "Cannot find module" on `import 'zapo-js'` under ESM that shipped in 1.0.1.
+- Resolve the vendored spec bridges in the emitted `.d.ts` types and the ESM build, fixing `TS2307` on the published types and a runtime "Cannot find module" on `import 'zhuxe-js'` under ESM that shipped in 1.0.1.
 
 ## 1.0.1
 
@@ -217,7 +217,7 @@
 - Stop `getOrGenPreKeys` from spinning when generated pre-key ids collide with already-stored ids.
 - Send the E.164-prefixed contact in the device-sync usync query.
 - Use a 100px max edge when generating image and video thumbnails.
-- Resolve tsc-alias path mapping by pointing every `tsconfig.json` alias at its parent directory instead of an entry file, so emitted `.d.ts` files no longer contain unresolved `@module` / `zapo-js/*` import specifiers.
+- Resolve tsc-alias path mapping by pointing every `tsconfig.json` alias at its parent directory instead of an entry file, so emitted `.d.ts` files no longer contain unresolved `@module` / `zhuxe-js/*` import specifiers.
 
 ## 1.0.0
 
@@ -273,8 +273,8 @@ First stable release. The public API is now frozen under SemVer: from `1.0.0`, b
   drop unused `@transport/node/builders` barrel; consolidate inline type imports and
   enforce alphabetical order of named import members.
 
-- New packages: `@zapo-js/fake-server` (fake WhatsApp Web server for end-to-end testing,
-  first publish) and `@zapo-js/media-utils` (ffmpeg/sharp processing and media message
+- New packages: `@zhuxe-js/fake-server` (fake WhatsApp Web server for end-to-end testing,
+  first publish) and `@zhuxe-js/media-utils` (ffmpeg/sharp processing and media message
   support).
 
 ## 0.1.2

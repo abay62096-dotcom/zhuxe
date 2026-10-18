@@ -5,7 +5,7 @@ import { FakeWaServer } from '../api/FakeWaServer'
 import { buildIqResult } from '../protocol/iq/router'
 import type { BinaryNode } from '../transport/codec'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function findChild(node: BinaryNode, tag: string): BinaryNode | undefined {
     if (!Array.isArray(node.content)) return undefined
@@ -52,7 +52,7 @@ function attachGroupMetadataResult(server: FakeWaServer): void {
 
 test('client.group.createGroup sends a w:g2 IQ and parses the metadata response', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'group-create' })
+    const { client } = createZhuxeClient(server, { sessionId: 'group-create' })
     attachGroupMetadataResult(server)
 
     try {
@@ -85,7 +85,7 @@ test('client.group.createGroup sends a w:g2 IQ and parses the metadata response'
 
 test('client.group participant change methods round-trip via the fake server', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'group-participants' })
+    const { client } = createZhuxeClient(server, { sessionId: 'group-participants' })
 
     const groupJid = '120363111111111111@g.us'
 
@@ -133,7 +133,7 @@ test('client.group participant change methods round-trip via the fake server', a
 
 test('client.group.setSubject and setDescription emit the right IQ child tags', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'group-meta-set' })
+    const { client } = createZhuxeClient(server, { sessionId: 'group-meta-set' })
 
     const groupJid = '120363222222222222@g.us'
 

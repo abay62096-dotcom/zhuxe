@@ -1,6 +1,6 @@
-import { isUserJid } from 'zhuxee-assistance'
-import type { WaContactStore as Contract, WaStoredContactRecord } from 'zhuxee-assistance/store'
-import { asNumber, asOptionalString, asString } from 'zhuxee-assistance/util'
+import { isUserJid } from 'zhuxe-assistance'
+import type { WaContactStore as Contract, WaStoredContactRecord } from 'zhuxe-assistance/store'
+import { asNumber, asOptionalString, asString } from 'zhuxe-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

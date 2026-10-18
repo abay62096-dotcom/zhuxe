@@ -8,12 +8,12 @@ import {
     keyEpoch,
     type WaAppStateStoreData,
     type WaAppStateSyncKey
-} from 'zhuxee-assistance/appstate'
+} from 'zhuxe-assistance/appstate'
 import type {
     WaAppStateCollectionStateUpdate,
     WaAppStateCollectionStoreState,
     WaAppStateStore
-} from 'zhuxee-assistance/store'
+} from 'zhuxe-assistance/store'
 import {
     asBytes,
     asNumber,
@@ -21,7 +21,7 @@ import {
     bytesToHex,
     uint8Equal,
     uint8TimingSafeEqual
-} from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

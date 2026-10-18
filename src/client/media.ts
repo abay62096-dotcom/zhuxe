@@ -124,7 +124,7 @@ export function isReadableStream(value: unknown): value is Readable {
 async function streamToTempFile(source: Readable): Promise<string> {
     const filePath = join(
         tmpdir(),
-        `zapo-media-${Date.now()}-${Math.random().toString(36).slice(2)}`
+        `zhuxe-media-${Date.now()}-${Math.random().toString(36).slice(2)}`
     )
     try {
         await pipeline(source, createWriteStream(filePath))
@@ -169,7 +169,7 @@ async function streamToTempFileWithSha256(
 ): Promise<StreamFileMetrics & { readonly filePath: string }> {
     const filePath = join(
         tmpdir(),
-        `zapo-media-${Date.now()}-${Math.random().toString(36).slice(2)}`
+        `zhuxe-media-${Date.now()}-${Math.random().toString(36).slice(2)}`
     )
     const meter = createSha256SizeMeter()
     try {
@@ -615,7 +615,7 @@ export interface WaDownloadMediaMessageOptions extends WaDownloadMediaOptions {
  * @throws when `source` carries no downloadable media.
  * @example
  * ```ts
- * import { downloadMediaMessage } from 'zhuxee-assistance'
+ * import { downloadMediaMessage } from 'zhuxe-assistance'
  * import { createWriteStream } from 'node:fs'
  *
  * const stream = await downloadMediaMessage(event)

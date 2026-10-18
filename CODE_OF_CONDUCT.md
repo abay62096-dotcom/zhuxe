@@ -1,6 +1,6 @@
 # Code of Conduct
 
-`zapo` is an open-source project. To keep collaboration productive and the
+`zhuxe` is an open-source project. To keep collaboration productive and the
 codebase trustworthy, contributors agree to follow the rules below.
 
 ## 1. General Conduct

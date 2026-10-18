@@ -1,15 +1,15 @@
 import { EventEmitter } from 'node:events'
 
-import { createNoopLogger, type Logger } from 'zhuxee-assistance'
-import { type BinaryNode, findNodeChild, hasNodeChild } from 'zhuxee-assistance/transport'
-import { resolvePositive, toError, tryAsNumber } from 'zhuxee-assistance/util'
+import { createNoopLogger, type Logger } from 'zhuxe-assistance'
+import { type BinaryNode, findNodeChild, hasNodeChild } from 'zhuxe-assistance/transport'
+import { resolvePositive, toError, tryAsNumber } from 'zhuxe-assistance/util'
 
 import type {
     MLowCompanionModelSource,
     MLowRedOptions,
     WaCallMediaEvent,
     WaCallMediaMessage
-} from '@zapo-js/voip-media'
+} from '@zhuxe-js/voip-media'
 
 import { generateCallKey } from '../crypto/encryption.js'
 import { groupParticipantAccountKey } from '../jid.js'

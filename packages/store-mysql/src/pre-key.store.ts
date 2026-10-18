@@ -1,6 +1,6 @@
 import type { PoolConnection } from 'mysql2/promise'
-import type { PreKeyRecord } from 'zhuxee-assistance/signal'
-import type { WaPreKeyStore } from 'zhuxee-assistance/store'
+import type { PreKeyRecord } from 'zhuxe-assistance/signal'
+import type { WaPreKeyStore } from 'zhuxe-assistance/store'
 
 import { BaseMysqlStore } from './BaseMysqlStore'
 import { affectedRows, type MysqlRow, queryFirst, queryRows, safeLimit, toBytes } from './helpers'

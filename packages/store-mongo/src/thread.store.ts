@@ -1,4 +1,4 @@
-import type { WaStoredThreadRecord, WaThreadStore } from 'zhuxee-assistance/store'
+import type { WaStoredThreadRecord, WaThreadStore } from 'zhuxe-assistance/store'
 
 import { BaseMongoStore } from './BaseMongoStore'
 import { safeLimit } from './helpers'

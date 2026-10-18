@@ -1,6 +1,6 @@
 use napi::{bindgen_prelude::*, Env, Task};
 use napi_derive::napi;
-use zapo_native_core as core;
+use zhuxe_native_core as core;
 
 use crate::crypto::to_napi_err;
 

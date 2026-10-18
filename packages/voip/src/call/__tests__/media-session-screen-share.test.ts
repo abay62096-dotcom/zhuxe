@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import { createNoopLogger } from 'zhuxee-assistance'
-import type { BinaryNode } from 'zhuxee-assistance/transport'
+import { createNoopLogger } from 'zhuxe-assistance'
+import type { BinaryNode } from 'zhuxe-assistance/transport'
 
 import { type PeerScreenShare, WA_SCREEN_SHARE_STATE } from '../../signaling/screen-share.js'
 import { CallMediaType, type WaVoipDeps } from '../../types.js'

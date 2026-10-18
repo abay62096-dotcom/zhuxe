@@ -1,8 +1,8 @@
 /**
  * Layer 1 – byte/encoding primitives wrapper.
  *
- * Re-exports bit-exact byte helpers from zhuxee-assistance so Layer 2/3 of the fake
- * server can use them without importing zhuxee-assistance directly.
+ * Re-exports bit-exact byte helpers from zhuxe-assistance so Layer 2/3 of the fake
+ * server can use them without importing zhuxe-assistance directly.
  */
 
 export {
@@ -11,7 +11,7 @@ export {
     bytesToHex,
     decodeBase64Url,
     toError
-} from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance/util'
 
 export const TEXT_ENCODER = new TextEncoder()
 export const TEXT_DECODER = new TextDecoder()

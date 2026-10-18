@@ -1,5 +1,5 @@
 import type { default as Redis, RedisOptions } from 'ioredis'
-import type { Logger } from 'zhuxee-assistance'
+import type { Logger } from 'zhuxe-assistance'
 
 export interface WaRedisStorageOptions {
     readonly redis: Redis

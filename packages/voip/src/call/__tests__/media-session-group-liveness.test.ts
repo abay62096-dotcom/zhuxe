@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import type { BinaryNode } from 'zhuxee-assistance/transport'
+import type { BinaryNode } from 'zhuxe-assistance/transport'
 
 import { WaVoipSettings } from '../../signaling/voip-settings.js'
 import { type WaCallGroupParticipant } from '../group-participants.js'

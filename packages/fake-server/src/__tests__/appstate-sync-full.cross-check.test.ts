@@ -4,14 +4,14 @@ import assert from 'node:assert/strict'
 import { randomBytes } from 'node:crypto'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 type WaAppStateMutationEvent = Parameters<WaClientEventMap['mutation']>[0]
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import { FakeAppStateCollection } from '../state/fake-app-state-collection'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function waitForMutation(
     client: WaClient,
@@ -39,7 +39,7 @@ function waitForMutation(
 
 test('full app-state sync round-trip ships an encrypted patch the lib decrypts', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'app-state-full' })
+    const { client } = createZhuxeClient(server, { sessionId: 'app-state-full' })
 
     const chatJid = '5511777777777@s.whatsapp.net'
     const muteEnd = Date.now() + 60 * 60 * 1_000

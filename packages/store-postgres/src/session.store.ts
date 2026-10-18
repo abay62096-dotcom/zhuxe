@@ -1,5 +1,5 @@
 import type { PoolClient } from 'pg'
-import { signalAddressKey } from 'zhuxee-assistance/protocol'
+import { signalAddressKey } from 'zhuxe-assistance/protocol'
 import {
     decodeSignalSessionRecord,
     encodeSignalSessionRecord,
@@ -7,8 +7,8 @@ import {
     type SignalAddressParts,
     type SignalSessionRecord,
     toSignalAddressParts
-} from 'zhuxee-assistance/signal'
-import type { WaSessionStore } from 'zhuxee-assistance/store'
+} from 'zhuxe-assistance/signal'
+import type { WaSessionStore } from 'zhuxe-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import { queryFirst, queryRows, toBytes } from './helpers'

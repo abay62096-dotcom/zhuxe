@@ -1,10 +1,10 @@
-import { createNoopLogger, createStore, type Logger, WaClient } from 'zhuxee-assistance'
+import { createNoopLogger, createStore, type Logger, WaClient } from 'zhuxe-assistance'
 
 const NOOP_LOGGER: Logger = createNoopLogger('error')
 
 import type { FakeWaServer } from '../../api/FakeWaServer'
 
-export interface CreateZapoClientOptions {
+export interface CreateZhuxeClientOptions {
     readonly sessionId?: string
     readonly connectTimeoutMs?: number
     readonly historySyncEnabled?: boolean
@@ -12,14 +12,14 @@ export interface CreateZapoClientOptions {
     readonly logger?: Logger
 }
 
-export interface ZapoClientFixture {
+export interface ZhuxeClientFixture {
     readonly client: WaClient
 }
 
-export function createZapoClient(
+export function createZhuxeClient(
     server: FakeWaServer,
-    options: CreateZapoClientOptions = {}
-): ZapoClientFixture {
+    options: CreateZhuxeClientOptions = {}
+): ZhuxeClientFixture {
     const store = createStore({})
 
     const client = new WaClient(

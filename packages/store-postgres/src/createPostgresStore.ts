@@ -1,5 +1,5 @@
 import type { Pool, PoolConfig } from 'pg'
-import type { Logger } from 'zhuxee-assistance'
+import type { Logger } from 'zhuxe-assistance'
 
 import { WaAppStatePgStore } from './appstate.store'
 import { WaAuthPgStore } from './auth.store'
@@ -120,8 +120,8 @@ function isPool(value: Pool | PoolConfig): value is Pool {
  *
  * @example
  * ```ts
- * import { createStore, WaClient } from 'zhuxee-assistance'
- * import { createPostgresStore } from '@zapo-js/store-postgres'
+ * import { createStore, WaClient } from 'zhuxe-assistance'
+ * import { createPostgresStore } from '@zhuxe-js/store-postgres'
  *
  * const result = createPostgresStore({
  *     pool: { connectionString: process.env.DATABASE_URL }

@@ -1,4 +1,4 @@
-import type { WaChatMetadataSnapshot, WaChatMetadataStore } from 'zhuxee-assistance/store'
+import type { WaChatMetadataSnapshot, WaChatMetadataStore } from 'zhuxe-assistance/store'
 
 import { BaseRedisStore } from './BaseRedisStore'
 import { deleteKeysChunked, scanKeys } from './helpers'

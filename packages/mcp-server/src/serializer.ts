@@ -12,7 +12,7 @@
  *   "[Circular]"                   - Cycle marker
  */
 
-import { base64ToBytes, bytesToBase64 } from 'zhuxee-assistance/util'
+import { base64ToBytes, bytesToBase64 } from 'zhuxe-assistance/util'
 
 const BYTES = '$bytes'
 const BIGINT = '$bigint'

@@ -1,16 +1,16 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import { parsePairingQrString } from '../protocol/auth/pair-device'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('paired client.sendMessage is decrypted by the fake peer', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'send-decrypt' })
+    const { client } = createZhuxeClient(server, { sessionId: 'send-decrypt' })
 
     const materialPromise = new Promise<{
         readonly advSecretKey: Uint8Array

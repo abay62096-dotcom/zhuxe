@@ -1,12 +1,12 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 import { encodeHistorySyncPlaintext } from '../protocol/push/history-sync'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function waitForEvent<K extends keyof WaClientEventMap>(
     client: WaClient,
@@ -27,7 +27,7 @@ function waitForEvent<K extends keyof WaClientEventMap>(
 
 test('fake peer pushes a history sync via external blob and the lib downloads + decrypts it', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, {
+    const { client } = createZhuxeClient(server, {
         sessionId: 'history-sync-external',
         historySyncEnabled: true
     })

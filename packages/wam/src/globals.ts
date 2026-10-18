@@ -1,10 +1,10 @@
 import { WA_WAM_GLOBALS, type WaWamChannel, type WaWamGlobalName } from '@vinikjkkj/wa-wam'
-import { WA_VERSION } from 'zhuxee-assistance'
+import { WA_VERSION } from 'zhuxe-assistance'
 import {
     getWaBrowserDisplayName,
     resolveWaDeviceIdentity,
     type WaDeviceIdentityOptions
-} from 'zhuxee-assistance/protocol'
+} from 'zhuxe-assistance/protocol'
 
 import { resolveWamEnumValue } from './registry.js'
 import type { WamGlobalValue } from './wire/WamBatch.js'

@@ -5,8 +5,8 @@ import {
     type WaWamEventArgs,
     type WaWamEventName
 } from '@vinikjkkj/wa-wam'
-import type { Logger, LogLevel, WaClientPluginContext } from 'zhuxee-assistance'
-import { toError } from 'zhuxee-assistance/util'
+import type { Logger, LogLevel, WaClientPluginContext } from 'zhuxe-assistance'
+import { toError } from 'zhuxe-assistance/util'
 
 import { resolveWamGlobals, type WamGlobalsInput } from './globals.js'
 import { resolveWamEventFields } from './registry.js'
@@ -67,7 +67,7 @@ export class WaWamCoordinator {
     private readonly isRegistered: () => boolean
 
     constructor(ctx: WaClientPluginContext, options: WaWamCoordinatorOptions = {}) {
-        this.logger = ctx.logger.child({ scope: '@zapo-js/wam' }, { level: options.logLevel })
+        this.logger = ctx.logger.child({ scope: '@zhuxe-js/wam' }, { level: options.logLevel })
         this.uploader = new WaWamUploader({ query: ctx.queryWithContext, logger: this.logger })
         this.streamId = 1 + Math.floor(Math.random() * 255)
         this.flushIntervalMs =

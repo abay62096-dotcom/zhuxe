@@ -1,5 +1,5 @@
-import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zhuxee-assistance/store'
-import { TEXT_DECODER } from 'zhuxee-assistance/util'
+import type { WaDeviceListSnapshot, WaDeviceListStore } from 'zhuxe-assistance/store'
+import { TEXT_DECODER } from 'zhuxe-assistance/util'
 
 import { BaseMysqlStore } from './BaseMysqlStore'
 import { affectedRows, queryRows } from './helpers'

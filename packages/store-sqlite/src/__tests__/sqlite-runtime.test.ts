@@ -4,17 +4,17 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import test from 'node:test'
 
-import { APP_STATE_EMPTY_LT_HASH } from 'zhuxee-assistance/appstate'
-import { toSerializedPubKey, X25519 } from 'zhuxee-assistance/crypto'
-import { WA_APP_STATE_COLLECTIONS } from 'zhuxee-assistance/protocol'
-import type { WaRetryOutboundMessageRecord } from 'zhuxee-assistance/retry'
+import { APP_STATE_EMPTY_LT_HASH } from 'zhuxe-assistance/appstate'
+import { toSerializedPubKey, X25519 } from 'zhuxe-assistance/crypto'
+import { WA_APP_STATE_COLLECTIONS } from 'zhuxe-assistance/protocol'
+import type { WaRetryOutboundMessageRecord } from 'zhuxe-assistance/retry'
 import {
     decodeSignalSessionRecord,
     encodeSignalSessionRecord,
     type SenderKeyRecord,
     type SignalAddress,
     type SignalSessionRecord
-} from 'zhuxee-assistance/signal'
+} from 'zhuxe-assistance/signal'
 
 import { WaAppStateSqliteStore } from '../appstate.store'
 import { WaChatMetadataSqliteStore } from '../chat-metadata.store'
@@ -117,7 +117,7 @@ async function makeSessionRecord(seed = 0): Promise<SignalSessionRecord> {
 }
 
 test('sqlite appstate store handles sync keys, collection state and session scoping', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-appstate-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-appstate-'))
     const sqlitePath = join(dir, 'state.sqlite')
     const storeA = new WaAppStateSqliteStore(makeSqliteOptions(sqlitePath, 'session-a'))
     const storeB = new WaAppStateSqliteStore(makeSqliteOptions(sqlitePath, 'session-b'))
@@ -195,7 +195,7 @@ test('sqlite appstate store handles sync keys, collection state and session scop
 })
 
 test('sqlite appstate setCollectionStates writes only the index/value delta', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-appstate-diff-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-appstate-diff-'))
     const connection = await openSqliteConnection({
         path: join(dir, 'state.sqlite'),
         sessionId: 'session-diff',
@@ -270,7 +270,7 @@ test('sqlite appstate setCollectionStates writes only the index/value delta', as
 })
 
 test('sqlite device-list and group-metadata stores cover batch, expiry, cleanup and invalid payloads', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-cache-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-cache-'))
     const sqlitePath = join(dir, 'state.sqlite')
     const deviceStore = new WaDeviceListSqliteStore(
         makeSqliteOptions(sqlitePath, 'session-a'),
@@ -410,7 +410,7 @@ test('sqlite device-list and group-metadata stores cover batch, expiry, cleanup 
 })
 
 test('sqlite retry store tracks outbound state, inbound counters and expiration', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-retry-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-retry-'))
     const sqlitePath = join(dir, 'state.sqlite')
     const store = new WaRetrySqliteStore(makeSqliteOptions(sqlitePath, 'session-a'), 500)
 
@@ -480,7 +480,7 @@ test('sqlite retry store tracks outbound state, inbound counters and expiration'
 })
 
 test('sqlite sender-key store handles lists and deletions', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-sender-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-sender-'))
     const sqlitePath = join(dir, 'state.sqlite')
     const store = new SenderKeySqliteStore(makeSqliteOptions(sqlitePath, 'session-a'))
     const senderA = makeAddress('5511', 0)
@@ -551,7 +551,7 @@ test('sqlite sender-key store handles lists and deletions', async () => {
 })
 
 test('sqlite signal store covers prekeys, sessions, identities and state helpers', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-signal-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-signal-'))
     const sqlitePath = join(dir, 'state.sqlite')
     const optionsA = makeSqliteOptions(sqlitePath, 'session-a')
     const signalStore = new WaSignalSqliteStore(optionsA)
@@ -706,7 +706,7 @@ test('sqlite signal store covers prekeys, sessions, identities and state helpers
 })
 
 test('sqlite signal prekey generation is safe across concurrent sessions', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-signal-concurrency-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-signal-concurrency-'))
     const sqlitePath = join(dir, 'state.sqlite')
     const storeA = new WaPreKeySqliteStore(makeSqliteOptions(sqlitePath, 'session-a'))
     const storeB = new WaPreKeySqliteStore(makeSqliteOptions(sqlitePath, 'session-b'))
@@ -736,7 +736,7 @@ test('sqlite signal prekey generation is safe across concurrent sessions', async
 })
 
 test('sqlite shared connection keeps other session alive after one destroy', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-destroy-lifecycle-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-destroy-lifecycle-'))
     const sqlitePath = join(dir, 'state.sqlite')
     const storeA = new WaDeviceListSqliteStore(makeSqliteOptions(sqlitePath, 'session-a'), 1_000, 1)
     const storeB = new WaDeviceListSqliteStore(makeSqliteOptions(sqlitePath, 'session-b'), 1_000, 1)
@@ -767,7 +767,7 @@ test('sqlite shared connection keeps other session alive after one destroy', asy
 })
 
 test('sqlite signal prekey generation keeps monotonic progress for overlapping same-session calls', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-signal-same-session-concurrency-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-signal-same-session-concurrency-'))
     const sqlitePath = join(dir, 'state.sqlite')
     const store = new WaPreKeySqliteStore(makeSqliteOptions(sqlitePath, 'session-a'))
 
@@ -797,7 +797,7 @@ test('sqlite signal prekey generation keeps monotonic progress for overlapping s
 })
 
 test('sqlite message-secret store covers set/get, batch, TTL expiry and cleanup', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'zapo-sqlite-msgsecret-'))
+    const dir = await mkdtemp(join(tmpdir(), 'zhuxe-sqlite-msgsecret-'))
     const sqlitePath = join(dir, 'state.sqlite')
     const store = new WaMessageSecretSqliteStore(makeSqliteOptions(sqlitePath, 'session-a'), 100)
 

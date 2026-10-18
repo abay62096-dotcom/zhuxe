@@ -1,4 +1,4 @@
-# @zapo-js/store-redis
+# @zhuxe-js/store-redis
 
 ## 1.3.0
 
@@ -25,7 +25,7 @@
   `cleanupExpired` return the affected row count their contract promises, and
   `chat_metadata_cache` is reachable through the SQLite `tableNames` override map.
 
-    The domain only exists from core 1.7.0, so the `zapo-js` peer range moves to
+    The domain only exists from core 1.7.0, so the `zhuxe-js` peer range moves to
     `^1.7.0`.
 
 ### Patch Changes
@@ -62,7 +62,7 @@
 
 ### Major Changes
 
-- Align with the `zapo-js` 1.0.0 stable release. Now requires `zapo-js@^1.0.0`.
+- Align with the `zhuxe-js` 1.0.0 stable release. Now requires `zhuxe-js@^1.0.0`.
 
 ## 0.3.0
 

@@ -5,7 +5,7 @@ import {
     toBytesView,
     uint8Equal,
     uint8TimingSafeEqual
-} from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance/util'
 
 export type MysqlRow = Record<string, unknown>
 type QueryOutput = [unknown, FieldPacket[]]

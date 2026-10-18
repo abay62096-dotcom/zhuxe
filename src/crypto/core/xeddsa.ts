@@ -23,7 +23,7 @@ interface NativeBinding {
 }
 
 const nativeBinding: NativeBinding | null = (() => {
-    if (process.env.ZAPO_XEDDSA_FORCE_JS) return null
+    if (process.env.ZHUXE_XEDDSA_FORCE_JS) return null
     const mod = resolveNativeCryptoBackend()
     if (mod && typeof mod.xeddsaSign === 'function' && typeof mod.xeddsaVerify === 'function') {
         return { xeddsaSign: mod.xeddsaSign, xeddsaVerify: mod.xeddsaVerify }

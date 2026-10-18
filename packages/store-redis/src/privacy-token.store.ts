@@ -1,4 +1,4 @@
-import type { WaPrivacyTokenStore, WaStoredPrivacyTokenRecord } from 'zhuxee-assistance/store'
+import type { WaPrivacyTokenStore, WaStoredPrivacyTokenRecord } from 'zhuxe-assistance/store'
 
 import { BaseRedisStore } from './BaseRedisStore'
 import { scanKeys, toBytesOrNull, toRedisBuffer, toStringOrNull } from './helpers'

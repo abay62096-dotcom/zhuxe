@@ -3,13 +3,13 @@ import test from 'node:test'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 test('client.connect() rejects when fake server is in reject mode', async () => {
     const server = await FakeWaServer.start()
     server.setRejectMode({ code: 1011, reason: 'simulated auth failure' })
 
-    const { client } = createZapoClient(server, {
+    const { client } = createZhuxeClient(server, {
         sessionId: 'auth-failure',
         connectTimeoutMs: 2_000
     })

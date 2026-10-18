@@ -1,4 +1,4 @@
-import { TEXT_ENCODER } from 'zhuxee-assistance/util'
+import { TEXT_ENCODER } from 'zhuxe-assistance/util'
 
 /**
  * Minimal growable big-endian byte writer used by the WAM TLV encoder.

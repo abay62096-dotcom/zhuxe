@@ -1,11 +1,11 @@
-import { createNoopLogger, createStore, type Logger, WaClient } from 'zhuxee-assistance'
+import { createNoopLogger, createStore, type Logger, WaClient } from 'zhuxe-assistance'
 
 import { type FakeMobilePrimary, seedFakeMobilePrimary } from '../../api/FakeMobilePrimary'
 import type { FakeWaServer } from '../../api/FakeWaServer'
 
 const NOOP_LOGGER: Logger = createNoopLogger('error')
 
-export interface CreateZapoMobileClientOptions {
+export interface CreateZhuxeMobileClientOptions {
     readonly sessionId?: string
     readonly phoneNumber?: string
     readonly lidUser?: string
@@ -14,7 +14,7 @@ export interface CreateZapoMobileClientOptions {
     readonly logger?: Logger
 }
 
-export interface ZapoMobileClientFixture {
+export interface ZhuxeMobileClientFixture {
     readonly client: WaClient
     readonly primary: FakeMobilePrimary
 }
@@ -25,10 +25,10 @@ export interface ZapoMobileClientFixture {
  * transport dials the server's raw-TCP listener, so the server must be started
  * with `{ tcp: true }`.
  */
-export async function createZapoMobileClient(
+export async function createZhuxeMobileClient(
     server: FakeWaServer,
-    options: CreateZapoMobileClientOptions = {}
-): Promise<ZapoMobileClientFixture> {
+    options: CreateZhuxeMobileClientOptions = {}
+): Promise<ZhuxeMobileClientFixture> {
     const store = createStore({})
     const sessionId = options.sessionId ?? 'fake-server-mobile-cross-check'
     const primary = await seedFakeMobilePrimary(store, sessionId, {

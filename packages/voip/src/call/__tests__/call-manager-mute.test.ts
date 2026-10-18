@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import type { BinaryNode } from 'zhuxee-assistance/transport'
+import type { BinaryNode } from 'zhuxe-assistance/transport'
 
 import { type CallInfo } from '../call-state.js'
 import { WaCallManager } from '../WaCallManager.js'

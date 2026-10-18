@@ -1,5 +1,5 @@
-import { toUserJid } from 'zhuxee-assistance/protocol'
-import { type BinaryNode, getNodeChildrenByTag } from 'zhuxee-assistance/transport'
+import { toUserJid } from 'zhuxe-assistance/protocol'
+import { type BinaryNode, getNodeChildrenByTag } from 'zhuxe-assistance/transport'
 
 import type { RelayEndpoint } from '../types.js'
 

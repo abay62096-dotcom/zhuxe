@@ -1,5 +1,5 @@
 import type { PoolClient } from 'pg'
-import type { WaMessageStore, WaStoredMessageRecord } from 'zhuxee-assistance/store'
+import type { WaMessageStore, WaStoredMessageRecord } from 'zhuxe-assistance/store'
 
 import { BasePgStore } from './BasePgStore'
 import {

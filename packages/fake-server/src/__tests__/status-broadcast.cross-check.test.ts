@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import type { WaClient, WaClientEventMap } from 'zhuxee-assistance'
+import type { WaClient, WaClientEventMap } from 'zhuxe-assistance'
 
 import { FakeWaServer } from '../api/FakeWaServer'
 
-import { createZapoClient } from './helpers/zapo-client'
+import { createZhuxeClient } from './helpers/zhuxe-client'
 
 function waitForMessage(
     client: WaClient,
@@ -30,7 +30,7 @@ function waitForMessage(
 
 test('fake peer pushes a status@broadcast message and the lib emits isBroadcastChat=true', async () => {
     const server = await FakeWaServer.start()
-    const { client } = createZapoClient(server, { sessionId: 'status-broadcast' })
+    const { client } = createZhuxeClient(server, { sessionId: 'status-broadcast' })
     const peerJid = '5511777777777@s.whatsapp.net'
     const statusText = 'a status update'
 

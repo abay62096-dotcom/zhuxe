@@ -1,9 +1,9 @@
 #![deny(clippy::all)]
 
-//! Shared curve25519 crypto core for the zhuxee-assistance native accelerators.
+//! Shared curve25519 crypto core for the zhuxe-assistance native accelerators.
 //!
-//! Pure Rust: no NAPI or wasm-bindgen types leak in here. The `zapo-native`
-//! (NAPI) and `zapo-native-wasm` crates each wrap these functions with their
+//! Pure Rust: no NAPI or wasm-bindgen types leak in here. The `zhuxe-native`
+//! (NAPI) and `zhuxe-native-wasm` crates each wrap these functions with their
 //! own FFI layer, so the algorithm — X25519 ECDH and XEdDSA sign/verify —
 //! lives in exactly one place and cannot drift between backends.
 

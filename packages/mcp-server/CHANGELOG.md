@@ -1,4 +1,4 @@
-# @zapo-js/mcp-server
+# @zhuxe-js/mcp-server
 
 ## 1.2.0
 
@@ -23,7 +23,7 @@
   MCP until it is registered there.
 - Updated dependencies
 - Updated dependencies
-    - @zapo-js/store-sqlite@1.1.0
+    - @zhuxe-js/store-sqlite@1.1.0
 
 ## 1.0.4
 
@@ -48,16 +48,16 @@
 ### Patch Changes
 
 - Updated dependencies
-    - @zapo-js/store-sqlite@1.0.1
+    - @zhuxe-js/store-sqlite@1.0.1
 
 ## 1.0.0
 
 ### Major Changes
 
-- Align with the `zapo-js` 1.0.0 stable release. Now requires `zapo-js@^1.0.0`.
+- Align with the `zhuxe-js` 1.0.0 stable release. Now requires `zhuxe-js@^1.0.0`.
 
 ### Patch Changes
 
 - Updated dependencies
-    - @zapo-js/store-sqlite@1.0.0
-    - @zapo-js/media-utils@1.0.0
+    - @zhuxe-js/store-sqlite@1.0.0
+    - @zhuxe-js/media-utils@1.0.0

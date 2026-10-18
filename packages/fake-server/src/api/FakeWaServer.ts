@@ -1003,7 +1003,7 @@ export class FakeWaServer {
                 ? (registration.devicePairingData.deviceProps ?? null)
                 : null
         // `<platform>` describes the primary that signed the link, not the
-        // companion. A zapo mobile session always logs in as ANDROID, so this
+        // companion. A zhuxe mobile session always logs in as ANDROID, so this
         // is the only value a primary-driven link can carry here.
         const platform = MOBILE_PRIMARY_PLATFORM
         await pipeline.sendStanza(

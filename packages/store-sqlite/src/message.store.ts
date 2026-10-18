@@ -1,11 +1,11 @@
-import type { WaMessageStore as Contract, WaStoredMessageRecord } from 'zhuxee-assistance/store'
+import type { WaMessageStore as Contract, WaStoredMessageRecord } from 'zhuxe-assistance/store'
 import {
     asOptionalBytes,
     asOptionalNumber,
     asOptionalString,
     asString,
     normalizeQueryLimit
-} from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

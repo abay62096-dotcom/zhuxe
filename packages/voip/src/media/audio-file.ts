@@ -1,7 +1,7 @@
 import { execFile, spawn } from 'node:child_process'
 import { access } from 'node:fs/promises'
 
-import { toBytesView } from 'zhuxee-assistance/util'
+import { toBytesView } from 'zhuxe-assistance/util'
 
 import { concatBytes, TEXT_DECODER } from '../bytes.js'
 

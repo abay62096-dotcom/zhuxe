@@ -1,7 +1,7 @@
-import { type BinaryNode, getFirstNodeChild } from 'zhuxee-assistance/transport'
-import { bytesToHex } from 'zhuxee-assistance/util'
+import { type BinaryNode, getFirstNodeChild } from 'zhuxe-assistance/transport'
+import { bytesToHex } from 'zhuxe-assistance/util'
 
-import { randomBytes } from '@zapo-js/voip-media'
+import { randomBytes } from '@zhuxe-js/voip-media'
 
 import type { NodeInfo } from '../types.js'
 

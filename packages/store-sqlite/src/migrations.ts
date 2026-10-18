@@ -1,4 +1,4 @@
-import type { Logger } from 'zhuxee-assistance'
+import type { Logger } from 'zhuxe-assistance'
 
 import type { WaSqliteConnection } from './connection'
 

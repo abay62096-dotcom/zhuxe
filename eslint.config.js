@@ -76,7 +76,7 @@ module.exports = [
             'import/parsers': {
                 '@typescript-eslint/parser': ['.ts', '.tsx']
             },
-            'import/internal-regex': '^@zapo-js/',
+            'import/internal-regex': '^@zhuxe-js/',
             'import/resolver': {
                 node: {
                     extensions: ['.ts', '.tsx', '.js', '.mjs', '.cjs']
@@ -170,7 +170,7 @@ module.exports = [
             'no-restricted-imports': 'off'
         }
     },
-    // voip-media is installed on its own in a browser, where neither zhuxee-assistance nor
+    // voip-media is installed on its own in a browser, where neither zhuxe-assistance nor
     // Node exists. The core runs on both hosts and only sees what they inject; web/
     // and node/ are the two hosts and never reach into each other. Tests run under
     // Node and may use anything.
@@ -203,9 +203,9 @@ module.exports = [
                 {
                     patterns: [
                         {
-                            group: ['zhuxee-assistance', 'zhuxee-assistance/*', '@zapo-js/*'],
+                            group: ['zhuxe-assistance', 'zhuxe-assistance/*', '@zhuxe-js/*'],
                             message:
-                                'voip-media runs in the browser without zhuxee-assistance. Keep the helper in this package.'
+                                'voip-media runs in the browser without zhuxe-assistance. Keep the helper in this package.'
                         },
                         { group: forbidden, message }
                     ]
@@ -226,9 +226,9 @@ module.exports = [
                 {
                     patterns: [
                         {
-                            group: ['zhuxee-assistance', 'zhuxee-assistance/*'],
+                            group: ['zhuxe-assistance', 'zhuxe-assistance/*'],
                             message:
-                                'fake-server Layer 2/3 must not import zhuxee-assistance. Add the primitive to src/transport/ and import from there.'
+                                'fake-server Layer 2/3 must not import zhuxe-assistance. Add the primitive to src/transport/ and import from there.'
                         }
                     ]
                 }
@@ -237,7 +237,7 @@ module.exports = [
     },
     {
         // Cross-check tests intentionally drive the fake server side-by-side
-        // with the real zhuxee-assistance side to validate that they interoperate.
+        // with the real zhuxe-assistance side to validate that they interoperate.
         // The firewall is relaxed here because crossing it is the entire
         // purpose of these tests.
         files: [

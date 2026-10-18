@@ -1,6 +1,6 @@
 import type { WaWamEventArgs } from '@vinikjkkj/wa-wam'
-import type { BinaryNode, WaClientPluginContext, WaIncomingMessageEvent } from 'zhuxee-assistance'
-import { isGroupJid, isLidJid, WA_ADDRESSING_MODES, WA_MESSAGE_TAGS } from 'zhuxee-assistance/protocol'
+import type { BinaryNode, WaClientPluginContext, WaIncomingMessageEvent } from 'zhuxe-assistance'
+import { isGroupJid, isLidJid, WA_ADDRESSING_MODES, WA_MESSAGE_TAGS } from 'zhuxe-assistance/protocol'
 
 import { findFirstEncNode, mediaTypeKey, type WamMediaTypeKey } from '../send-parse.js'
 import type { WaWamCoordinator } from '../WaWamCoordinator.js'

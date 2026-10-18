@@ -1,13 +1,13 @@
-# @zapo-js/store-redis
+# @zhuxe-js/store-redis
 
-Redis-backed persistent store for [`zhuxee-assistance`](https://www.npmjs.com/package/zhuxee-assistance). Best fit when you already run Redis for caching and want stateless app instances that can share WhatsApp session state through a network database.
+Redis-backed persistent store for [`zhuxe-assistance`](https://www.npmjs.com/package/zhuxe-assistance). Best fit when you already run Redis for caching and want stateless app instances that can share WhatsApp session state through a network database.
 
 Built on [`ioredis`](https://github.com/redis/ioredis). All 11 persistent domains and 4 cache domains live under a single key namespace (`keyPrefix` controls it). Cache TTLs are enforced natively by Redis - no background cleanup job needed.
 
 ## Install
 
 ```bash
-npm install @zapo-js/store-redis ioredis
+npm install @zhuxe-js/store-redis ioredis
 ```
 
 `ioredis` is a peer dependency.
@@ -15,8 +15,8 @@ npm install @zapo-js/store-redis ioredis
 ## Quick start
 
 ```ts
-import { createStore, WaClient } from 'zhuxee-assistance'
-import { createRedisStore } from '@zapo-js/store-redis'
+import { createStore, WaClient } from 'zhuxe-assistance'
+import { createRedisStore } from '@zhuxe-js/store-redis'
 
 const store = createStore({
     backends: {
@@ -96,4 +96,4 @@ createRedisStore({
 - Keys are JSON-encoded blobs. Migrating to a different backend later means draining via the in-memory store or doing a one-shot SCAN copy.
 - For multi-region deployments, use the same `keyPrefix` across instances and let Redis replication handle session sharing.
 
-See the main [`zhuxee-assistance`](../../README.md) docs for the full store contract.
+See the main [`zhuxe-assistance`](../../README.md) docs for the full store contract.

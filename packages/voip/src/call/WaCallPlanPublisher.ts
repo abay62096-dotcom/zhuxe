@@ -1,7 +1,7 @@
-import type { Logger } from 'zhuxee-assistance'
-import { toError } from 'zhuxee-assistance/util'
+import type { Logger } from 'zhuxe-assistance'
+import { toError } from 'zhuxe-assistance/util'
 
-import type { WaCallMediaPlanUpdate } from '@zapo-js/voip-media'
+import type { WaCallMediaPlanUpdate } from '@zhuxe-js/voip-media'
 
 import type { CallInfo } from './call-state.js'
 import type { WaCallMediaLink } from './media-link.js'

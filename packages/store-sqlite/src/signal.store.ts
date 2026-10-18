@@ -6,9 +6,9 @@ import {
     type SignalRegistrationRow,
     type SignalSignedPreKeyRow,
     type SignedPreKeyRecord
-} from 'zhuxee-assistance/signal'
-import type { WaSignalStore as WaSignalStoreContract } from 'zhuxee-assistance/store'
-import { asOptionalNumber } from 'zhuxee-assistance/util'
+} from 'zhuxe-assistance/signal'
+import type { WaSignalStore as WaSignalStoreContract } from 'zhuxe-assistance/store'
+import { asOptionalNumber } from 'zhuxe-assistance/util'
 
 import { BaseSqliteStore } from './BaseSqliteStore'
 import type { WaSqliteConnection } from './connection'

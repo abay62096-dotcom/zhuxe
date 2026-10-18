@@ -14,7 +14,7 @@ import * as inspector from 'node:inspector/promises'
 import { resolve as resolvePath } from 'node:path'
 import { performance } from 'node:perf_hooks'
 
-import type { Logger } from 'zhuxee-assistance'
+import type { Logger } from 'zhuxe-assistance'
 
 const BYTES_PER_MEBIBYTE = 1_048_576
 
@@ -74,10 +74,10 @@ const benchLogger: Logger = {
     debug: () => {},
     info: () => {},
     warn: (...args: unknown[]) => {
-        if (process.env.ZAPO_BENCH_VERBOSE) console.warn('[lib warn]', ...args)
+        if (process.env.ZHUXE_BENCH_VERBOSE) console.warn('[lib warn]', ...args)
     },
     error: (...args: unknown[]) => {
-        if (process.env.ZAPO_BENCH_VERBOSE) console.error('[lib error]', ...args)
+        if (process.env.ZHUXE_BENCH_VERBOSE) console.error('[lib error]', ...args)
     },
     child: () => benchLogger
 }
@@ -338,7 +338,7 @@ export function printResult(result: ScenarioResult): void {
 }
 
 export function maybePrintJson(results: readonly ScenarioResult[]): void {
-    if (process.env.ZAPO_BENCH_JSON !== '1') return
+    if (process.env.ZHUXE_BENCH_JSON !== '1') return
     console.log(
         JSON.stringify(
             results.map((r) => ({

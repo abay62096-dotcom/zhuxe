@@ -3,7 +3,7 @@ services:
         image: mysql:8
         environment:
             MYSQL_ROOT_PASSWORD: test
-            MYSQL_DATABASE: zapo_test
+            MYSQL_DATABASE: zhuxe_test
         ports:
             - '3306'
         healthcheck:
@@ -15,7 +15,7 @@ services:
         image: postgres:16-alpine
         environment:
             POSTGRES_PASSWORD: test
-            POSTGRES_DB: zapo_test
+            POSTGRES_DB: zhuxe_test
         ports:
             - '5432'
         healthcheck:

@@ -1,10 +1,10 @@
-# Contributing to `zapo`
+# Contributing to `zhuxe`
 
 Thanks for your interest. This document is the contributor handbook –
 project philosophy, repo layout, dev workflow, CI, release flow, and the
 rules that apply to PRs. End-user documentation lives in
-[`README.md`](README.md) and at [zapo.to](https://zapo.to/) (source:
-[`vinikjkkj/zapo-docs`](https://github.com/vinikjkkj/zapo-docs)).
+[`README.md`](README.md) and at [zhuxe.to](https://zhuxe.to/) (source:
+[`vinikjkkj/zhuxe-docs`](https://github.com/vinikjkkj/zhuxe-docs)).
 
 By contributing you also agree to the
 [Code of Conduct](CODE_OF_CONDUCT.md) – in particular the
@@ -32,7 +32,7 @@ covers the higher-level workflow.
 
 ## What Makes This Project Different
 
-`zapo` is an independent runtime implementation (not a wrapper/fork of an
+`zhuxe` is an independent runtime implementation (not a wrapper/fork of an
 existing WhatsApp library).
 
 - No wrappers around third-party WhatsApp SDKs
@@ -69,8 +69,8 @@ Requirements:
 Install + run the real-flow example (pairs against the real WhatsApp Web):
 
 ```bash
-git clone https://github.com/abay62096-dotcom/zhuxee
-cd zapo
+git clone https://github.com/abay62096-dotcom/zhuxe
+cd zhuxe
 npm install
 npm run example
 ```
@@ -89,7 +89,7 @@ session - the example replies with `pong`. Auth state is persisted in
 - Incoming parsers/normalizers in `src/client/events/`, with coordinators
   handling orchestration only
 - Typed store contracts in `src/store/contracts/`; persistent + cache
-  providers live under `@zapo-js/store-*` packages
+  providers live under `@zhuxe-js/store-*` packages
 - Protocol constants in `src/protocol/` using `Object.freeze({...} as const)`
 
 ### Engineering conventions
@@ -133,7 +133,7 @@ Every push to `master` and every PR run
 
 - `lint`, `format`, `typecheck` over core
 - `build-core` (CJS + ESM + types)
-- `typecheck-packages` across every `@zapo-js/*` workspace
+- `typecheck-packages` across every `@zhuxe-js/*` workspace
 - per-provider test jobs: `test-core`, `test-fake-server`,
   `test-media-utils`, `test-sqlite`, `test-mcp-server`, `test-mysql`,
   `test-postgres`, `test-redis`, `test-mongo`
@@ -204,8 +204,8 @@ upstream first when the protocol changes, then regenerate locally.
 
 ## Documentation Site
 
-End-user guides and the API reference at [zapo.to](https://zapo.to/) are
-built from [`vinikjkkj/zapo-docs`](https://github.com/vinikjkkj/zapo-docs).
+End-user guides and the API reference at [zhuxe.to](https://zhuxe.to/) are
+built from [`vinikjkkj/zhuxe-docs`](https://github.com/vinikjkkj/zhuxe-docs).
 Fixes to guides, examples, or wording on the site go there. PRs in this
 repo cover code, JSDoc, READMEs, and `AGENTS.md`.
 
