@@ -12,8 +12,6 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/zhuxe-assistance"><img alt="npm version" src="https://img.shields.io/npm/v/zhuxe-assistance?color=CB3837" /></a>
-  <a href="https://www.npmjs.com/package/zhuxe-assistance"><img alt="npm package size" src="https://img.shields.io/npm/unpacked-size/zhuxe-assistance?label=package%20size&color=2F855A" /></a>
   <a href="https://github.com/sponsors/vinikjkkj"><img alt="sponsor" src="https://img.shields.io/badge/sponsor-vinikjkkj-EA4AAA?logo=githubsponsors&logoColor=white" /></a>
   <img alt="node version" src="https://img.shields.io/badge/node-%3E%3D20.9.0-339933" />
   <img alt="language" src="https://img.shields.io/badge/language-TypeScript-3178C6" />
