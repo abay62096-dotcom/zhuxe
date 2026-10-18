@@ -944,7 +944,7 @@ Changesets tracks the optional packages **only**, not the core. The root `packag
 
 Pushing the `v*` tag triggers `.github/workflows/release.yml`, which publishes via npm trusted publishing (OIDC, no `NPM_TOKEN`): the core through a guarded `npm publish` (skipped when its version is already on the registry) and the add-ons through `changeset publish` (only the `@zhuxe-js/*` whose version is not yet on npm). `.github/workflows/github-release.yml` creates the GitHub Release from the same tag, with notes auto-generated from merged PRs (categories in `.github/release.yml`) – these are separate from, and not a replacement for, the hand-written root `CHANGELOG.md` from step 5.
 
-Every published package must be registered as a trusted publisher on npmjs.com (repo `vinikjkkj/zhuxe`, workflow `release.yml`) before its first CI publish. A brand new package name cannot be pre-configured – publish it once manually, then switch to trusted publishing.
+Every published package must be registered as a trusted publisher on npmjs.com (repo `abay62096-dotcom/zhuxe`, workflow `release.yml`) before its first CI publish. A brand new package name cannot be pre-configured – publish it once manually, then switch to trusted publishing.
 
 ### Core major bumps and peer ranges
 

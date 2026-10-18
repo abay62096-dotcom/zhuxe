@@ -1,8 +1,8 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/master/.github/assets/logo.png" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/master/.github/assets/logo-light.png" />
-    <img src="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/master/.github/assets/logo-light.png" alt="zhuxe" width="400" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/main/.github/assets/logo.png" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/main/.github/assets/logo-light.png" />
+    <img src="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/main/.github/assets/logo-light.png" alt="zhuxe" width="400" />
   </picture>
 </p>
 
@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  📚 <strong>Documentation:</strong> <a href="https://zhuxe.to/">zhuxe.to</a> ·
+  📚 <strong>Documentation:</strong> <a href="https://zapo.to/">zapo.to</a> ·
   🛠 <strong>Contributing:</strong> <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> ·
   💛 <strong>Sponsor:</strong> <a href="https://github.com/sponsors/vinikjkkj">GitHub Sponsors</a>
 </p>
@@ -119,7 +119,7 @@ That's the minimum to pair, listen for messages, and reply. For everything
 else - sending media, reactions, polls, groups, newsletters, app-state
 mutations, business profile, events catalog, store providers, the typed
 event map, and the architectural reasoning - read the guides at
-**[zhuxe.to](https://zhuxe.to/)**.
+**[zapo.to](https://zapo.to/)**.
 
 ## Packages
 
@@ -146,11 +146,11 @@ Each package's README has the install + config + integration notes.
 
 ## Documentation
 
-- **[zhuxe.to](https://zhuxe.to/)** - guides, full API reference, examples,
-  protocol notes ([llms.txt](https://zhuxe.to/llms.txt) index or
-  [llms-full.txt](https://zhuxe.to/llms-full.txt) for LLM context)
+- **[zapo.to](https://zapo.to/)** - guides, full API reference, examples,
+  protocol notes ([llms.txt](https://zapo.to/llms.txt) index or
+  [llms-full.txt](https://zapo.to/llms-full.txt) for LLM context)
 - **[`abay62096-dotcom/zhuxe`](https://github.com/abay62096-dotcom/zhuxe)** -
-  source of zhuxe.to (open issues/PRs there for doc fixes)
+  source of zapo.to (open issues/PRs there for doc fixes)
 - **Per-package READMEs** under [`packages/`](packages/) - one per
   optional package
 - **[`AGENTS.md`](AGENTS.md)** - architecture spec + coding rules
@@ -193,6 +193,6 @@ WhatsApp.
 ---
 
 ## Credits & Acknowledgments
-This project is a rebranded/forked version of the original **[zhuxe](https://github.com/vinikjkkj/zhuxe)** created by **[vinikjkkj](https://github.com/vinikjkkj)**. 
+This project is a rebranded/forked version of the original **[zapo-js](https://github.com/vinikjkkj/zapo)** created by **[vinikjkkj](https://github.com/vinikjkkj)**. 
 We are deeply grateful for their incredible work on the original WhatsApp Web protocol implementation. 
 The original code is licensed under the MIT License.

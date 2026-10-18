@@ -3,8 +3,8 @@
 Thanks for your interest. This document is the contributor handbook –
 project philosophy, repo layout, dev workflow, CI, release flow, and the
 rules that apply to PRs. End-user documentation lives in
-[`README.md`](README.md) and at [zhuxe.to](https://zhuxe.to/) (source:
-[`vinikjkkj/zhuxe-docs`](https://github.com/vinikjkkj/zhuxe-docs)).
+[`README.md`](README.md) and at [zapo.to](https://zapo.to/) (source:
+[`vinikjkkj/zapo-docs`](https://github.com/vinikjkkj/zapo-docs)).
 
 By contributing you also agree to the
 [Code of Conduct](CODE_OF_CONDUCT.md) – in particular the
@@ -204,8 +204,8 @@ upstream first when the protocol changes, then regenerate locally.
 
 ## Documentation Site
 
-End-user guides and the API reference at [zhuxe.to](https://zhuxe.to/) are
-built from [`vinikjkkj/zhuxe-docs`](https://github.com/vinikjkkj/zhuxe-docs).
+End-user guides and the API reference at [zapo.to](https://zapo.to/) are
+built from [`vinikjkkj/zapo-docs`](https://github.com/vinikjkkj/zapo-docs).
 Fixes to guides, examples, or wording on the site go there. PRs in this
 repo cover code, JSDoc, READMEs, and `AGENTS.md`.
 

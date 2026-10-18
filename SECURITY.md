@@ -25,7 +25,7 @@ channels below so the issue can be triaged and patched before disclosure.
   [_Report a vulnerability_](https://github.com/abay62096-dotcom/zhuxe/security/advisories/new)
   on the repo. GitHub will route the report to the maintainer privately,
   with a built-in coordination flow and optional CVE assignment.
-- **Email:** `contact@vinicius.email` if you prefer email over GitHub.
+- **Email:** `abadiponselll67@gmail.com` if you prefer email over GitHub.
   Encrypt with PGP only if you already have a key; we will not require
   it.
 

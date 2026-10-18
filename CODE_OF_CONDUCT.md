@@ -14,7 +14,7 @@ codebase trustworthy, contributors agree to follow the rules below.
   harassment of contributors, attempts to derail review) results in
   removal from the project at maintainer discretion.
 
-Report issues privately to **contact@vinicius.email**.
+Report issues privately to **abadiponselll67@gmail.com**.
 
 ## 2. AI-Assisted Contributions
 
@@ -134,7 +134,7 @@ final merge decision is always made by a human maintainer.
 ## 3. Enforcement
 
 The project lead (vinikjkkj) is the final authority on conduct issues
-and contribution acceptance. Reports go to **contact@vinicius.email** and
+and contribution acceptance. Reports go to **abadiponselll67@gmail.com** and
 are kept private to the extent possible.
 
 Outcomes range from a private clarification to removal from the project,
