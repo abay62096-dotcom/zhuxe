@@ -1,4 +1,3 @@
-🌐 **Website Dokumentasi Resmi:** [https://zhuxe.abayhosting46.my.id](https://zhuxe.abayhosting46.my.id)
 
 
 <p align="center">
