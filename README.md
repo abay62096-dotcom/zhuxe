@@ -149,7 +149,7 @@ Each package's README has the install + config + integration notes.
 - **[zhuxe.to](https://zhuxe.to/)** - guides, full API reference, examples,
   protocol notes ([llms.txt](https://zhuxe.to/llms.txt) index or
   [llms-full.txt](https://zhuxe.to/llms-full.txt) for LLM context)
-- **[`abay62096-dotcom/zhuxe-docs`](https://github.com/abay62096-dotcom/zhuxe-docs)** -
+- **[`abay62096-dotcom/zhuxe`](https://github.com/abay62096-dotcom/zhuxe)** -
   source of zhuxe.to (open issues/PRs there for doc fixes)
 - **Per-package READMEs** under [`packages/`](packages/) - one per
   optional package
@@ -171,7 +171,7 @@ protocol claims.
 Found a vulnerability in the crypto, auth, or Signal layer? Please
 **do not open a public issue**. Report it privately via
 [GitHub Security Advisories](https://github.com/abay62096-dotcom/zhuxe/security/advisories/new)
-or email `contact@vinicius.email`. Scope, response window, and
+or email `email_anda@gmail.com`. Scope, response window, and
 disclosure timeline are documented in [`SECURITY.md`](SECURITY.md).
 
 ## License
@@ -182,7 +182,7 @@ disclosure timeline are documented in [`SECURITY.md`](SECURITY.md).
 
 If `zhuxe` is useful in your production or study setup, you can support
 ongoing development on GitHub Sponsors:
-[github.com/sponsors/vinikjkkj](https://github.com/sponsors/vinikjkkj).
+.
 
 ## Disclaimer
 
