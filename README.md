@@ -189,3 +189,10 @@ ongoing development on GitHub Sponsors:
 This project is an independent implementation for engineering and
 interoperability research. It is not affiliated with or endorsed by
 WhatsApp.
+
+---
+
+## Credits & Acknowledgments
+This project is a rebranded/forked version of the original **[zapo](https://github.com/vinikjkkj/zapo)** created by **[vinikjkkj](https://github.com/vinikjkkj)**. 
+We are deeply grateful for their incredible work on the original WhatsApp Web protocol implementation. 
+The original code is licensed under the MIT License.
