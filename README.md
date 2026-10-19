@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://files.catbox.moe/nrziop.jpeg" alt="Zhuxe Logo" width="250" />
+</p>
+
 
 
 <p align="center">
