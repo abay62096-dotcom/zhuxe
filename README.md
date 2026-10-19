@@ -1,18 +1,8 @@
 <p align="center">
-  <img src="https://files.catbox.moe/nrziop.jpeg" alt="Zhuxe Logo" width="250" />
+  <img src="https://files.catbox.moe/688ddx.png" alt="Zhuxe Logo" height="120" style="vertical-align: middle;" />
+  <span style="font-size: 55px; font-weight: bold; vertical-align: middle; margin-left: 15px;">Zhuxe</span>
 </p>
 
-
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/main/.github/assets/logo.png" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/main/.github/assets/logo-light.png" />
-    <img src="https://raw.githubusercontent.com/abay62096-dotcom/zhuxe/main/.github/assets/logo-light.png" alt="zhuxe" width="400" />
-  </picture>
-</p>
-
-<p align="center">
   <strong>High-performance TypeScript implementation of the WhatsApp Web protocol.</strong><br />
   Built for high-scalability workloads, multi-session operation, and full user configurability.
 </p>
