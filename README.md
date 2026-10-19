@@ -4,7 +4,6 @@
 
   <a href="https://www.npmjs.com/package/zhuxe-assistance"><img alt="npm version" src="https://img.shields.io/npm/v/zhuxe-assistance?color=CB3837" /></a>
   <a href="https://www.npmjs.com/package/zhuxe-assistance"><img alt="npm package size" src="https://img.shields.io/npm/unpacked-size/zhuxe-assistance?label=package%20size&color=2F855A" /></a>
-  <a href="https://github.com/sponsors/vinikjkkj"><img alt="sponsor" src="https://img.shields.io/badge/sponsor-vinikjkkj-EA4AAA?logo=githubsponsors&logoColor=white" /></a>
   <img alt="node version" src="https://img.shields.io/badge/node-%3E%3D20.9.0-339933" />
   <img alt="language" src="https://img.shields.io/badge/language-TypeScript-3178C6" />
   <img alt="focus" src="https://img.shields.io/badge/focus-high--scale%20%2B%20multi--session-0A7EA4" />
@@ -13,7 +12,6 @@
 <p align="center">
   📚 <strong>Documentation:</strong> <a href="https://zhuxe.abayhosting46.my.id/">zhuxe.abayhosting46.my.id</a> ·
   🛠 <strong>Contributing:</strong> <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> ·
-  💛 <strong>Sponsor:</strong> <a href="https://github.com/sponsors/vinikjkkj">GitHub Sponsors</a>
 </p>
 
 ---
