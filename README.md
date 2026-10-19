@@ -1,13 +1,7 @@
 <p align="center">
-  <img src="https://files.catbox.moe/688ddx.png" alt="Zhuxe Logo" height="120" style="vertical-align: middle;" />
-  <span style="font-size: 55px; font-weight: bold; vertical-align: middle; margin-left: 15px;">Zhuxe</span>
+  <img src="https://files.catbox.moe/kmxme1.png" alt="Zhuxe Banner" width="600" />
 </p>
 
-  <strong>High-performance TypeScript implementation of the WhatsApp Web protocol.</strong><br />
-  Built for high-scalability workloads, multi-session operation, and full user configurability.
-</p>
-
-<p align="center">
   <a href="https://www.npmjs.com/package/zhuxe-assistance"><img alt="npm version" src="https://img.shields.io/npm/v/zhuxe-assistance?color=CB3837" /></a>
   <a href="https://www.npmjs.com/package/zhuxe-assistance"><img alt="npm package size" src="https://img.shields.io/npm/unpacked-size/zhuxe-assistance?label=package%20size&color=2F855A" /></a>
   <a href="https://github.com/sponsors/vinikjkkj"><img alt="sponsor" src="https://img.shields.io/badge/sponsor-vinikjkkj-EA4AAA?logo=githubsponsors&logoColor=white" /></a>
