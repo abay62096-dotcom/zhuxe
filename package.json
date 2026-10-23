@@ -134,7 +134,8 @@
     "lint": "eslint . --ext .ts,.js,.cjs",
     "lint:fix": "eslint . --ext .ts,.js,.cjs --fix",
     "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format:check": "prettier . --check",
+    "prebuild": "node scripts/spec-to-esm.cjs"
   },
   "peerDependencies": {
     "argo-codec": "^0.2.1",
