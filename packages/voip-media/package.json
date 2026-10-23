@@ -1,6 +1,6 @@
 {
     "name": "@zhuxe-js/voip-media",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "WhatsApp call media plane for zhuxe-assistance – relay transport, STUN, SRTP, RTP/RTCP and the MLow codec, with a Node host and a browser host",
     "license": "MIT",
     "author": "vinikjkkj <contact@vinicius.email> (https://github.com/vinikjkkj)",

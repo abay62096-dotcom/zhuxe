@@ -1,46 +1,46 @@
 {
-    "name": "@zhuxe-js/store-postgres",
-    "version": "1.2.0",
-    "description": "PostgreSQL store provider for zhuxe-assistance",
-    "license": "MIT",
-    "author": "vinikjkkj <contact@vinicius.email> (https://github.com/vinikjkkj)",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/abay62096-dotcom/zhuxe.git",
-        "directory": "packages/store-postgres"
-    },
-    "main": "dist/index.js",
-    "module": "dist/esm/index.js",
-    "types": "dist/index.d.ts",
-    "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "require": "./dist/index.js",
-            "import": "./dist/esm/index.js",
-            "default": "./dist/index.js"
-        }
-    },
-    "files": [
-        "dist"
-    ],
-    "publishConfig": {
-        "access": "public"
-    },
-    "scripts": {
-        "build": "tsc -p tsconfig.build.cjs.json && tsc -p tsconfig.build.esm.json && node ../../scripts/finalize-esm-build.cjs",
-        "typecheck": "tsc --noEmit",
-        "test": "node --import tsx --test \"src/**/__tests__/**/*.test.ts\""
-    },
-    "peerDependencies": {
-        "zhuxe-assistance": "^1.7.0",
-        "pg": ">=8.0.0"
-    },
-    "devDependencies": {
-        "@types/pg": "^8.11.0",
-        "pg": "^8.14.1",
-        "zhuxe-assistance": "file:../.."
-    },
-    "engines": {
-        "node": ">=20.9.0"
+  "name": "@zhuxe-js/store-postgres",
+  "version": "2.2.0",
+  "description": "PostgreSQL store provider for zhuxe-assistance",
+  "license": "MIT",
+  "author": "vinikjkkj <contact@vinicius.email> (https://github.com/vinikjkkj)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abay62096-dotcom/zhuxe.git",
+    "directory": "packages/store-postgres"
+  },
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/index.js"
     }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.cjs.json && tsc -p tsconfig.build.esm.json && node ../../scripts/finalize-esm-build.cjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test \"src/**/__tests__/**/*.test.ts\""
+  },
+  "peerDependencies": {
+    "zhuxe-assistance": "^3.0.0",
+    "pg": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.0",
+    "pg": "^8.14.1",
+    "zhuxe-assistance": "file:../.."
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
 }
