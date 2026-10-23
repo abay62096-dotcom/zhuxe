@@ -4,7 +4,8 @@ const {
     readdirSync,
     readFileSync,
     statSync,
-    writeFileSync
+    writeFileSync,
+    cpSync
 } = require('node:fs')
 const path = require('node:path')
 
@@ -20,39 +21,13 @@ const esmScopePath = path.join(esmDir, 'package.json')
 
 mkdirSync(esmDir, { recursive: true })
 
+cpSync(path.join(projectRoot, 'spec'), path.join(projectRoot, 'dist', 'spec'), { recursive: true })
+
 writeFileSync(esmScopePath, `${JSON.stringify({ type: 'module' }, null, 4)}\n`, 'utf8')
 
 if (protoBridge) {
-    const esmProtoPath = path.join(esmDir, 'proto.js')
-    if (!existsSync(esmProtoPath)) {
-        throw new Error(`missing ESM proto bridge at ${esmProtoPath}`)
+        injectCreateRequireShim()
     }
-}
-
-for (const filePath of listJsFiles(esmDir)) {
-    const source = readFileSync(filePath, 'utf8')
-    const transformed = normalizeEsmSpecifiers(filePath, source)
-
-    if (transformed !== source) {
-        writeFileSync(filePath, transformed, 'utf8')
-    }
-}
-
-if (protoBridge) {
-    const esmProtoPath = path.join(esmDir, 'proto.js')
-    writeFileSync(
-        esmProtoPath,
-        [
-            "import protoModule from '../proto.js'",
-            '',
-            'export const proto = protoModule.proto',
-            ''
-        ].join('\n'),
-        'utf8'
-    )
-
-    injectCreateRequireShim()
-}
 
 // The native accelerator resolver loads optional backends with synchronous
 // CJS require(), which does not exist inside an ES module. The same source

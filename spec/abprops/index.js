@@ -1,7 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
 // WhatsApp Version: 2.3000.1044135300
-'use strict'
-
 // Every server-driven experiment config WA Web knows about, keyed by the name
 // the client uses internally. `code` is the only identity that travels on the
 // wire (the abt IQ returns { configCode, configValue, configExpoKey }); names
@@ -4362,7 +4360,7 @@ const WA_ABPROPS_SPECIAL_EARLY = Object.freeze({
     props: Object.freeze(["wa_web_favicons_update_m1", "web_ui_refresh_m1", "web_hybrid_apply_latest_db_schema_optimization_enabled"])
 })
 
-module.exports = {
+export {
     WA_ABPROPS,
     WA_GROUP_ABPROPS,
     WA_ABPROPS_BY_CODE,

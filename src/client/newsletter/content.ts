@@ -29,6 +29,7 @@ import {
     resolveMessageTypeAttr,
     unwrapMessage
 } from '@message/encode/content'
+import { isSendInteractiveMessage } from '@message/encode/native-flow'
 import {
     toStickerPackProtoStickers,
     toStickerPackZipEntries,
@@ -375,7 +376,11 @@ export async function buildNewsletterMessageContent(
             "newsletter sends do not accept 'poll-vote' content; use newsletter.votePoll() instead"
         )
     }
-    if (isSendPollMessage(content) || isSendEventMessage(content)) {
+    if (
+        isSendPollMessage(content) ||
+        isSendEventMessage(content) ||
+        isSendInteractiveMessage(content)
+    ) {
         throw new Error(
             `newsletter sends do not accept typed '${content.type}' content; pass the raw Proto.IMessage instead`
         )

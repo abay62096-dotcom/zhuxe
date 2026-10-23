@@ -1,7 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
 // WhatsApp Version: 2.3000.1043028647
-'use strict'
-
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
 
 const WA_APPSTATE_SCHEMAS = Object.freeze({
@@ -860,4 +858,4 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     })
 })
 
-module.exports = { WA_APPSTATE_COLLECTIONS, WA_APPSTATE_SCHEMAS }
+export { WA_APPSTATE_COLLECTIONS, WA_APPSTATE_SCHEMAS }

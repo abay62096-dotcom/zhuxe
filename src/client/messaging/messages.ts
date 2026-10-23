@@ -73,6 +73,7 @@ import type {
     WaSendTextMessage
 } from '@message/types'
 import { proto, type Proto } from '@proto'
+import { buildInteractiveMessageContent, isSendInteractiveMessage } from '@message/encode/native-flow'
 import { WA_DEFAULTS } from '@protocol/constants'
 import { isBroadcastJid, isGroupJid, toUserJid } from '@protocol/jid'
 import { buildMediaConnIq } from '@transport/node/builders/media'
@@ -420,6 +421,9 @@ export async function buildMediaMessageContent(
     }
     if (isSendEventResponseMessage(content)) {
         return { message: await buildEventResponseMessage(content, options.serverClock, ctx) }
+    }
+    if (isSendInteractiveMessage(content)) {
+        return { message: buildInteractiveMessageContent(content) }
     }
     if (isSendMediaMessage(content)) {
         return buildMediaMessage(options, content)

@@ -1,7 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
 // WhatsApp Version: 2.3000.1043028647
-'use strict'
-
 const WA_MEX_PERSIST_IDS = Object.freeze({
     ACSServerProviderConfig: Object.freeze({ docId: '25133761326299603', clientDocId: '25133761326299603' }),
     ACSServerProviderIssuance: Object.freeze({ docId: '26039599689054760', clientDocId: '26039599689054760' }),
@@ -266,4 +264,4 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     useWAWebEstimatedDailyReach: Object.freeze({ operationKind: 'query', variables: Object.freeze(['audienceOptionAudience', 'configuredPlacementSpec', 'currency', 'flow', 'flowID', 'legacyAdAccountID', 'optimizationGoalInput', 'postID', 'targetingSpecAudience']) })
 })
 
-module.exports = { WA_MEX_PERSIST_IDS, WA_MEX_OPERATION_SCHEMAS }
+export { WA_MEX_PERSIST_IDS, WA_MEX_OPERATION_SCHEMAS }

@@ -334,6 +334,19 @@ export type WaSendMediaMessage =
     | WaSendStickerMessage
     | WaSendStickerPackMessage
 
+export interface WaInteractiveButton {
+    readonly name: string
+    readonly buttonParamsJson: string
+}
+
+export interface WaSendInteractiveMessage {
+    readonly type: 'interactive'
+    readonly text: string
+    readonly title?: string
+    readonly footer?: string
+    readonly buttons: readonly WaInteractiveButton[]
+}
+
 export type WaSendMessageContent =
     | string
     | WaSendTextMessage
@@ -345,6 +358,7 @@ export type WaSendMessageContent =
     | WaSendPollVoteMessage
     | WaSendEventMessage
     | WaSendEventResponseMessage
+    | WaSendInteractiveMessage
     | Proto.IMessage
     | WaSendMediaMessage
 

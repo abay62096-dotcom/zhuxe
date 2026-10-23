@@ -22,6 +22,10 @@
  * visible. The per-primitive `ZHUXE_X25519_FORCE_JS` / `ZHUXE_XEDDSA_FORCE_JS`
  * escape hatches are honoured by the callers, not here.
  */
+import { createRequire } from 'node:module'
+
+const require = createRequire(import.meta.url)
+
 import { readFileSync } from 'node:fs'
 
 import { toError } from '@util/primitives'

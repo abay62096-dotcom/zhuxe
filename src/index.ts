@@ -261,7 +261,9 @@ export type {
     WaSendStickerPackMessage,
     WaSendStickerPackStickerInput,
     WaSendStickerPackTrayIcon,
-    WaSendTextMessage
+    WaSendTextMessage,
+    WaInteractiveButton,
+    WaSendInteractiveMessage
 } from '@message/types'
 export {
     getContentType,
@@ -270,6 +272,7 @@ export {
     unwrapMessage
 } from '@message/encode/content'
 export { getContextInfo } from '@message/context-info'
+export { NativeFlow, buildInteractiveMessageContent, isSendInteractiveMessage } from '@message/encode/native-flow'
 export { decodeGroupHistoryBundle, encodeGroupHistoryBundle } from '@message/kinds/group-history'
 export { resolveMediaPayload } from '@message/encode/media-payload'
 export { unpadPkcs7, writeRandomPadMax16 } from '@message/encode/padding'
